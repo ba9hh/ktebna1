@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./home/Home.jsx";
-import Login from "./auth/LoginFinal.jsx";
 import Account from "./account/Account.jsx";
 import { AuthProvider } from "./auth/AuthProvider.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";

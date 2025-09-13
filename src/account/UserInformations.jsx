@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../auth/AuthProvider";
-import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { Pencil } from "lucide-react";
 import UpdateProfilePictureModal from "./UpdateProfilePictureModal";

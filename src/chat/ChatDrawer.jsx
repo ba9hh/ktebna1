@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
 import { Drawer, IconButton } from "@mui/material";
 import { AuthContext } from "../auth/AuthProvider";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";

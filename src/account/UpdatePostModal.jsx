@@ -7,7 +7,6 @@ import {
   Button,
   InputLabel,
   FormControl,
-  Typography,
   FormHelperText,
   CircularProgress,
   Dialog,
@@ -41,7 +40,6 @@ const UpdatePostModal = ({ open, onClose, post }) => {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // Fill form when editing
   useEffect(() => {
     if (post) {
       reset({
@@ -60,16 +58,15 @@ const UpdatePostModal = ({ open, onClose, post }) => {
 
   const onSubmit = async (data) => {
     setLoading(true);
-    let uploadedImageUrl = post.book_image; // keep old if no new upload
+    let uploadedImageUrl = post.book_image;
 
     try {
-      // Upload new file if selected
       if (file) {
         const fileExt = file.name.split(".").pop();
         const fileName = `${Date.now()}.${fileExt}`;
 
         const { error: storageError } = await supabase.storage
-          .from("images") // bucket name
+          .from("images")
           .upload(fileName, file, { upsert: true });
 
         if (storageError) throw storageError;
@@ -81,7 +78,6 @@ const UpdatePostModal = ({ open, onClose, post }) => {
         uploadedImageUrl = publicUrlData.publicUrl;
       }
 
-      // Update post in Supabase
       const { error: updateError } = await supabase
         .from("posts")
         .update({
@@ -92,7 +88,7 @@ const UpdatePostModal = ({ open, onClose, post }) => {
           book_location: data.location,
           book_image: uploadedImageUrl,
         })
-        .eq("id", post.id); // make sure your primary key is "id"
+        .eq("id", post.id);
 
       if (updateError) throw updateError;
 

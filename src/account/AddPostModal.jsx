@@ -50,13 +50,10 @@ const AddPostModal = ({ open, onClose, userId }) => {
         const fileExt = file.name.split(".").pop();
         const fileName = `${Date.now()}.${fileExt}`;
         const { data: storageData, error: storageError } =
-          await supabase.storage
-            .from("images") // bucket name
-            .upload(fileName, file);
+          await supabase.storage.from("images").upload(fileName, file);
 
         if (storageError) throw storageError;
 
-        // get public URL
         const { data: publicUrlData } = supabase.storage
           .from("images")
           .getPublicUrl(fileName);
@@ -64,7 +61,6 @@ const AddPostModal = ({ open, onClose, userId }) => {
         uploadedImageUrl = publicUrlData.publicUrl;
       }
 
-      // 2. Insert post into Supabase database
       const { error: insertError } = await supabase.from("posts").insert([
         {
           user_id: userId,

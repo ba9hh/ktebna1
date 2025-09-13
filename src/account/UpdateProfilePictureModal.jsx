@@ -9,7 +9,7 @@ import {
   Button,
 } from "@mui/material";
 import { toast } from "react-toastify";
-import { supabase } from "../supabaseClient"; // make sure this is set up
+import { supabase } from "../supabaseClient";
 
 const UpdateProfilePictureModal = ({
   open,
@@ -21,7 +21,6 @@ const UpdateProfilePictureModal = ({
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState(null);
 
-  // cleanup previews
   useEffect(() => {
     return () => {
       if (preview) URL.revokeObjectURL(preview);

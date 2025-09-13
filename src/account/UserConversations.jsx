@@ -51,7 +51,6 @@ const UserConversations = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
           {conversations?.map((conv) => {
-            // Pick the other user in the conversation
             const otherUser =
               conv.first_user_id === user?.id
                 ? conv.second_user
@@ -82,7 +81,7 @@ const UserConversations = () => {
                     </p>
                     {/* <p className="text-sm text-gray-500">{otherUser.email}</p> */}
                     <p className="text-sm text-gray-500 truncate max-w-40">
-                      {conv.lastMessageSender === user?.id
+                      {conv.last_message_sender === user?.id
                         ? "You: "
                         : `${otherUser.name}: `}
                       {conv.last_message_content}
