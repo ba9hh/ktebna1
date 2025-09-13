@@ -53,8 +53,6 @@ export default function ChatDrawer({
             first_user_id: user?.id,
             second_user_id: otherUserId,
             conversation_topic: "conversationTopic",
-            last_message_content: messageContent,
-            last_message_sender: user?.id,
           },
         ])
         .select()
@@ -62,15 +60,6 @@ export default function ChatDrawer({
 
       if (createError) throw createError;
       conversation = newConvo;
-    } else {
-      await supabase
-        .from("conversations")
-        .update({
-          last_message_content: messageContent,
-          last_message_sender: user?.id,
-          updated_at: new Date(),
-        })
-        .eq("id", conversation.id);
     }
 
     const { count } = await supabase
@@ -96,6 +85,15 @@ export default function ChatDrawer({
       .single();
 
     if (msgError) throw msgError;
+
+    await supabase
+      .from("conversations")
+      .update({
+        last_message_content: messageContent,
+        last_message_sender: user?.id,
+        updated_at: new Date(),
+      })
+      .eq("id", conversation.id);
 
     return { conversation, message: newMessage };
   };
