@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Menu, Search, BookOpen, User, UserRound } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../auth/AuthProvider";
+import { Link } from "react-router-dom";
 import { MobileFiltersContext } from "../context/MobileFiltersContext";
 const Header = () => {
   const { mobileFiltersOpen, setMobileFiltersOpen } =
@@ -49,18 +50,18 @@ const Header = () => {
         </a>
         <div className="hidden md:flex items-center justify-center">
           <nav className="flex items-center gap-6 text-sm">
-            <a className="hover:text-amber-800" href="/">
+            <Link className="hover:text-amber-800" to="/">
               Home
-            </a>
-            <a className="hover:text-amber-800" href="books">
+            </Link>
+            <Link className="hover:text-amber-800" to="/books">
               Books
-            </a>
-            <a className="hover:text-amber-800" href="/about">
+            </Link>
+            <Link className="hover:text-amber-800" to="/about">
               About
-            </a>
-            <a className="hover:text-amber-800" href="/contact">
+            </Link>
+            <Link className="hover:text-amber-800" to="/contact">
               Contact
-            </a>
+            </Link>
           </nav>
         </div>
         <div className="hidden md:flex items-center justify-end gap-3">
