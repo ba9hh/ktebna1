@@ -12,7 +12,6 @@ import { ToastContainer } from "react-toastify";
 import Contact from "./pages/Contact.jsx";
 import About from "./pages/About.jsx";
 import { MobileFiltersProvider } from "./context/MobileFiltersContext.jsx";
-import SupabaseLogin from "./auth/SupabaseLogin.jsx";
 import TodoList from "./components/ToDoList.jsx";
 import LoginPage from "./auth/LoginFinal.jsx";
 function App() {
@@ -37,7 +36,6 @@ function App() {
                   </div>
                 }
               />
-              <Route path="/login" element={<SupabaseLogin />} />
               <Route path="/login1" element={<LoginPage />} />
               <Route path="/todo" element={<TodoList />} />
               <Route path="/about" element={<About />} />
