@@ -34,7 +34,7 @@ const UserConversations = () => {
     queryKey: ["conversations"],
     queryFn: () => getUserConversations(),
   });
-
+  console.log(conversations);
   return (
     <div className="border flex flex-col flex-1 rounded-xl shadow-md pt-4 p-6">
       <h2 className="text-xl font-semibold text-center mb-4">
@@ -53,13 +53,15 @@ const UserConversations = () => {
           {conversations?.map((conv) => {
             // Pick the other user in the conversation
             const otherUser =
-              conv.first_user_id === user?.id ? conv.second_user : user;
+              conv.first_user_id === user?.id
+                ? conv.second_user
+                : conv.first_user;
 
             return (
               <div
                 key={conv._id}
                 onClick={() => {
-                  setSelectedSeller(otherUser._id);
+                  setSelectedSeller(otherUser.id);
                   setSelectedName(otherUser.name);
                   setOpen(true);
                 }}

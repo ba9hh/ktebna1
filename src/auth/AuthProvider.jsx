@@ -1,5 +1,5 @@
 // AuthProvider.jsx
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 
 const AuthContext = createContext();
@@ -18,9 +18,6 @@ const AuthProvider = ({ children }) => {
       if (session?.user) {
         setUser({
           id: session.user.id,
-          // name: session.user.user_metadata.full_name,
-          // email: session.user.user_metadata.email,
-          // picture: session.user.user_metadata.avatar_url,
         });
       } else {
         setUser(null);
@@ -35,9 +32,6 @@ const AuthProvider = ({ children }) => {
         if (session?.user) {
           setUser({
             id: session.user.id,
-            // name: session.user.user_metadata.full_name,
-            // email: session.user.user_metadata.email,
-            // picture: session.user.user_metadata.avatar_url,
           });
         } else {
           setUser(null);
