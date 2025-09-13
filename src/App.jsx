@@ -17,11 +17,6 @@ import LoginPage from "./auth/LoginFinal.jsx";
 function App() {
   return (
     <>
-      {/* <GoogleOAuthProvider
-        clientId={
-          "739869680076-jlv9amicing7jf86gasmar79v2hel8vb.apps.googleusercontent.com"
-        }
-      > */}
       <AuthProvider>
         <MobileFiltersProvider>
           <ToastContainer />
@@ -50,7 +45,6 @@ function App() {
           </Routes>
         </MobileFiltersProvider>
       </AuthProvider>
-      {/* </GoogleOAuthProvider> */}
     </>
   );
 }

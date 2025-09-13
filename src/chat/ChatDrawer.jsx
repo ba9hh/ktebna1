@@ -51,7 +51,7 @@ export default function ChatDrawer({
           {
             first_user_id: user?.id,
             second_user_id: otherUserId,
-            conversation_topic: "conversationTopic",
+            conversation_topic: bookName,
           },
         ])
         .select()
