@@ -7,6 +7,10 @@ const UserSavedPosts = () => {
   const queryClient = useQueryClient();
   const [savingPostId, setSavingPostId] = useState(null);
   const { user } = useContext(AuthContext);
+  const [selectedSeller, setSelectedSeller] = useState(null);
+  const [selectedName, setSelectedName] = useState(null);
+  const [selectedBookName, setSelectedBookName] = useState(null);
+  const [open, setOpen] = useState(false);
   const fetchSavedPosts = async () => {
     const { data, error } = await supabase
       .from("saved_posts")
@@ -68,6 +72,12 @@ const UserSavedPosts = () => {
   const toggleSavePost = (post) => {
     toggleSaveMutation.mutate(post);
   };
+  const handleOpenContactDrawer = (book) => {
+    setSelectedSeller(book.user_id);
+    setSelectedName(book.users?.name);
+    setSelectedBookName(book.book_name);
+    setOpen(true);
+  };
   return (
     <div className="border flex flex-col flex-1 rounded-xl shadow-md pt-4 p-6">
       <h2 className="text-xl font-semibold text-center mb-4">
@@ -94,20 +104,40 @@ const UserSavedPosts = () => {
               <h3 className="font-medium">{post.book_name}</h3>
               <p className="text-sm text-gray-600">{post.book_category}</p>
               <p className="text-sm font-semibold">{post.book_deal}</p>
-              <button
-                onClick={() => toggleSavePost(post)}
-                disabled={savingPostId === post.id}
-                className="mt-2 text-xs bg-gray-600 text-white px-2 py-1 rounded hover:bg-gray-700 disabled:opacity-50"
-              >
-                {savingPostId === post.id
-                  ? "Unsaving..."
-                  : savedPosts.some((p) => p.id === post.id)
-                  ? "Unsave"
-                  : "Save"}
-              </button>
+              <div className="flex gap-2 mt-2">
+                <button
+                  onClick={() => toggleSavePost(post)}
+                  disabled={savingPostId === post.id}
+                  className="text-xs bg-gray-600 text-white px-2 py-1 rounded hover:bg-gray-700 disabled:opacity-50"
+                >
+                  {savingPostId === post.id
+                    ? "Unsaving..."
+                    : savedPosts.some((p) => p.id === post.id)
+                    ? "Unsave"
+                    : "Save"}
+                </button>
+                <button
+                  onClick={() => handleOpenContactDrawer(post)}
+                  className="text-xs bg-amber-600 text-white px-2 py-1 rounded hover:bg-amber-700 disabled:opacity-50"
+                >
+                  contact
+                </button>
+              </div>
             </div>
           ))}
         </div>
+      )}
+      {open && (
+        <ChatDrawer
+          open={open}
+          onClose={() => {
+            setSelectedSeller(null);
+            setOpen(false);
+          }}
+          otherUserId={selectedSeller}
+          otherUserName={selectedName}
+          bookName={selectedBookName}
+        />
       )}
     </div>
   );
