@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "../supabaseClient";
 import { AuthContext } from "../auth/AuthProvider";
+import ChatDrawer from "../chat/ChatDrawer";
 
 const UserSavedPosts = () => {
   const queryClient = useQueryClient();
