@@ -14,6 +14,7 @@ export default function ChatDrawer({
 }) {
   const { user } = useContext(AuthContext);
   const [input, setInput] = useState("");
+  const [sending, setSending] = useState(false);
   const checkConversationExists = async () => {
     const { data, error } = await supabase
       .from("conversations")
@@ -131,6 +132,9 @@ export default function ChatDrawer({
 
   const sendMessageMutation = useMutation({
     mutationFn: (messageContent) => sendMessage(messageContent),
+    onMutate: () => {
+      setSending(true);
+    },
     onSuccess: (data) => {
       if (!conversation) {
         queryClient.invalidateQueries(["conversation", user?.id, otherUserId]);
@@ -141,18 +145,21 @@ export default function ChatDrawer({
         (old = []) => [...old, data.message]
       );
       setInput("");
+      setSending(false);
     },
     onError: (err) => {
       alert(
         err.message || err.response?.data?.error || "Failed to send message"
       );
+      setSending(false);
     },
   });
 
   const handleSend = () => {
-    if (input.trim()) sendMessageMutation.mutate(input);
+    if (input.trim() && !sending) {
+      sendMessageMutation.mutate(input);
+    }
   };
-  console.log(input);
   return (
     <Drawer anchor="right" open={open} onClose={onClose}>
       <div className="w-[400px] h-screen flex flex-col bg-gray-100">
@@ -197,10 +204,12 @@ export default function ChatDrawer({
           />
           <button
             onClick={handleSend}
-            disabled={sendMessageMutation.isLoading}
-            className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
+            disabled={sending}
+            className={`px-4 py-2 rounded-lg text-white ${
+              sending ? "bg-green-300" : "bg-green-500 hover:bg-green-600"
+            }`}
           >
-            Send
+            {sending ? "Sending..." : "Send"}
           </button>
         </div>
       </div>
