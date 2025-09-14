@@ -187,7 +187,7 @@ const UpdatePostModal = ({ open, onClose, post }) => {
                 <FormControl fullWidth margin="normal" error={!!errors.type}>
                   <InputLabel>Deal Type</InputLabel>
                   <Select {...field} label="Deal Type">
-                    {["sell", "exchange"].map((c) => (
+                    {["sell", "exchange", "donate"].map((c) => (
                       <MenuItem key={c} value={c}>
                         {c}
                       </MenuItem>

@@ -29,7 +29,7 @@ function FilterPanel({ category, setCategory, dealType, setDealType }) {
           onChange={(e) => setDealType(e.target.value)}
           className="w-full rounded-xl border border-stone-300 bg-white/80 px-3 py-2 text-sm dark:border-stone-700 dark:bg-stone-800"
         >
-          {["All", "exchange", "sell"].map((s) => (
+          {["All", "exchange", "sell", "donate"].map((s) => (
             <option key={s} value={s}>
               {s}
             </option>
