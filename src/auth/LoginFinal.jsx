@@ -6,7 +6,7 @@ const Login = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (user && !loading) {
-      navigate("/account");
+      navigate("/account/posts");
     }
   }, [user, loading, navigate]);
   if (loading) return <p>Loading...</p>;
