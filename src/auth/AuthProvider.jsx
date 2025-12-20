@@ -14,7 +14,6 @@ const AuthProvider = ({ children }) => {
         data: { session },
         error,
       } = await supabase.auth.getSession();
-      console.log(session?.user);
       if (session?.user) {
         setUser({
           id: session.user.id,

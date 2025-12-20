@@ -8,9 +8,9 @@ import {
   Divider,
   useTheme,
   Box,
+  Button,
 } from "@mui/material";
 import { X } from "lucide-react";
-import { GoogleLogin } from "@react-oauth/google";
 import { useContext } from "react";
 import { AuthContext } from "./AuthProvider";
 import { toast } from "react-toastify";
@@ -20,7 +20,7 @@ const LoginModal = ({
   onClose,
   message = "You must be logged in to perform this action.",
 }) => {
-  const { handleGoogleLogin } = useContext(AuthContext);
+  const { loginWithGoogle } = useContext(AuthContext);
   const theme = useTheme();
 
   return (
@@ -66,42 +66,29 @@ const LoginModal = ({
         <Typography variant="body1" gutterBottom>
           {message}
         </Typography>
-
         <Divider sx={{ my: 2 }} />
-
         <Stack spacing={2}>
-          <GoogleLogin
-            onSuccess={(res) => {
-              handleGoogleLogin(res, { redirect: false });
-              onClose();
-              toast.success("You are connected!");
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              px: 2,
+              py: 1.5,
+              borderRadius: 2,
+              border: `1px solid ${theme.palette.grey[300]}`,
+              cursor: "pointer",
+              transition: "background-color 0.2s",
+              "&:hover": {
+                bgcolor: theme.palette.grey[100],
+              },
             }}
-            onError={() => console.log("Login Failed")}
-            render={({ onClick }) => (
-              <Box
-                onClick={onClick}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  px: 2,
-                  py: 1.5,
-                  borderRadius: 2,
-                  border: `1px solid ${theme.palette.grey[300]}`,
-                  cursor: "pointer",
-                  transition: "background-color 0.2s",
-                  "&:hover": {
-                    bgcolor: theme.palette.grey[100],
-                  },
-                }}
-              >
-                {/* <GoogleIcon sx={{ mr: 1, color: "#DB4437" }} /> */}
-                <Typography variant="button" sx={{ fontWeight: 500 }}>
-                  Continue with Google
-                </Typography>
-              </Box>
-            )}
-          />
+          >
+            {/* <GoogleIcon sx={{ mr: 1, color: "#DB4437" }} /> */}
+            <Button variant="button" sx={{ fontWeight: 500 }}>
+              Continue with Google
+            </Button>
+          </Box>
         </Stack>
       </DialogContent>
     </Dialog>

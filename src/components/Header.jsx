@@ -27,7 +27,7 @@ const Header = () => {
     if (location.pathname.startsWith("/")) {
       const params = new URLSearchParams();
       if (value.trim()) params.set("search", value);
-      navigate({ pathname: "/books", search: params.toString() });
+      navigate({ pathname: "/", search: params.toString() });
     }
   };
   return (
