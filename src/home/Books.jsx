@@ -123,10 +123,10 @@ const Books = () => {
     setOpenDrawer(true);
   };
   const handleOpenContactDrawer = (book) => {
-    // if (!user) {
-    //   setOpenLogin(true);
-    //   return;
-    // }
+    if (!user) {
+      setOpenLogin(true);
+      return;
+    }
     setSelectedSeller(book.user_id);
     setSelectedName(book.users?.name);
     setSelectedBookName(book.book_name);
@@ -230,7 +230,7 @@ const Books = () => {
             bookName={selectedBookName}
           />
         )}
-        {/* <LoginModal open={openLogin} onClose={() => setOpenLogin(false)} /> */}
+        <LoginModal open={openLogin} onClose={() => setOpenLogin(false)} />
       </main>
       <AnimatePresence>
         {mobileFiltersOpen && (
