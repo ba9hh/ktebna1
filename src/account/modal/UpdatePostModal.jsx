@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import {
   TextField,
@@ -7,7 +7,6 @@ import {
   Button,
   InputLabel,
   FormControl,
-  Typography,
   FormHelperText,
   CircularProgress,
   Dialog,
@@ -15,42 +14,60 @@ import {
   DialogContent,
   DialogActions,
 } from "@mui/material";
-import { supabase } from "../supabaseClient";
+import { supabase } from "../../supabaseClient";
 import { toast } from "react-toastify";
-import cities from "../data/cities";
-import CATEGORIES from "../data/categories";
+import cities from "../../data/cities";
+import CATEGORIES from "../../data/categories";
 
-const AddPostModal = ({ open, onClose, userId }) => {
+const UpdatePostModal = ({ open, onClose, post }) => {
   const {
     handleSubmit,
     control,
     formState: { errors, isValid },
+    reset,
   } = useForm({
     defaultValues: {
       name: "",
       category: "",
-      deal: "",
       type: "",
+      deal: "",
       location: "",
       image: null,
     },
   });
+
   const [imagePreview, setImagePreview] = useState(null);
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (post) {
+      reset({
+        name: post.book_name || "",
+        category: post.book_category || "",
+        type: post.book_deal_type || "",
+        deal: post.book_deal || "",
+        location: post.book_location || "",
+        image: null,
+      });
+      setImagePreview(post.book_image || null);
+    }
+  }, [post, reset]);
 
   if (!open) return null;
 
   const onSubmit = async (data) => {
     setLoading(true);
-    let uploadedImageUrl = "";
+    let uploadedImageUrl = post.book_image;
+
     try {
-      // 1. Upload image to Supabase storage
       if (file) {
         const fileExt = file.name.split(".").pop();
         const fileName = `${Date.now()}.${fileExt}`;
-        const { data: storageData, error: storageError } =
-          await supabase.storage.from("images").upload(fileName, file);
+
+        const { error: storageError } = await supabase.storage
+          .from("images")
+          .upload(fileName, file, { upsert: true });
 
         if (storageError) throw storageError;
 
@@ -61,42 +78,41 @@ const AddPostModal = ({ open, onClose, userId }) => {
         uploadedImageUrl = publicUrlData.publicUrl;
       }
 
-      const { error: insertError } = await supabase.from("posts").insert([
-        {
-          user_id: userId,
+      const { error: updateError } = await supabase
+        .from("posts")
+        .update({
           book_name: data.name,
           book_category: data.category,
-          book_deal: data.deal,
           book_deal_type: data.type,
-          book_image: uploadedImageUrl,
+          book_deal: data.deal,
           book_location: data.location,
-        },
-      ]);
+          book_image: uploadedImageUrl,
+        })
+        .eq("id", post.id);
 
-      if (insertError) throw insertError;
+      if (updateError) throw updateError;
 
-      toast.success("Product added successfully!");
+      toast.success("Post updated successfully!");
       onClose();
     } catch (error) {
-      console.error("Error adding product:", error);
-      toast.error("Failed to add product. Please try again.");
+      console.error("Error updating post:", error);
+      toast.error("Failed to update post. Please try again.");
     } finally {
       setLoading(false);
     }
   };
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-      <DialogTitle sx={{ textAlign: "center" }}>Add Product</DialogTitle>
+      <DialogTitle sx={{ textAlign: "center" }}>Update Product</DialogTitle>
       <form onSubmit={handleSubmit(onSubmit)}>
         <DialogContent dividers>
           <Controller
             name="image"
             control={control}
-            rules={{ required: "Image is required" }}
             render={({ field }) => (
               <div style={{ marginBottom: 20 }}>
                 <Button variant="contained" component="label">
-                  Upload Book Image
+                  {imagePreview ? "Change Image" : "Upload Book Image"}
                   <input
                     type="file"
                     hidden
@@ -109,9 +125,6 @@ const AddPostModal = ({ open, onClose, userId }) => {
                     }}
                   />
                 </Button>
-                {errors.image && (
-                  <Typography color="error">{errors.image.message}</Typography>
-                )}
                 {imagePreview && (
                   <img
                     src={imagePreview}
@@ -129,6 +142,7 @@ const AddPostModal = ({ open, onClose, userId }) => {
               </div>
             )}
           />
+
           <Controller
             name="name"
             control={control}
@@ -144,6 +158,7 @@ const AddPostModal = ({ open, onClose, userId }) => {
               />
             )}
           />
+
           <Controller
             name="category"
             control={control}
@@ -162,6 +177,7 @@ const AddPostModal = ({ open, onClose, userId }) => {
               </FormControl>
             )}
           />
+
           <div className="flex gap-2">
             <Controller
               name="type"
@@ -201,6 +217,7 @@ const AddPostModal = ({ open, onClose, userId }) => {
               )}
             />
           </div>
+
           <Controller
             name="location"
             control={control}
@@ -231,7 +248,7 @@ const AddPostModal = ({ open, onClose, userId }) => {
             color="primary"
             disabled={!isValid || loading}
           >
-            {loading ? <CircularProgress size={24} /> : "Save"}
+            {loading ? <CircularProgress size={24} /> : "Update"}
           </Button>
         </DialogActions>
       </form>
@@ -239,4 +256,4 @@ const AddPostModal = ({ open, onClose, userId }) => {
   );
 };
 
-export default AddPostModal;
+export default UpdatePostModal;

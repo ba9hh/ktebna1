@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../auth/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import { Pencil } from "lucide-react";
-import UpdateProfilePictureModal from "./UpdateProfilePictureModal";
+import UpdateProfilePictureModal from "./modal/UpdateProfilePictureModal";
 import { supabase } from "../supabaseClient";
 import { toast } from "react-toastify";
 

@@ -1,10 +1,22 @@
 import CATEGORIES from "../data/categories";
+import { useTranslation } from "react-i18next";
 
 function FilterPanel({ category, setCategory, dealType, setDealType }) {
+  const { t } = useTranslation();
+
+  const dealTypes = [
+    { value: "All", label: t("filterPanel.all") },
+    { value: "exchange", label: t("filterPanel.exchange") },
+    { value: "sell", label: t("filterPanel.sell") },
+    { value: "donate", label: t("filterPanel.donate") },
+  ];
+
   return (
     <div className="sticky top-20 space-y-6 rounded-2xl border border-stone-200/60 bg-white/70 p-4 shadow-sm dark:border-stone-800 dark:bg-stone-900/70">
       <div>
-        <h3 className="mb-2 font-serif text-lg">Categories</h3>
+        <h3 className="mb-2 font-serif text-lg">
+          {t("filterPanel.categories")}
+        </h3>
         <div className="flex flex-wrap gap-2">
           {CATEGORIES.map((c) => (
             <button
@@ -16,29 +28,29 @@ function FilterPanel({ category, setCategory, dealType, setDealType }) {
                   : "border border-stone-300 bg-white/70 text-stone-700 hover:bg-stone-100 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-200"
               }`}
             >
-              {c}
+              {t(`categories.${c}`)}
             </button>
           ))}
         </div>
       </div>
 
       <div>
-        <h3 className="mb-2 font-serif text-lg">Deal type</h3>
+        <h3 className="mb-2 font-serif text-lg">{t("filterPanel.dealType")}</h3>
         <select
           value={dealType}
           onChange={(e) => setDealType(e.target.value)}
           className="w-full rounded-xl border border-stone-300 bg-white/80 px-3 py-2 text-sm dark:border-stone-700 dark:bg-stone-800"
         >
-          {["All", "exchange", "sell", "donate"].map((s) => (
-            <option key={s} value={s}>
-              {s}
+          {dealTypes.map((dt) => (
+            <option key={dt.value} value={dt.value}>
+              {dt.label}
             </option>
           ))}
         </select>
       </div>
 
       <div className="rounded-xl border border-amber-900/20 bg-amber-50/50 p-3 text-xs text-amber-900 dark:border-amber-900/40 dark:bg-amber-900/10 dark:text-amber-200">
-        Tip: combine search + filters to narrow down like a librarian 📚
+        {t("filterPanel.tip")}
       </div>
     </div>
   );

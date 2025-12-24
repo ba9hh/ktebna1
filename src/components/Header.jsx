@@ -1,17 +1,34 @@
 import React, { useState, useContext } from "react";
-import { Menu, Search, BookOpen, User, UserRound } from "lucide-react";
+import { Menu, Search, BookOpen, User, Globe, UserRound } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../auth/AuthProvider";
 import { Link } from "react-router-dom";
 import { MobileFiltersContext } from "../context/MobileFiltersContext";
+import { useTranslation } from "react-i18next";
+
 const Header = () => {
+  const { t, i18n } = useTranslation();
+
   const { mobileFiltersOpen, setMobileFiltersOpen } =
     useContext(MobileFiltersContext);
   const [query, setQuery] = useState("");
   // const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
 
+  const languages = [
+    { code: "en", name: "English" },
+    { code: "fr", name: "Français" },
+    { code: "ar", name: "العربية" },
+  ];
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    setLangMenuOpen(false);
+    // Store language preference
+    localStorage.setItem("language", lng);
+  };
   const { user } = useContext(AuthContext);
   const accountNavigation = () => {
     if (user) {
@@ -51,16 +68,16 @@ const Header = () => {
         <div className="hidden md:flex items-center justify-center">
           <nav className="flex items-center gap-6 text-sm">
             <Link className="hover:text-amber-800" to="/">
-              Home
+              {t("header.home")}
             </Link>
             <Link className="hover:text-amber-800" to="/books">
-              Books
+              {t("header.books")}
             </Link>
             <Link className="hover:text-amber-800" to="/about">
-              About
+              {t("header.about")}
             </Link>
             <Link className="hover:text-amber-800" to="/contact">
-              Contact
+              {t("header.contact")}
             </Link>
           </nav>
         </div>
@@ -70,17 +87,46 @@ const Header = () => {
             <input
               value={query}
               onChange={handleChange}
-              placeholder="Search books, authors…"
+              placeholder={t("header.searchPlaceholder")}
               className="w-64 bg-transparent text-sm outline-none placeholder:text-stone-400"
             />
           </div>
-          <button
-            className="relative rounded-xl border border-stone-300 bg-white/80 p-2 dark:border-stone-700 dark:bg-stone-800"
-            aria-label="Cart"
-            onClick={accountNavigation}
-          >
-            <User className="h-5 w-5" />
-          </button>
+          <div className="flex gap-1">
+            <div className="relative">
+              <button
+                onClick={() => setLangMenuOpen(!langMenuOpen)}
+                className="relative rounded-xl border border-stone-300 bg-white/80 p-2 dark:border-stone-700 dark:bg-stone-800"
+                aria-label="Change language"
+              >
+                <Globe className="h-5 w-5" />
+              </button>
+
+              {langMenuOpen && (
+                <div className="absolute right-0 mt-2 w-40 rounded-xl border border-stone-300 bg-white shadow-lg dark:border-stone-700 dark:bg-stone-800">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => changeLanguage(lang.code)}
+                      className={`w-full px-4 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-stone-700 first:rounded-t-xl last:rounded-b-xl ${
+                        i18n.language === lang.code
+                          ? "bg-amber-50 dark:bg-amber-900/20 text-amber-800 dark:text-amber-400"
+                          : ""
+                      }`}
+                    >
+                      {lang.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            <button
+              className="relative rounded-xl border border-stone-300 bg-white/80 p-2 dark:border-stone-700 dark:bg-stone-800"
+              aria-label="Cart"
+              onClick={accountNavigation}
+            >
+              <User className="h-5 w-5" />
+            </button>
+          </div>
         </div>
         <div className="flex items-center justify-end gap-2 md:hidden">
           <button

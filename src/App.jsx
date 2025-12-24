@@ -6,7 +6,6 @@ import { AuthProvider } from "./auth/AuthProvider.jsx";
 import UserPosts from "./account/UserPosts.jsx";
 import UserSavedPosts from "./account/UserSavedPosts.jsx";
 import UserConversations from "./account/UserConversations.jsx";
-import Books from "./home/Books.jsx";
 import { ToastContainer } from "react-toastify";
 import Contact from "./pages/Contact.jsx";
 import About from "./pages/About.jsx";
@@ -24,7 +23,7 @@ function App() {
                 path="/"
                 element={
                   <div className="mt-6">
-                    <Books />
+                    <Home />
                   </div>
                 }
               />
@@ -32,7 +31,7 @@ function App() {
                 path="/books"
                 element={
                   <div className="mt-6">
-                    <Books />
+                    <Home />
                   </div>
                 }
               />

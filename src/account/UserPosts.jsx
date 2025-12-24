@@ -1,11 +1,13 @@
 import React, { useState, useContext } from "react";
-import AddPostModal from "./AddPostModal";
-import UpdatePostModal from "./UpdatePostModal";
-import DeletePostModal from "./DeletePostModal";
+import { useTranslation } from "react-i18next";
+import AddPostModal from "./modal/AddPostModal";
+import UpdatePostModal from "./modal/UpdatePostModal";
+import DeletePostModal from "./modal/DeletePostModal";
 import { AuthContext } from "../auth/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../supabaseClient";
 const UserPosts = () => {
+  const { t } = useTranslation();
   const [showAddModal, setShowAddModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null);
@@ -38,22 +40,25 @@ const UserPosts = () => {
     setSelectedPost(post);
     setShowDeleteModal(true);
   };
-  console.log(posts);
   return (
     <div className="relative border flex flex-col flex-1 rounded-xl shadow-md pt-4 p-6">
       <button
         className="absolute right-3 rounded-xl bg-amber-700 px-3 py-2 text-sm font-medium text-amber-50 shadow hover:bg-amber-800 active:scale-[0.98] h-fit w-fit"
         onClick={() => setShowAddModal(true)}
       >
-        Add Post
+        {t("userPosts.addPost")}
       </button>
-      <h2 className="text-xl font-semibold text-center mb-4">Your Posts</h2>
+      <h2 className="text-xl font-semibold text-center mb-4">
+        {t("userPosts.yourPosts")}
+      </h2>
 
       {isLoading ? (
-        <p className="text-gray-500 italic text-center">Loading posts...</p>
+        <p className="text-gray-500 italic text-center">
+          {t("userPosts.loading")}
+        </p>
       ) : posts?.length === 0 ? (
         <p className="text-gray-500 italic text-center">
-          You don’t have any posts yet.
+          {t("userPosts.noPosts")}
         </p>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -72,13 +77,13 @@ const UserPosts = () => {
                   onClick={() => handleOpenUpdate(post)}
                   className="text-xs bg-blue-600 text-white px-2 py-1 rounded hover:bg-blue-700"
                 >
-                  Edit
+                  {t("userPosts.edit")}
                 </button>
                 <button
                   onClick={() => handleOpenDelete(post)}
                   className="text-xs bg-red-600 text-white px-2 py-1 rounded hover:bg-red-700"
                 >
-                  Delete
+                  {t("userPosts.delete")}
                 </button>
               </div>
             </div>

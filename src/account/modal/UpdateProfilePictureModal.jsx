@@ -9,7 +9,7 @@ import {
   Button,
 } from "@mui/material";
 import { toast } from "react-toastify";
-import { supabase } from "../supabaseClient";
+import { supabase } from "../../supabaseClient";
 
 const UpdateProfilePictureModal = ({
   open,

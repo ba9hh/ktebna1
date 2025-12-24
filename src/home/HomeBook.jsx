@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Bookmark, BookmarkCheck, Loader2 } from "lucide-react";
 import { supabase } from "../supabaseClient";
-const BookCard = ({
+import { useTranslation } from "react-i18next";
+const HomeBook = ({
   book,
   userId,
   isSaved: isSavedProp = false,
@@ -10,6 +11,7 @@ const BookCard = ({
   onClick,
   handleOpenContactDrawer,
 }) => {
+  const { t } = useTranslation();
   const [isSaved, setIsSaved] = useState(isSavedProp);
   const [saving, setSaving] = useState(false);
   useEffect(() => {
@@ -74,7 +76,7 @@ const BookCard = ({
     >
       {book.book_deal_type && (
         <div className="absolute left-3 top-3 z-10 rounded-full bg-amber-600/95 px-2.5 py-1 text-xs font-medium text-amber-50 shadow">
-          {book.book_deal_type}
+          {t(`filterPanel.${book.book_deal_type.toLowerCase()}`)}
         </div>
       )}
 
@@ -82,7 +84,7 @@ const BookCard = ({
         <img src={book.book_image} className="w-full aspect-3/4 object-cover" />
         {book.book_category && (
           <div className="absolute right-3 bottom-3 z-10 rounded-full bg-amber-400/95 px-2.5 py-1 text-xs font-medium text-amber-50 shadow">
-            {book.book_category}
+            {t(`categories.${book.book_category}`)}
           </div>
         )}
       </div>
@@ -125,7 +127,7 @@ const BookCard = ({
                 <Bookmark className="h-4 w-4" />
               )}
               <span className="hidden sm:inline">
-                {isSaved ? "Saved" : "Save"}
+                {isSaved ? t("bookCard.saved") : t("bookCard.save")}
               </span>
             </button>
 
@@ -136,7 +138,7 @@ const BookCard = ({
                 handleOpenContactDrawer();
               }}
             >
-              <span>Contact</span>
+              <span>{t("bookCard.contact")}</span>
             </button>
           </div>
         </div>
@@ -145,4 +147,4 @@ const BookCard = ({
   );
 };
 
-export default BookCard;
+export default HomeBook;

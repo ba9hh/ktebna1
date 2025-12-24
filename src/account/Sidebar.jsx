@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Sidebar = () => {
+  const { t } = useTranslation();
+
   return (
     <div>
       <div className="flex flex-col w-full border rounded-xl shadow-sm p-4 mt-4">
@@ -11,7 +14,7 @@ const Sidebar = () => {
               isActive ? "font-bold" : "text-gray-700"
             }
           >
-            Posts
+            {t("sidebar.posts")}
           </NavLink>
           <NavLink
             to="/account/savedPosts"
@@ -19,7 +22,7 @@ const Sidebar = () => {
               isActive ? "font-bold" : "text-gray-700"
             }
           >
-            Saved Posts
+            {t("sidebar.savedPosts")}
           </NavLink>
           <NavLink
             to="/account/conversations"
@@ -27,7 +30,7 @@ const Sidebar = () => {
               isActive ? "font-bold" : "text-gray-700"
             }
           >
-            Conversations
+            {t("sidebar.conversations")}
           </NavLink>
         </nav>
       </div>

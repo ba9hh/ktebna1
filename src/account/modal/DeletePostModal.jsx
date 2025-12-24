@@ -9,7 +9,7 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { toast } from "react-toastify";
-import { supabase } from "../supabaseClient";
+import { supabase } from "../../supabaseClient";
 
 const DeletePostModal = ({ open, onClose, post }) => {
   const [loading, setLoading] = useState(false);
