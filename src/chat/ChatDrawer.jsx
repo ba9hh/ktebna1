@@ -94,7 +94,29 @@ export default function ChatDrawer({
         updated_at: new Date(),
       })
       .eq("id", conversation.id);
+    try {
+      // Get recipient's email
+      const { data: recipientData } = await supabase
+        .from("users")
+        .select("email, name")
+        .eq("id", otherUserId)
+        .single();
 
+      if (recipientData?.email) {
+        await supabase.functions.invoke("send-message-notification", {
+          body: {
+            recipientEmail: recipientData.email,
+            recipientName: recipientData.name || otherUserName,
+            senderName: user?.name || "Someone",
+            messageContent: messageContent,
+            bookName: bookName || conversation?.conversation_topic,
+          },
+        });
+      }
+    } catch (emailError) {
+      console.error("Failed to send email notification:", emailError);
+      // Don't block the message if email fails
+    }
     return { conversation, message: newMessage };
   };
 
