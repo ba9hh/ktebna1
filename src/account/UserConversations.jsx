@@ -3,8 +3,10 @@ import { AuthContext } from "../auth/AuthProvider.jsx";
 import { supabase } from "../supabaseClient.js";
 import { useQuery } from "@tanstack/react-query";
 import ChatDrawer from "../chat/ChatDrawer.jsx";
+import { useTranslation } from "react-i18next";
 
 const UserConversations = () => {
+  const { t } = useTranslation();
   const [selectedSeller, setSelectedSeller] = useState(null);
   const [selectedName, setSelectedName] = useState(null);
   const [open, setOpen] = useState(false);
@@ -38,15 +40,15 @@ const UserConversations = () => {
   return (
     <div className="border flex flex-col flex-1 rounded-xl shadow-md pt-4 p-6">
       <h2 className="text-xl font-semibold text-center mb-4">
-        Your Conversations
+        {t("conversations.title")}
       </h2>
       {isLoading ? (
         <p className="text-gray-500 italic text-center">
-          Loading Conversations...
+          {t("conversations.loading")}
         </p>
       ) : conversations?.length === 0 ? (
         <p className="text-gray-500 italic text-center">
-          You don’t have any conversations yet.
+          {t("conversations.noConversations")}
         </p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
@@ -82,7 +84,7 @@ const UserConversations = () => {
                     {/* <p className="text-sm text-gray-500">{otherUser.email}</p> */}
                     <p className="text-sm text-gray-500 truncate max-w-40">
                       {conv.last_message_sender === user?.id
-                        ? "You: "
+                        ? `${t("conversations.you")}: `
                         : `${otherUser.name}: `}
                       {conv.last_message_content}
                     </p>

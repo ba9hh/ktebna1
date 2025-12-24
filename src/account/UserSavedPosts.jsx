@@ -3,8 +3,10 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "../supabaseClient";
 import { AuthContext } from "../auth/AuthProvider";
 import ChatDrawer from "../chat/ChatDrawer";
+import { useTranslation } from "react-i18next";
 
 const UserSavedPosts = () => {
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [savingPostId, setSavingPostId] = useState(null);
   const { user } = useContext(AuthContext);
@@ -82,16 +84,16 @@ const UserSavedPosts = () => {
   return (
     <div className="border flex flex-col flex-1 rounded-xl shadow-md pt-4 p-6">
       <h2 className="text-xl font-semibold text-center mb-4">
-        Your Saved Posts
+        {t("savedPosts.title")}
       </h2>
 
       {isLoading ? (
         <p className="text-gray-500 italic text-center">
-          Loading saved posts...
+          {t("savedPosts.loading")}
         </p>
       ) : savedPosts?.length === 0 ? (
         <p className="text-gray-500 italic text-center">
-          You don’t have any saved posts yet.
+          {t("savedPosts.noPosts")}
         </p>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -112,16 +114,16 @@ const UserSavedPosts = () => {
                   className="text-xs bg-gray-600 text-white px-2 py-1 rounded hover:bg-gray-700 disabled:opacity-50"
                 >
                   {savingPostId === post.id
-                    ? "Unsaving..."
+                    ? t("savedPosts.unsaving")
                     : savedPosts.some((p) => p.id === post.id)
-                    ? "Unsave"
-                    : "Save"}
+                    ? t("savedPosts.unsave")
+                    : t("savedPosts.save")}
                 </button>
                 <button
                   onClick={() => handleOpenContactDrawer(post)}
                   className="text-xs bg-amber-600 text-white px-2 py-1 rounded hover:bg-amber-700 disabled:opacity-50"
                 >
-                  contact
+                  {t("savedPosts.contact")}
                 </button>
               </div>
             </div>

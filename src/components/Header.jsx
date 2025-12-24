@@ -129,9 +129,37 @@ const Header = () => {
           </div>
         </div>
         <div className="flex items-center justify-end gap-2 md:hidden">
+          <div className="relative">
+            <button
+              onClick={() => setLangMenuOpen(!langMenuOpen)}
+              className="relative rounded-xl border border-stone-300 bg-white/80 p-2 dark:border-stone-700 dark:bg-stone-800"
+              aria-label="Change language"
+            >
+              <Globe className="h-5 w-5" />
+            </button>
+
+            {langMenuOpen && (
+              <div className="absolute right-0 mt-2 w-40 rounded-xl border border-stone-300 bg-white shadow-lg dark:border-stone-700 dark:bg-stone-800 z-50">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => changeLanguage(lang.code)}
+                    className={`w-full px-4 py-2 text-left text-sm hover:bg-stone-100 dark:hover:bg-stone-700 first:rounded-t-xl last:rounded-b-xl ${
+                      i18n.language === lang.code
+                        ? "bg-amber-50 dark:bg-amber-900/20 text-amber-800 dark:text-amber-400"
+                        : ""
+                    }`}
+                  >
+                    {lang.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
           <button
             className="relative rounded-xl border border-stone-300 bg-white/80 p-2 dark:border-stone-700 dark:bg-stone-800"
-            aria-label="Cart"
+            aria-label={t("header.cart")}
             onClick={accountNavigation}
           >
             <User className="h-5 w-5" />

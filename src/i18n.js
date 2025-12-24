@@ -113,6 +113,21 @@ const resources = {
                 noPosts: "You don't have any posts yet.",
                 edit: "Edit",
                 delete: "Delete"
+            },
+            savedPosts: {
+                title: "Your Saved Posts",
+                loading: "Loading saved posts...",
+                noPosts: "You don't have any saved posts yet.",
+                unsaving: "Unsaving...",
+                unsave: "Unsave",
+                save: "Save",
+                contact: "Contact"
+            },
+            conversations: {
+                title: "Your Conversations",
+                loading: "Loading Conversations...",
+                noConversations: "You don't have any conversations yet.",
+                you: "You"
             }
         }
     },
@@ -226,6 +241,21 @@ const resources = {
                 noPosts: "Vous n'avez pas encore de publications.",
                 edit: "Modifier",
                 delete: "Supprimer"
+            },
+            savedPosts: {
+                title: "Vos publications enregistrées",
+                loading: "Chargement des publications enregistrées...",
+                noPosts: "Vous n'avez pas encore de publications enregistrées.",
+                unsaving: "Suppression...",
+                unsave: "Retirer",
+                save: "Enregistrer",
+                contact: "Contacter"
+            },
+            conversations: {
+                title: "Vos conversations",
+                loading: "Chargement des conversations...",
+                noConversations: "Vous n'avez pas encore de conversations.",
+                you: "Vous"
             }
         }
     },
@@ -339,6 +369,21 @@ const resources = {
                 noPosts: "ليس لديك أي منشورات بعد.",
                 edit: "تعديل",
                 delete: "حذف"
+            },
+            savedPosts: {
+                title: "منشوراتك المحفوظة",
+                loading: "جارٍ تحميل المنشورات المحفوظة...",
+                noPosts: "ليس لديك أي منشورات محفوظة بعد.",
+                unsaving: "جارٍ الإلغاء...",
+                unsave: "إلغاء الحفظ",
+                save: "حفظ",
+                contact: "اتصل"
+            },
+            conversations: {
+                title: "محادثاتك",
+                loading: "جارٍ تحميل المحادثات...",
+                noConversations: "ليس لديك أي محادثات بعد.",
+                you: "أنت"
             }
         }
     }
