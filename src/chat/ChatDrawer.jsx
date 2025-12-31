@@ -4,6 +4,9 @@ import { AuthContext } from "../auth/AuthProvider";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { X } from "lucide-react";
 import { supabase } from "../supabaseClient";
+import { Resend } from "resend";
+
+const resend = new Resend("re_762PrZgg_2EE7B8GWTDJeryAUmVYvnHAZ");
 
 export default function ChatDrawer({
   open,
@@ -32,6 +35,46 @@ export default function ChatDrawer({
 
     if (error) throw error;
     return data;
+  };
+  const sendEmailNotification = async (
+    recipientEmail,
+    recipientName,
+    senderName,
+    messageContent,
+    bookName
+  ) => {
+    try {
+      const { data, error } = await resend.emails.send({
+        from: "notifications@dyaritunisie.com>", // Replace with your verified domain
+        to: [recipientEmail],
+        subject: `New message from ${senderName} about "${bookName}"`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2>New Message Received</h2>
+            <p>Hi ${recipientName},</p>
+            <p>You received a new message from <strong>${senderName}</strong> about the book <strong>"${bookName}"</strong>:</p>
+            <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
+              <p style="margin: 0;">${messageContent}</p>
+            </div>
+            <p>Log in to your account to reply!</p>
+            <a href="${window.location.origin}" style="display: inline-block; background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 10px;">
+              View Message
+            </a>
+          </div>
+        `,
+      });
+
+      if (error) {
+        console.error("Resend error:", error);
+        throw error;
+      }
+
+      console.log("Email sent successfully:", data);
+      return data;
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      throw error;
+    }
   };
   const sendMessage = async (messageContent) => {
     let { data: existingConvo, error: convoError } = await supabase
@@ -95,7 +138,6 @@ export default function ChatDrawer({
       })
       .eq("id", conversation.id);
     try {
-      // Get recipient's email
       const { data: recipientData } = await supabase
         .from("users")
         .select("email, name")
@@ -103,15 +145,13 @@ export default function ChatDrawer({
         .single();
 
       if (recipientData?.email) {
-        await supabase.functions.invoke("send-message-notification", {
-          body: {
-            recipientEmail: recipientData.email,
-            recipientName: recipientData.name || otherUserName,
-            senderName: user?.name || "Someone",
-            messageContent: messageContent,
-            bookName: bookName || conversation?.conversation_topic,
-          },
-        });
+        await sendEmailNotification(
+          recipientData.email,
+          recipientData.name || otherUserName,
+          user?.name || "Someone",
+          messageContent,
+          bookName || conversation?.conversation_topic
+        );
       }
     } catch (emailError) {
       console.error("Failed to send email notification:", emailError);
