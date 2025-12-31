@@ -45,7 +45,7 @@ export default function ChatDrawer({
   ) => {
     try {
       const { data, error } = await resend.emails.send({
-        from: "notifications@dyaritunisie.com>", // Replace with your verified domain
+        from: "notifications@dyaritunisie.com", // Replace with your verified domain
         to: [recipientEmail],
         subject: `New message from ${senderName} about "${bookName}"`,
         html: `
