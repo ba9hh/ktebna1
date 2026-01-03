@@ -527,7 +527,7 @@ export default function ChatDrawer({
       />
 
       {/* Drawer */}
-      <div className="fixed right-0 top-0 h-screen w-[420px] bg-gradient-to-b from-gray-50 to-white shadow-2xl z-50 flex flex-col animate-in slide-in-from-right duration-300">
+      <div className="fixed right-0 top-0 h-screen w-full sm:w-[420px] bg-gradient-to-b from-gray-50 to-white shadow-2xl z-50 flex flex-col animate-in slide-in-from-right duration-300">
         {/* Header */}
         <div className="flex items-center justify-between p-4 bg-white border-b border-gray-200 shadow-sm">
           <div className="flex items-center gap-3 flex-1 min-w-0">
