@@ -128,6 +128,71 @@ const resources = {
                 loading: "Loading Conversations...",
                 noConversations: "You don't have any conversations yet.",
                 you: "You"
+            },
+            userInfo: {
+                edit: "Edit",
+                logout: "Logout",
+                cancel: "Cancel",
+                save: "Save",
+                namePlaceholder: "Name",
+                nameUpdateSuccess: "Name updated successfully!",
+                nameUpdateError: "Failed to update name. Please try again."
+            },
+            addPostModal: {
+                title: "Add Product",
+                uploadImage: "Upload Book Image",
+                imageRequired: "Image is required",
+                bookName: "Book Name",
+                nameRequired: "Name is required",
+                bookCategory: "Book Category",
+                categoryRequired: "Category is required",
+                dealType: "Deal Type",
+                typeRequired: "Type of transaction is required",
+                priceOrExchange: "Price or Exchange",
+                priceExchangePlaceholder: "Ex: 30 DT or 'Exchange with Atomic Habits'",
+                fieldRequired: "This field is required",
+                bookLocation: "Book Location",
+                locationRequired: "Location is required",
+                cancel: "Cancel",
+                save: "Save",
+                productAddSuccess: "Product added successfully!",
+                productAddError: "Failed to add product. Please try again."
+            },
+            updatePostModal: {
+                title: "Update Product",
+                uploadImage: "Upload Book Image",
+                changeImage: "Change Image",
+                bookName: "Book Name",
+                nameRequired: "Name is required",
+                bookCategory: "Book Category",
+                categoryRequired: "Category is required",
+                dealType: "Deal Type",
+                typeRequired: "Type of transaction is required",
+                priceOrExchange: "Price or Exchange",
+                priceExchangePlaceholder: "Ex: 30 DT or 'Exchange with Atomic Habits'",
+                fieldRequired: "This field is required",
+                bookLocation: "Book Location",
+                locationRequired: "Location is required",
+                cancel: "Cancel",
+                update: "Update",
+                postUpdateSuccess: "Post updated successfully!",
+                postUpdateError: "Failed to update post. Please try again."
+            },
+            deletePostModal: {
+                title: "Delete Post",
+                confirmMessage: "Are you sure you want to delete this post? This action cannot be undone.",
+                cancel: "Cancel",
+                delete: "Delete",
+                deleteSuccess: "Post deleted successfully!",
+                deleteError: "Failed to delete post. Please try again."
+            },
+            updateProfilePictureModal: {
+                title: "Edit Profile Picture",
+                uploadImage: "Upload Image",
+                cancel: "Cancel",
+                update: "Update",
+                updateSuccess: "Profile picture updated successfully",
+                updateError: "Failed to update profile picture. Please try again."
             }
         }
     },
@@ -256,6 +321,71 @@ const resources = {
                 loading: "Chargement des conversations...",
                 noConversations: "Vous n'avez pas encore de conversations.",
                 you: "Vous"
+            },
+            userInfo: {
+                edit: "Modifier",
+                logout: "Déconnexion",
+                cancel: "Annuler",
+                save: "Enregistrer",
+                namePlaceholder: "Nom",
+                nameUpdateSuccess: "Nom mis à jour avec succès!",
+                nameUpdateError: "Échec de la mise à jour du nom. Veuillez réessayer."
+            },
+            addPostModal: {
+                title: "Ajouter un produit",
+                uploadImage: "Télécharger l'image du livre",
+                imageRequired: "L'image est requise",
+                bookName: "Nom du livre",
+                nameRequired: "Le nom est requis",
+                bookCategory: "Catégorie du livre",
+                categoryRequired: "La catégorie est requise",
+                dealType: "Type de transaction",
+                typeRequired: "Le type de transaction est requis",
+                priceOrExchange: "Prix ou Échange",
+                priceExchangePlaceholder: "Ex: 30 DT ou 'Échange avec Atomic Habits'",
+                fieldRequired: "Ce champ est requis",
+                bookLocation: "Localisation du livre",
+                locationRequired: "La localisation est requise",
+                cancel: "Annuler",
+                save: "Enregistrer",
+                productAddSuccess: "Produit ajouté avec succès!",
+                productAddError: "Échec de l'ajout du produit. Veuillez réessayer."
+            },
+            updatePostModal: {
+                title: "Mettre à jour le produit",
+                uploadImage: "Télécharger l'image du livre",
+                changeImage: "Changer l'image",
+                bookName: "Nom du livre",
+                nameRequired: "Le nom est requis",
+                bookCategory: "Catégorie du livre",
+                categoryRequired: "La catégorie est requise",
+                dealType: "Type de transaction",
+                typeRequired: "Le type de transaction est requis",
+                priceOrExchange: "Prix ou Échange",
+                priceExchangePlaceholder: "Ex: 30 DT ou 'Échange avec Atomic Habits'",
+                fieldRequired: "Ce champ est requis",
+                bookLocation: "Localisation du livre",
+                locationRequired: "La localisation est requise",
+                cancel: "Annuler",
+                update: "Mettre à jour",
+                postUpdateSuccess: "Publication mise à jour avec succès!",
+                postUpdateError: "Échec de la mise à jour. Veuillez réessayer."
+            },
+            deletePostModal: {
+                title: "Supprimer la publication",
+                confirmMessage: "Êtes-vous sûr de vouloir supprimer cette publication ? Cette action ne peut pas être annulée.",
+                cancel: "Annuler",
+                delete: "Supprimer",
+                deleteSuccess: "Publication supprimée avec succès!",
+                deleteError: "Échec de la suppression. Veuillez réessayer."
+            },
+            updateProfilePictureModal: {
+                title: "Modifier la photo de profil",
+                uploadImage: "Télécharger l'image",
+                cancel: "Annuler",
+                update: "Mettre à jour",
+                updateSuccess: "Photo de profil mise à jour avec succès",
+                updateError: "Échec de la mise à jour de la photo de profil. Veuillez réessayer."
             }
         }
     },
@@ -384,6 +514,71 @@ const resources = {
                 loading: "جارٍ تحميل المحادثات...",
                 noConversations: "ليس لديك أي محادثات بعد.",
                 you: "أنت"
+            },
+            userInfo: {
+                edit: "تعديل",
+                logout: "تسجيل الخروج",
+                cancel: "إلغاء",
+                save: "حفظ",
+                namePlaceholder: "الاسم",
+                nameUpdateSuccess: "تم تحديث الاسم بنجاح!",
+                nameUpdateError: "فشل تحديث الاسم. يرجى المحاولة مرة أخرى."
+            },
+            addPostModal: {
+                title: "إضافة منتج",
+                uploadImage: "رفع صورة الكتاب",
+                imageRequired: "الصورة مطلوبة",
+                bookName: "اسم الكتاب",
+                nameRequired: "الاسم مطلوب",
+                bookCategory: "فئة الكتاب",
+                categoryRequired: "الفئة مطلوبة",
+                dealType: "نوع الصفقة",
+                typeRequired: "نوع المعاملة مطلوب",
+                priceOrExchange: "السعر أو التبادل",
+                priceExchangePlaceholder: "مثال: 30 دينار أو 'تبادل مع Atomic Habits'",
+                fieldRequired: "هذا الحقل مطلوب",
+                bookLocation: "موقع الكتاب",
+                locationRequired: "الموقع مطلوب",
+                cancel: "إلغاء",
+                save: "حفظ",
+                productAddSuccess: "تمت إضافة المنتج بنجاح!",
+                productAddError: "فشل إضافة المنتج. يرجى المحاولة مرة أخرى."
+            },
+            updatePostModal: {
+                title: "تحديث المنتج",
+                uploadImage: "رفع صورة الكتاب",
+                changeImage: "تغيير الصورة",
+                bookName: "اسم الكتاب",
+                nameRequired: "الاسم مطلوب",
+                bookCategory: "فئة الكتاب",
+                categoryRequired: "الفئة مطلوبة",
+                dealType: "نوع الصفقة",
+                typeRequired: "نوع المعاملة مطلوب",
+                priceOrExchange: "السعر أو التبادل",
+                priceExchangePlaceholder: "مثال: 30 دينار أو 'تبادل مع Atomic Habits'",
+                fieldRequired: "هذا الحقل مطلوب",
+                bookLocation: "موقع الكتاب",
+                locationRequired: "الموقع مطلوب",
+                cancel: "إلغاء",
+                update: "تحديث",
+                postUpdateSuccess: "تم تحديث المنشور بنجاح!",
+                postUpdateError: "فشل التحديث. يرجى المحاولة مرة أخرى."
+            },
+            deletePostModal: {
+                title: "حذف المنشور",
+                confirmMessage: "هل أنت متأكد أنك تريد حذف هذا المنشور؟ لا يمكن التراجع عن هذا الإجراء.",
+                cancel: "إلغاء",
+                delete: "حذف",
+                deleteSuccess: "تم حذف المنشور بنجاح!",
+                deleteError: "فشل الحذف. يرجى المحاولة مرة أخرى."
+            },
+            updateProfilePictureModal: {
+                title: "تعديل صورة الملف الشخصي",
+                uploadImage: "رفع صورة",
+                cancel: "إلغاء",
+                update: "تحديث",
+                updateSuccess: "تم تحديث صورة الملف الشخصي بنجاح",
+                updateError: "فشل تحديث صورة الملف الشخصي. يرجى المحاولة مرة أخرى."
             }
         }
     }

@@ -18,8 +18,10 @@ import { supabase } from "../../supabaseClient";
 import { toast } from "react-toastify";
 import cities from "../../data/cities";
 import CATEGORIES from "../../data/categories";
+import { useTranslation } from "react-i18next";
 
 const UpdatePostModal = ({ open, onClose, post }) => {
+  const { t } = useTranslation();
   const {
     handleSubmit,
     control,
@@ -39,7 +41,6 @@ const UpdatePostModal = ({ open, onClose, post }) => {
   const [imagePreview, setImagePreview] = useState(null);
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
-
   useEffect(() => {
     if (post) {
       reset({
@@ -92,18 +93,20 @@ const UpdatePostModal = ({ open, onClose, post }) => {
 
       if (updateError) throw updateError;
 
-      toast.success("Post updated successfully!");
+      toast.success(t("updatePostModal.postUpdateSuccess"));
       onClose();
     } catch (error) {
       console.error("Error updating post:", error);
-      toast.error("Failed to update post. Please try again.");
+      toast.error(t("updatePostModal.postUpdateError"));
     } finally {
       setLoading(false);
     }
   };
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-      <DialogTitle sx={{ textAlign: "center" }}>Update Product</DialogTitle>
+      <DialogTitle sx={{ textAlign: "center" }}>
+        {t("updatePostModal.title")}
+      </DialogTitle>
       <form onSubmit={handleSubmit(onSubmit)}>
         <DialogContent dividers>
           <Controller
@@ -112,7 +115,9 @@ const UpdatePostModal = ({ open, onClose, post }) => {
             render={({ field }) => (
               <div style={{ marginBottom: 20 }}>
                 <Button variant="contained" component="label">
-                  {imagePreview ? "Change Image" : "Upload Book Image"}
+                  {imagePreview
+                    ? t("updatePostModal.changeImage")
+                    : t("updatePostModal.uploadImage")}
                   <input
                     type="file"
                     hidden
@@ -146,10 +151,10 @@ const UpdatePostModal = ({ open, onClose, post }) => {
           <Controller
             name="name"
             control={control}
-            rules={{ required: "Name is required" }}
+            rules={{ required: t("updatePostModal.nameRequired") }}
             render={({ field }) => (
               <TextField
-                label="Book Name"
+                label={t("updatePostModal.bookName")}
                 fullWidth
                 margin="normal"
                 error={!!errors.name}
@@ -162,14 +167,14 @@ const UpdatePostModal = ({ open, onClose, post }) => {
           <Controller
             name="category"
             control={control}
-            rules={{ required: "Category is required" }}
+            rules={{ required: t("updatePostModal.categoryRequired") }}
             render={({ field }) => (
               <FormControl fullWidth margin="normal" error={!!errors.category}>
-                <InputLabel>Book Category</InputLabel>
-                <Select {...field} label="Book Category">
+                <InputLabel>{t("updatePostModal.bookCategory")}</InputLabel>
+                <Select {...field} label={t("updatePostModal.bookCategory")}>
                   {CATEGORIES.map((c) => (
                     <MenuItem key={c} value={c}>
-                      {c}
+                      {t(`categories.${c}`)}
                     </MenuItem>
                   ))}
                 </Select>
@@ -182,14 +187,14 @@ const UpdatePostModal = ({ open, onClose, post }) => {
             <Controller
               name="type"
               control={control}
-              rules={{ required: "Type of transaction is required" }}
+              rules={{ required: t("updatePostModal.typeRequired") }}
               render={({ field }) => (
                 <FormControl fullWidth margin="normal" error={!!errors.type}>
-                  <InputLabel>Deal Type</InputLabel>
-                  <Select {...field} label="Deal Type">
+                  <InputLabel>{t("updatePostModal.dealType")}</InputLabel>
+                  <Select {...field} label={t("updatePostModal.dealType")}>
                     {["sell", "exchange", "donate"].map((c) => (
                       <MenuItem key={c} value={c}>
-                        {c}
+                        {t(`filterPanel.${c}`)}
                       </MenuItem>
                     ))}
                   </Select>
@@ -200,13 +205,11 @@ const UpdatePostModal = ({ open, onClose, post }) => {
             <Controller
               name="deal"
               control={control}
-              rules={{
-                required: "This field is required",
-              }}
+              rules={{ required: t("updatePostModal.fieldRequired") }}
               render={({ field }) => (
                 <TextField
-                  label="Price or Exchange"
-                  placeholder="Ex: 30 DT or 'Exchange with Atomic Habits'"
+                  label={t("updatePostModal.priceOrExchange")}
+                  placeholder={t("updatePostModal.priceExchangePlaceholder")}
                   type="text"
                   fullWidth
                   margin="normal"
@@ -221,14 +224,14 @@ const UpdatePostModal = ({ open, onClose, post }) => {
           <Controller
             name="location"
             control={control}
-            rules={{ required: "Location is required" }}
+            rules={{ required: t("updatePostModal.locationRequired") }}
             render={({ field }) => (
               <FormControl fullWidth margin="normal" error={!!errors.location}>
-                <InputLabel>Book Location</InputLabel>
-                <Select {...field} label="Book Location">
+                <InputLabel>{t("updatePostModal.bookLocation")}</InputLabel>
+                <Select {...field} label={t("updatePostModal.bookLocation")}>
                   {cities.map((c) => (
                     <MenuItem key={c} value={c}>
-                      {c}
+                      {t(`cities.${c}`)}
                     </MenuItem>
                   ))}
                 </Select>
@@ -240,7 +243,7 @@ const UpdatePostModal = ({ open, onClose, post }) => {
 
         <DialogActions>
           <Button onClick={onClose} color="inherit">
-            Cancel
+            {t("updatePostModal.cancel")}
           </Button>
           <Button
             type="submit"
@@ -248,7 +251,11 @@ const UpdatePostModal = ({ open, onClose, post }) => {
             color="primary"
             disabled={!isValid || loading}
           >
-            {loading ? <CircularProgress size={24} /> : "Update"}
+            {loading ? (
+              <CircularProgress size={24} />
+            ) : (
+              t("updatePostModal.update")
+            )}
           </Button>
         </DialogActions>
       </form>

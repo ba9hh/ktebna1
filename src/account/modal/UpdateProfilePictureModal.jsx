@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { toast } from "react-toastify";
 import { supabase } from "../../supabaseClient";
+import { useTranslation } from "react-i18next";
 
 const UpdateProfilePictureModal = ({
   open,
@@ -17,6 +18,7 @@ const UpdateProfilePictureModal = ({
   userId,
   userProfilePicture,
 }) => {
+  const { t } = useTranslation();
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState(null);
@@ -58,10 +60,10 @@ const UpdateProfilePictureModal = ({
       handleClose();
       setFile(null);
       setPreview(null);
-      toast.success("Profile picture updated successfully");
+      toast.success(t("updateProfilePictureModal.updateSuccess"));
     } catch (error) {
       console.error("Error updating profile picture:", error);
-      toast.error("Failed to update profile picture. Please try again.");
+      toast.error(t("updateProfilePictureModal.updateError"));
     } finally {
       setLoading(false);
     }
@@ -77,7 +79,7 @@ const UpdateProfilePictureModal = ({
 
   return (
     <Dialog open={open} onClose={handleClose}>
-      <DialogTitle>Edit Profile Picture</DialogTitle>
+      <DialogTitle>{t("updateProfilePictureModal.title")}</DialogTitle>
       <DialogContent dividers>
         <Stack spacing={2}>
           <div className="flex justify-center">
@@ -96,7 +98,7 @@ const UpdateProfilePictureModal = ({
             )}
           </div>
           <Button variant="outlined" component="label" sx={{ px: 12 }}>
-            Upload Image
+            {t("updateProfilePictureModal.uploadImage")}
             <input
               type="file"
               accept="image/*"
@@ -108,14 +110,18 @@ const UpdateProfilePictureModal = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose} disabled={loading}>
-          Cancel
+          {t("updateProfilePictureModal.cancel")}
         </Button>
         <Button
           variant="contained"
           onClick={handleUpdate}
           disabled={loading || !file}
         >
-          {loading ? <CircularProgress size={20} color="inherit" /> : "Update"}
+          {loading ? (
+            <CircularProgress size={20} color="inherit" />
+          ) : (
+            t("updateProfilePictureModal.update")
+          )}
         </Button>
       </DialogActions>
     </Dialog>

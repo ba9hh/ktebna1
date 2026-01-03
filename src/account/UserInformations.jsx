@@ -5,8 +5,9 @@ import { Pencil } from "lucide-react";
 import UpdateProfilePictureModal from "./modal/UpdateProfilePictureModal";
 import { supabase } from "../supabaseClient";
 import { toast } from "react-toastify";
-
+import { useTranslation } from "react-i18next";
 const UserInformations = () => {
+  const { t } = useTranslation();
   const { user, logout } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
   const [editMode, setEditMode] = useState(false);
@@ -44,12 +45,12 @@ const UserInformations = () => {
 
       if (error) throw error;
 
-      toast.success("Name updated successfully!");
+      toast.success(t("userInfo.nameUpdateSuccess"));
       setEditMode(false);
       refetch();
     } catch (error) {
       console.error("Error updating name:", error);
-      toast.error("Failed to update name. Please try again.");
+      toast.error(t("userInfo.nameUpdateError"));
     }
   };
 
@@ -80,13 +81,13 @@ const UserInformations = () => {
               onClick={() => setEditMode(!editMode)}
               className="px-3 py-1 text-sm rounded-lg border bg-gray-100 hover:bg-gray-200"
             >
-              Edit
+              {t("userInfo.edit")}
             </button>
             <button
               onClick={logout}
               className="px-3 py-1 text-sm rounded-lg border bg-red-500 text-white hover:bg-red-600"
             >
-              Logout
+              {t("userInfo.logout")}
             </button>
           </div>
         </>
@@ -95,7 +96,7 @@ const UserInformations = () => {
           <input
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
-            placeholder={"Name"}
+            placeholder={t("userInfo.namePlaceholder")}
             className="border rounded-xl p-2"
           />
           <div className="flex gap-3 mt-3">
@@ -103,7 +104,7 @@ const UserInformations = () => {
               onClick={() => setEditMode(!editMode)}
               className="px-3 py-1 text-sm rounded-lg border bg-gray-100 hover:bg-gray-200"
             >
-              Cancel
+              {t("userInfo.cancel")}
             </button>
             <button
               onClick={handleSave}
@@ -116,7 +117,7 @@ const UserInformations = () => {
                   : "bg-green-500 hover:bg-green-600"
               }`}
             >
-              Save
+              {t("userInfo.save")}
             </button>
           </div>
         </>

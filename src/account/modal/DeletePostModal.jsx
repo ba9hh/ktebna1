@@ -10,8 +10,10 @@ import {
 } from "@mui/material";
 import { toast } from "react-toastify";
 import { supabase } from "../../supabaseClient";
+import { useTranslation } from "react-i18next";
 
 const DeletePostModal = ({ open, onClose, post }) => {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
 
   if (!open) return null;
@@ -37,11 +39,11 @@ const DeletePostModal = ({ open, onClose, post }) => {
         }
       }
 
-      toast.success("Post deleted successfully!");
+      toast.success(t("deletePostModal.deleteSuccess"));
       onClose(true);
     } catch (error) {
       console.error("Error deleting post:", error);
-      toast.error("Failed to delete post. Please try again.");
+      toast.error(t("deletePostModal.deleteError"));
       onClose(false);
     } finally {
       setLoading(false);
@@ -50,16 +52,17 @@ const DeletePostModal = ({ open, onClose, post }) => {
 
   return (
     <Dialog open={open} onClose={() => onClose(false)} maxWidth="xs" fullWidth>
-      <DialogTitle sx={{ textAlign: "center" }}>Delete Post</DialogTitle>
+      <DialogTitle sx={{ textAlign: "center" }}>
+        {t("deletePostModal.title")}
+      </DialogTitle>
       <DialogContent dividers>
         <Typography align="center">
-          Are you sure you want to delete this post? This action cannot be
-          undone.
+          {t("deletePostModal.confirmMessage")}
         </Typography>
       </DialogContent>
       <DialogActions>
         <Button onClick={() => onClose(false)} color="inherit">
-          Cancel
+          {t("deletePostModal.cancel")}
         </Button>
         <Button
           onClick={handleDelete}
@@ -67,7 +70,11 @@ const DeletePostModal = ({ open, onClose, post }) => {
           color="error"
           disabled={loading}
         >
-          {loading ? <CircularProgress size={24} /> : "Delete"}
+          {loading ? (
+            <CircularProgress size={24} />
+          ) : (
+            t("deletePostModal.delete")
+          )}
         </Button>
       </DialogActions>
     </Dialog>

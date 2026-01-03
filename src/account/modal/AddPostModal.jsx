@@ -19,7 +19,7 @@ import { supabase } from "../../supabaseClient";
 import { toast } from "react-toastify";
 import cities from "../../data/cities";
 import CATEGORIES from "../../data/categories";
-
+import { useTranslation } from "react-i18next";
 const AddPostModal = ({ open, onClose, userId }) => {
   const {
     handleSubmit,
@@ -38,7 +38,7 @@ const AddPostModal = ({ open, onClose, userId }) => {
   const [imagePreview, setImagePreview] = useState(null);
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const { t } = useTranslation();
   if (!open) return null;
 
   const onSubmit = async (data) => {
@@ -75,28 +75,30 @@ const AddPostModal = ({ open, onClose, userId }) => {
 
       if (insertError) throw insertError;
 
-      toast.success("Product added successfully!");
+      toast.success(t("addPostModal.productAddSuccess"));
       onClose();
     } catch (error) {
       console.error("Error adding product:", error);
-      toast.error("Failed to add product. Please try again.");
+      toast.error(t("addPostModal.productAddError"));
     } finally {
       setLoading(false);
     }
   };
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-      <DialogTitle sx={{ textAlign: "center" }}>Add Product</DialogTitle>
+      <DialogTitle sx={{ textAlign: "center" }}>
+        {t("addPostModal.title")}
+      </DialogTitle>
       <form onSubmit={handleSubmit(onSubmit)}>
         <DialogContent dividers>
           <Controller
             name="image"
             control={control}
-            rules={{ required: "Image is required" }}
+            rules={{ required: t("addPostModal.imageRequired") }}
             render={({ field }) => (
               <div style={{ marginBottom: 20 }}>
                 <Button variant="contained" component="label">
-                  Upload Book Image
+                  {t("addPostModal.uploadImage")}
                   <input
                     type="file"
                     hidden
@@ -132,7 +134,7 @@ const AddPostModal = ({ open, onClose, userId }) => {
           <Controller
             name="name"
             control={control}
-            rules={{ required: "Name is required" }}
+            rules={{ required: t("addPostModal.nameRequired") }}
             render={({ field }) => (
               <TextField
                 label="Book Name"
@@ -147,14 +149,14 @@ const AddPostModal = ({ open, onClose, userId }) => {
           <Controller
             name="category"
             control={control}
-            rules={{ required: "Category is required" }}
+            rules={{ required: t("addPostModal.categoryRequired") }}
             render={({ field }) => (
               <FormControl fullWidth margin="normal" error={!!errors.category}>
-                <InputLabel>Book Category</InputLabel>
-                <Select {...field} label="Book Category">
+                <InputLabel>{t("addPostModal.bookCategory")}</InputLabel>
+                <Select {...field} label={t("addPostModal.bookCategory")}>
                   {CATEGORIES.map((c) => (
                     <MenuItem key={c} value={c}>
-                      {c}
+                      {t(`categories.${c}`)}
                     </MenuItem>
                   ))}
                 </Select>
@@ -166,14 +168,14 @@ const AddPostModal = ({ open, onClose, userId }) => {
             <Controller
               name="type"
               control={control}
-              rules={{ required: "Type of transaction is required" }}
+              rules={{ required: t("addPostModal.typeRequired") }}
               render={({ field }) => (
                 <FormControl fullWidth margin="normal" error={!!errors.type}>
-                  <InputLabel>Deal Type</InputLabel>
-                  <Select {...field} label="Deal Type">
+                  <InputLabel>{t("addPostModal.dealType")}</InputLabel>
+                  <Select {...field} label={t("addPostModal.dealType")}>
                     {["sell", "exchange", "donate"].map((c) => (
                       <MenuItem key={c} value={c}>
-                        {c}
+                        {t(`filterPanel.${c}`)}
                       </MenuItem>
                     ))}
                   </Select>
@@ -184,13 +186,11 @@ const AddPostModal = ({ open, onClose, userId }) => {
             <Controller
               name="deal"
               control={control}
-              rules={{
-                required: "This field is required",
-              }}
+              rules={{ required: t("addPostModal.fieldRequired") }}
               render={({ field }) => (
                 <TextField
-                  label="Price or Exchange"
-                  placeholder="Ex: 30 DT or 'Exchange with Atomic Habits'"
+                  label={t("addPostModal.priceOrExchange")}
+                  placeholder={t("addPostModal.priceExchangePlaceholder")}
                   type="text"
                   fullWidth
                   margin="normal"
@@ -204,14 +204,14 @@ const AddPostModal = ({ open, onClose, userId }) => {
           <Controller
             name="location"
             control={control}
-            rules={{ required: "Location is required" }}
+            rules={{ required: t("addPostModal.locationRequired") }}
             render={({ field }) => (
               <FormControl fullWidth margin="normal" error={!!errors.location}>
-                <InputLabel>Book Location</InputLabel>
-                <Select {...field} label="Book Location">
+                <InputLabel>{t("addPostModal.bookLocation")}</InputLabel>
+                <Select {...field} label={t("addPostModal.bookLocation")}>
                   {cities.map((c) => (
                     <MenuItem key={c} value={c}>
-                      {c}
+                      {t(`cities.${c}`)}
                     </MenuItem>
                   ))}
                 </Select>
@@ -223,7 +223,7 @@ const AddPostModal = ({ open, onClose, userId }) => {
 
         <DialogActions>
           <Button onClick={onClose} color="inherit">
-            Cancel
+            {t("addPostModal.cancel")}
           </Button>
           <Button
             type="submit"
@@ -231,7 +231,7 @@ const AddPostModal = ({ open, onClose, userId }) => {
             color="primary"
             disabled={!isValid || loading}
           >
-            {loading ? <CircularProgress size={24} /> : "Save"}
+            {loading ? <CircularProgress size={24} /> : t("addPostModal.save")}
           </Button>
         </DialogActions>
       </form>
