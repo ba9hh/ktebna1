@@ -193,6 +193,11 @@ const resources = {
                 update: "Update",
                 updateSuccess: "Profile picture updated successfully",
                 updateError: "Failed to update profile picture. Please try again."
+            },
+            bottomDrawer: {
+                deal: "Deal",
+                location: "Location",
+                owner: "Owner"
             }
         }
     },
@@ -386,6 +391,11 @@ const resources = {
                 update: "Mettre à jour",
                 updateSuccess: "Photo de profil mise à jour avec succès",
                 updateError: "Échec de la mise à jour de la photo de profil. Veuillez réessayer."
+            },
+            bottomDrawer: {
+                deal: "Offre",
+                location: "Localisation",
+                owner: "Propriétaire"
             }
         }
     },
@@ -579,6 +589,11 @@ const resources = {
                 update: "تحديث",
                 updateSuccess: "تم تحديث صورة الملف الشخصي بنجاح",
                 updateError: "فشل تحديث صورة الملف الشخصي. يرجى المحاولة مرة أخرى."
+            },
+            bottomDrawer: {
+                deal: "الصفقة",
+                location: "الموقع",
+                owner: "المالك"
             }
         }
     }
