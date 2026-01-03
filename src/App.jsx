@@ -31,7 +31,7 @@ function App() {
               <Route
                 path="/books"
                 element={
-                  <div className="mt-6">
+                  <div className="">
                     <BookReaderApp />
                   </div>
                 }
