@@ -11,6 +11,7 @@ import Contact from "./pages/Contact.jsx";
 import About from "./pages/About.jsx";
 import { MobileFiltersProvider } from "./context/MobileFiltersContext.jsx";
 import LoginPage from "./auth/LoginFinal.jsx";
+import BookReaderApp from "./pages/Books.jsx";
 function App() {
   return (
     <>
@@ -31,7 +32,7 @@ function App() {
                 path="/books"
                 element={
                   <div className="mt-6">
-                    <Home />
+                    <BookReaderApp />
                   </div>
                 }
               />
