@@ -66,7 +66,7 @@ const Home = () => {
     handleOpenChatDrawer,
     handleCloseChatDrawer,
   } = usePostInteractions(user);
-
+  console.log(user);
   return (
     <>
       <main className="mx-auto max-w-7xl px-4 pb-20">
