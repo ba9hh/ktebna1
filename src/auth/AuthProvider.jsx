@@ -17,6 +17,7 @@ const AuthProvider = ({ children }) => {
       if (session?.user) {
         setUser({
           id: session.user.id,
+          name: session.user.user_metadata.full_name,
         });
       } else {
         setUser(null);
@@ -31,6 +32,7 @@ const AuthProvider = ({ children }) => {
         if (session?.user) {
           setUser({
             id: session.user.id,
+            name: session.user.user_metadata.full_name,
           });
         } else {
           setUser(null);
