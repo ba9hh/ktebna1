@@ -8,6 +8,7 @@ import MessageList from "./MessageList";
 import { checkConversationExists } from "./conversationService";
 import { getMessages } from "./chatService";
 import { sendMessage } from "./messageService";
+import ChatInput from "./ChatInput";
 export default function ChatDrawer({
   open,
   onClose,
