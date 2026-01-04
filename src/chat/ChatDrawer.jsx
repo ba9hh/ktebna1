@@ -415,7 +415,7 @@ export default function ChatDrawer({
         await sendEmailNotification({
           recipientEmail: recipientData.email,
           recipientName: recipientData.name || otherUserName,
-          senderName: user?.name || userName,
+          senderName: user?.name || userName || "Someone",
           messageContent,
           bookName: bookName || conversation?.conversation_topic,
         });
