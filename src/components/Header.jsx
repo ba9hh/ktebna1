@@ -67,16 +67,36 @@ const Header = () => {
         </a>
         <div className="hidden md:flex items-center justify-center">
           <nav className="flex items-center gap-6 text-sm">
-            <Link className="hover:text-amber-800" to="/">
+            <Link
+              className={`hover:text-amber-800 ${
+                location.pathname == "/" ? "text-amber-700" : ""
+              }`}
+              to="/"
+            >
               {t("header.home")}
             </Link>
-            <Link className="hover:text-amber-800" to="/books">
+            <Link
+              className={`hover:text-amber-800 ${
+                location.pathname.startsWith("/books") ? "text-amber-700" : ""
+              }`}
+              to="/books"
+            >
               {t("header.books")}
             </Link>
-            <Link className="hover:text-amber-800" to="/about">
+            <Link
+              className={`hover:text-amber-800 ${
+                location.pathname == "/about" ? "text-amber-700" : ""
+              }`}
+              to="/about"
+            >
               {t("header.about")}
             </Link>
-            <Link className="hover:text-amber-800" to="/contact">
+            <Link
+              className={`hover:text-amber-800 ${
+                location.pathname == "/contact" ? "text-amber-700" : ""
+              }`}
+              to="/contact"
+            >
               {t("header.contact")}
             </Link>
           </nav>

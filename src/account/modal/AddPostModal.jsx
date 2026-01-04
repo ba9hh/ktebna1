@@ -137,7 +137,7 @@ const AddPostModal = ({ open, onClose, userId }) => {
             rules={{ required: t("addPostModal.nameRequired") }}
             render={({ field }) => (
               <TextField
-                label="Book Name"
+                label={t("addPostModal.bookName")}
                 fullWidth
                 margin="normal"
                 error={!!errors.name}
