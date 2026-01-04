@@ -111,6 +111,7 @@ const Home = () => {
           onClose={handleCloseChatDrawer}
           otherUserId={chatDetails.sellerId}
           otherUserName={chatDetails.sellerName}
+          userName={chatDetails.buyerName}
           bookName={chatDetails.bookName}
         />
         <LoginModal open={openLogin} onClose={() => setOpenLogin(false)} />

@@ -11,6 +11,7 @@ import Contact from "./pages/Contact.jsx";
 import About from "./pages/About.jsx";
 import { MobileFiltersProvider } from "./context/MobileFiltersContext.jsx";
 import LoginPage from "./auth/LoginFinal.jsx";
+import Books from "./books/Books.jsx";
 import BookReaderApp from "./pages/Books.jsx";
 function App() {
   return (
@@ -28,14 +29,7 @@ function App() {
                   </div>
                 }
               />
-              <Route
-                path="/books"
-                element={
-                  <div className="">
-                    <BookReaderApp />
-                  </div>
-                }
-              />
+              <Route path="/books" element={<Books />} />
               <Route path="/login1" element={<LoginPage />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />

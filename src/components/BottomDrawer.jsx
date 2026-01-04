@@ -36,7 +36,7 @@ const BottomDrawer = ({ open, onClose, book }) => {
                 {book.bookDescription}
               </p>
               <p className="font-medium">
-                {t("bottomDrawer.deal")}:
+                {t("bottomDrawer.deal")}:{" "}
                 <span className="text-amber-700">{book.book_deal}</span>
               </p>
               <p className="text-sm text-stone-500">

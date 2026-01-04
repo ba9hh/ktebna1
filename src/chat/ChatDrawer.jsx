@@ -274,6 +274,7 @@ export default function ChatDrawer({
   onClose,
   otherUserId,
   otherUserName,
+  userName,
   bookName,
 }) {
   const { user } = useContext(AuthContext);
@@ -414,7 +415,7 @@ export default function ChatDrawer({
         await sendEmailNotification({
           recipientEmail: recipientData.email,
           recipientName: recipientData.name || otherUserName,
-          senderName: user?.name || "Someone",
+          senderName: user?.name || userName,
           messageContent,
           bookName: bookName || conversation?.conversation_topic,
         });

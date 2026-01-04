@@ -8,6 +8,7 @@ export const usePostInteractions = (user) => {
     const [chatDetails, setChatDetails] = useState({
         sellerId: null,
         sellerName: null,
+        buyerName: null,
         bookName: null,
     });
 
@@ -30,6 +31,7 @@ export const usePostInteractions = (user) => {
         setChatDetails({
             sellerId: book.user_id,
             sellerName: book.users?.name,
+            buyerName: user?.name,
             bookName: book.book_name,
         });
         setOpenChatDrawer(true);
@@ -40,6 +42,7 @@ export const usePostInteractions = (user) => {
         setChatDetails({
             sellerId: null,
             sellerName: null,
+            buyerName: null,
             bookName: null,
         });
     };
