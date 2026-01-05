@@ -83,7 +83,7 @@ const HomeBook = ({
       <div className="relative w-full rounded-xl p-4 shadow-inner">
         <img src={book.book_image} className="w-full aspect-3/4 object-cover" />
         {book.book_category && (
-          <div className="absolute right-3 bottom-3 z-10 rounded-full bg-amber-400/95 px-2.5 py-1 text-xs font-medium text-amber-50 shadow truncate max-w-[80%]">
+          <div className="absolute right-3 bottom-3 z-10 rounded-full bg-amber-400/95 px-2.5 py-1 text-xs font-medium text-amber-50 shadow truncate max-w-[60%]">
             {t(`categories.${book.book_category}`)}
           </div>
         )}
