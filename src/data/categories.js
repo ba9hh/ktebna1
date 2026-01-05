@@ -1,2 +1,17 @@
-const CATEGORIES = ["All", "Classics", "Self-Help", "Fantasy", "Romance", "Fiction", "Non‑Fiction", "Children's Books"];
+const CATEGORIES = [
+    "All",
+    "Fiction",
+    "Non-Fiction",
+    "Science",
+    "History",
+    "Biography",
+    "Technology",
+    "Art",
+    "Philosophy",
+    "Poetry",
+    "Mystery",
+    "Romance",
+    "Self-Help",
+    "Children's Books"];
+
 export default CATEGORIES;
