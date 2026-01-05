@@ -55,26 +55,46 @@ export default function ChatDrawer({
     messageContent,
     bookName,
   }) => {
-    const res = await fetch("https://mailer-kkjf.onrender.com/send-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    // const res = await fetch("https://mailer-kkjf.onrender.com/send-email", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     recipientEmail,
+    //     recipientName,
+    //     senderName,
+    //     messageContent,
+    //     bookName,
+    //   }),
+    // });
+
+    // if (!res.ok) {
+    //   const error = await res.text();
+    //   throw new Error(error);
+    // }
+
+    // return res.json();
+    const { data, error } = await supabase.functions.invoke("send-email", {
+      body: {
         recipientEmail,
         recipientName,
         senderName,
         messageContent,
         bookName,
-      }),
+      },
     });
 
-    if (!res.ok) {
-      const error = await res.text();
-      throw new Error(error);
+    if (error) {
+      console.error("Supabase function error:", error);
+      throw new Error(error.message || "Failed to send email");
     }
 
-    return res.json();
+    if (!data?.success) {
+      throw new Error(data?.error || "Email sending failed");
+    }
+
+    return data;
   };
 
   const sendMessage = async (messageContent) => {
