@@ -1,5 +1,14 @@
 import React, { useState, useContext } from "react";
-import { Menu, Search, BookOpen, User, Globe, UserRound } from "lucide-react";
+import {
+  Menu,
+  Search,
+  BookOpen,
+  User,
+  Globe,
+  ListFilter,
+  SlidersHorizontal,
+  UserRound,
+} from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../auth/AuthProvider";
 import { Link } from "react-router-dom";
@@ -57,6 +66,13 @@ const Header = () => {
             aria-label="Open filters"
           >
             <Menu className="h-5 w-5" />
+          </button>
+          <button
+            onClick={() => setMobileFiltersOpen(!mobileFiltersOpen)}
+            className="rounded-xl border border-stone-300 bg-white/80 p-2 dark:border-stone-700 dark:bg-stone-800"
+            aria-label="Open filters"
+          >
+            <SlidersHorizontal className="h-5 w-5" />
           </button>
         </div>
         <a className="flex items-center gap-3" href="/">
