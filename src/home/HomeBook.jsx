@@ -116,7 +116,7 @@ const HomeBook = ({
                 handleToggleSave(book.id);
               }}
               disabled={saving}
-              className="flex items-center gap-1 rounded-xl border border-stone-300 bg-white/70 px-3 py-2 text-sm text-stone-700 hover:bg-stone-100 active:scale-[0.98] dark:border-stone-700 dark:bg-stone-800 dark:text-stone-200"
+              className="flex items-center gap-1 rounded-xl border border-stone-300 bg-white/70 px-3 py-2 text-sm text-stone-700 hover:bg-stone-100 active:scale-[0.98] dark:border-stone-700 dark:bg-stone-800 dark:text-stone-200 max-w-[50%]"
               aria-label="Add to wishlist"
             >
               {saving ? (
@@ -126,7 +126,7 @@ const HomeBook = ({
               ) : (
                 <Bookmark className="h-4 w-4" />
               )}
-              <span className="hidden sm:inline">
+              <span className="hidden sm:inline truncate">
                 {isSaved ? t("bookCard.saved") : t("bookCard.save")}
               </span>
             </button>
