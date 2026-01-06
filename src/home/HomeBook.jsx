@@ -51,42 +51,19 @@ const HomeBook = ({
     }
   };
   const handleToggleSave = async (postId) => {
-    try {
-      const { data, error } = await supabase.functions.invoke("send-email", {
-        body: {
-          recipientEmail: "ezedinejlidi3@gmail.com",
-          recipientName: "Ahmed",
-          senderName: "Ezdine",
-          bookName: "Atomic Habits",
-          messageContent: "Is this book still available?",
-        },
-      });
-
-      console.log("Response data:", data);
-      console.log("Response error:", error);
-
-      if (error) {
-        console.error("Error sending email:", error);
-      } else if (data?.success) {
-        console.log("Email sent successfully!");
-      }
-    } catch (err) {
-      console.error("Request failed:", err);
+    if (!userId) {
+      setOpenLogin(true);
+      return;
     }
-
-    // if (!userId) {
-    //   setOpenLogin(true);
-    //   return;
-    // }
-    // setSaving(true);
-    // try {
-    //   const result = await toggleSavePost(postId);
-    //   setIsSaved(result.status === "saved");
-    // } catch (err) {
-    //   console.error("Save toggle failed:", err);
-    // } finally {
-    //   setSaving(false);
-    // }
+    setSaving(true);
+    try {
+      const result = await toggleSavePost(postId);
+      setIsSaved(result.status === "saved");
+    } catch (err) {
+      console.error("Save toggle failed:", err);
+    } finally {
+      setSaving(false);
+    }
   };
   return (
     <motion.div

@@ -15,12 +15,17 @@ import HomeBooks from "./HomeBooks";
 import HomeHeader from "./HomeHeader";
 import MobileFiltersDrawer from "./MobileFiltersDrawer";
 import HomePagination from "./HomePagination";
+import MobileMenuDrawer from "./MobileMenuDrawer";
 
 const Home = () => {
   const [page, setPage] = useState(1);
   const pageSize = 12;
-  const { mobileFiltersOpen, setMobileFiltersOpen } =
-    useContext(MobileFiltersContext);
+  const {
+    mobileFiltersOpen,
+    setMobileFiltersOpen,
+    mobileMenuOpen,
+    setMobileMenuOpen,
+  } = useContext(MobileFiltersContext);
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get("search") || "";
   const [debouncedSearch] = useDebounce(searchQuery, 300);

@@ -14,12 +14,16 @@ import { AuthContext } from "../auth/AuthProvider";
 import { Link } from "react-router-dom";
 import { MobileFiltersContext } from "../context/MobileFiltersContext";
 import { useTranslation } from "react-i18next";
-
+import MobileMenuDrawer from "../home/MobileMenuDrawer.jsx";
 const Header = () => {
   const { t, i18n } = useTranslation();
 
-  const { mobileFiltersOpen, setMobileFiltersOpen } =
-    useContext(MobileFiltersContext);
+  const {
+    mobileFiltersOpen,
+    setMobileFiltersOpen,
+    mobileMenuOpen,
+    setMobileMenuOpen,
+  } = useContext(MobileFiltersContext);
   const [query, setQuery] = useState("");
   // const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const navigate = useNavigate();
@@ -61,7 +65,7 @@ const Header = () => {
       <div className="mx-auto grid max-w-7xl grid-cols-3 items-center gap-4 px-4 py-3 md:grid-cols-[1fr_auto_1fr]">
         <div className="flex items-center gap-2 md:hidden">
           <button
-            onClick={() => setMobileFiltersOpen(!mobileFiltersOpen)}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="rounded-xl border border-stone-300 bg-white/80 p-2 dark:border-stone-700 dark:bg-stone-800"
             aria-label="Open filters"
           >
