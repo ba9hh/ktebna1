@@ -360,7 +360,7 @@ export default function ChatDrawer({
                     <div
                       className={`group relative px-4 py-2.5 rounded-2xl max-w-[85%] shadow-sm transition-all ${
                         isOwn
-                          ? "bg-amber-600 text-white rounded-br-md"
+                          ? "bg-blue-600 text-white rounded-br-md"
                           : "bg-white text-gray-800 rounded-bl-md border border-gray-200"
                       }`}
                     >
@@ -417,8 +417,8 @@ export default function ChatDrawer({
               disabled={!input.trim() || sending || !canSendMore}
               className={`p-3 rounded-full transition-all duration-200 shadow-md disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 ${
                 sending
-                  ? "bg-blue-400"
-                  : "bg-blue-600 hover:bg-blue-700 active:scale-95"
+                  ? "bg-amber-400"
+                  : "bg-amber-600 hover:bg-amber-700 active:scale-95"
               }`}
             >
               <Send
