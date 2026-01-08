@@ -283,7 +283,7 @@ export default function ChatDrawer({
         {/* Header */}
         <div className="flex items-center justify-between p-4 bg-white border-b border-gray-200 shadow-sm">
           <div className="flex items-center gap-3 flex-1 min-w-0">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-semibold text-sm shadow-md">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-white font-semibold text-sm shadow-md">
               {otherUserName?.charAt(0)?.toUpperCase() || "?"}
             </div>
             <div className="flex-1 min-w-0">

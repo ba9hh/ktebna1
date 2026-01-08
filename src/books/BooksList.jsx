@@ -10,7 +10,7 @@ const BooksList = ({ books }) => {
   };
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {books.map((book) => (
         <div
           key={book.id}
@@ -21,7 +21,7 @@ const BooksList = ({ books }) => {
             <img
               src={book.cover}
               alt={book.title}
-              className="w-full h-64 object-cover"
+              className="w-full h-64 object-cover px-4 pt-4"
             />
           </div>
           <div className="p-4">
