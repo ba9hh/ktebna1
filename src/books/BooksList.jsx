@@ -1,6 +1,7 @@
 import React from "react";
 import { BookOpen } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const BooksList = ({ books }) => {
   const navigate = useNavigate();
@@ -12,16 +13,20 @@ const BooksList = ({ books }) => {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {books.map((book) => (
-        <div
+        <motion.div
+          layout
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
           key={book.id}
-          className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+          className="rounded-2xl border border-stone-200/60 bg-stone-50 shadow-sm transition hover:shadow-lg dark:border-stone-800/60 dark:bg-stone-900 cursor-pointer"
           onClick={() => handleBookSelect(book)}
         >
           <div className="relative">
             <img
               src={book.cover}
               alt={book.title}
-              className="w-full h-64 object-cover px-4 pt-4"
+              className="w-full aspect-3/4 object-cover px-4 pt-4"
             />
           </div>
           <div className="p-4">
@@ -34,7 +39,7 @@ const BooksList = ({ books }) => {
               <span>Read Now</span>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
