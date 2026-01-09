@@ -2,9 +2,8 @@ import CATEGORIES from "../data/categories";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
-function BooksFilterPanel() {
+function BooksFilterPanel({ category, setCategory }) {
   const { t } = useTranslation();
-  const [category, setCategory] = useState("All");
   return (
     <div className="sticky top-20 space-y-6 rounded-2xl border border-stone-200/60 bg-white/70 p-4 shadow-sm dark:border-stone-800 dark:bg-stone-900/70">
       <div>
