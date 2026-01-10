@@ -1,7 +1,7 @@
 import React from "react";
 import { Filter, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import FilterPanel from "../components/FilterPanel";
+import HomeFilterPanel from "./HomeFilterPanel";
 
 const DRAWER_ANIMATION = {
   initial: { x: -320 },
@@ -45,7 +45,7 @@ const MobileFiltersDrawer = ({
               <X size={14} />
             </button>
           </div>
-          <FilterPanel
+          <HomeFilterPanel
             category={category}
             setCategory={setCategory}
             dealType={dealType}

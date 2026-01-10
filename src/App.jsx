@@ -13,7 +13,6 @@ import { MobileFiltersProvider } from "./context/MobileFiltersContext.jsx";
 import LoginPage from "./auth/LoginFinal.jsx";
 import Books from "./books/Books.jsx";
 import Book from "./books/Book.jsx";
-import BookReaderApp from "./pages/Books.jsx";
 function App() {
   return (
     <>
