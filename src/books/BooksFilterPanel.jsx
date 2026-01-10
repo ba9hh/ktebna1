@@ -1,6 +1,5 @@
 import CATEGORIES from "../data/categories";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
 
 function BooksFilterPanel({ category, setCategory }) {
   const { t } = useTranslation();

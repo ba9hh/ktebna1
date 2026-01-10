@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import BottomDrawer from "../components/BottomDrawer";
-import FilterPanel from "../components/FilterPanel";
+import HomeFilterPanel from "./HomeFilterPanel";
 import { useSearchParams } from "react-router-dom";
 import ChatDrawer from "../chat/ChatDrawer";
 import LoginModal from "../auth/LoginModal";
@@ -78,7 +78,7 @@ const Home = () => {
         <div className="grid gap-8 md:grid-cols-[260px_1fr]">
           {/* Filters sidebar */}
           <aside className="hidden md:block">
-            <FilterPanel
+            <HomeFilterPanel
               category={category}
               setCategory={setCategory}
               dealType={dealType}

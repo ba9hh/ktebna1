@@ -1,7 +1,7 @@
 import CATEGORIES from "../data/categories";
 import { useTranslation } from "react-i18next";
 
-function FilterPanel({ category, setCategory, dealType, setDealType }) {
+function HomeFilterPanel({ category, setCategory, dealType, setDealType }) {
   const { t } = useTranslation();
 
   const dealTypes = [
@@ -56,4 +56,4 @@ function FilterPanel({ category, setCategory, dealType, setDealType }) {
   );
 }
 
-export default FilterPanel;
+export default HomeFilterPanel;

@@ -1,5 +1,5 @@
 import React from "react";
-import BooksFilterPanel from "../components/BooksFilterPanel";
+import BooksFilterPanel from "./BooksFilterPanel";
 import BooksHeader from "./BooksHeader";
 import BooksList from "./BooksList";
 import { booksData } from "../data/booksData";
