@@ -9,7 +9,7 @@ const Account = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (!user && !loading) {
-      navigate("/login1");
+      navigate("/login");
     }
   }, [user, loading, navigate]);
   return (

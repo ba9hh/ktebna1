@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import BottomDrawer from "../components/BottomDrawer";
 import HomeFilterPanel from "./HomeFilterPanel";
 import { useSearchParams } from "react-router-dom";
@@ -16,7 +16,6 @@ import HomeHeader from "./HomeHeader";
 import MobileFiltersDrawer from "./MobileFiltersDrawer";
 import HomePagination from "./HomePagination";
 import MobileMenuDrawer from "./MobileMenuDrawer";
-import { supabase } from "../supabaseClient";
 const Home = () => {
   const [page, setPage] = useState(1);
   const pageSize = 12;

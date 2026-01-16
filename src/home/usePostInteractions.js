@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../supabaseClient";
+
 export const usePostInteractions = (user) => {
     const [buyerName, setBuyerName] = useState(null);
 
@@ -17,10 +18,8 @@ export const usePostInteractions = (user) => {
                 console.error(error);
                 return;
             }
-            console.log("Fetched user name:", data.name);
             setBuyerName(data.name);
         };
-
         fetchUserName();
     }, [user]);
     const [openLogin, setOpenLogin] = useState(false);

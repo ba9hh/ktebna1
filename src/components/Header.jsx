@@ -47,7 +47,7 @@ const Header = () => {
     if (user) {
       navigate("/account/posts");
     } else {
-      navigate("/login1");
+      navigate("/login");
     }
   };
   const handleChange = (e) => {
