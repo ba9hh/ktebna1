@@ -69,6 +69,41 @@ const UserPosts = () => {
     },
   });
 
+  // Add mutation with optimistic update
+  const addMutation = useMutation({
+    mutationFn: async (newPost) => {
+      const { data, error } = await supabase
+        .from("posts")
+        .insert([newPost])
+        .select()
+        .single();
+
+      if (error) throw error;
+      return data;
+    },
+    onMutate: async (newPost) => {
+      await queryClient.cancelQueries({ queryKey: ["userPosts"] });
+      const previousPosts = queryClient.getQueryData(["userPosts"]);
+
+      const optimisticPost = {
+        ...newPost,
+        id: `temp-${Date.now()}`,
+        created_at: new Date().toISOString(),
+      };
+
+      queryClient.setQueryData(["userPosts"], (old) =>
+        old ? [optimisticPost, ...old] : [optimisticPost]
+      );
+
+      return { previousPosts };
+    },
+    onError: (err, newPost, context) => {
+      queryClient.setQueryData(["userPosts"], context.previousPosts);
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ["userPosts"] });
+    },
+  });
   const handleOpenUpdate = (post) => {
     setSelectedPost(post);
     setShowUpdateModal(true);
@@ -134,6 +169,7 @@ const UserPosts = () => {
         open={showAddModal}
         onClose={() => setShowAddModal(false)}
         userId={user?.id}
+        onAdd={addMutation.mutate}
       />
       {selectedPost && (
         <UpdatePostModal
