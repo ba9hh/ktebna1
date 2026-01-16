@@ -20,11 +20,10 @@ import { toast } from "react-toastify";
 import cities from "../../data/cities";
 import CATEGORIES from "../../data/categories";
 import { useTranslation } from "react-i18next";
-const AddPostModal = ({ open, onClose, userId, onAdd }) => {
+const AddPostModal = ({ open, onClose, userId }) => {
   const {
     handleSubmit,
     control,
-    reset,
     formState: { errors, isValid },
   } = useForm({
     defaultValues: {
@@ -40,7 +39,6 @@ const AddPostModal = ({ open, onClose, userId, onAdd }) => {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
-
   if (!open) return null;
 
   const onSubmit = async (data) => {
@@ -63,23 +61,21 @@ const AddPostModal = ({ open, onClose, userId, onAdd }) => {
         uploadedImageUrl = publicUrlData.publicUrl;
       }
 
-      const newPost = {
-        user_id: userId,
-        book_name: data.name,
-        book_category: data.category,
-        book_deal: data.deal,
-        book_deal_type: data.type,
-        book_image: uploadedImageUrl,
-        book_location: data.location,
-      };
+      const { error: insertError } = await supabase.from("posts").insert([
+        {
+          user_id: userId,
+          book_name: data.name,
+          book_category: data.category,
+          book_deal: data.deal,
+          book_deal_type: data.type,
+          book_image: uploadedImageUrl,
+          book_location: data.location,
+        },
+      ]);
 
-      // Call the mutation function passed from parent
-      onAdd(newPost);
+      if (insertError) throw insertError;
 
       toast.success(t("addPostModal.productAddSuccess"));
-      reset();
-      setImagePreview(null);
-      setFile(null);
       onClose();
     } catch (error) {
       console.error("Error adding product:", error);
