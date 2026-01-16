@@ -4,7 +4,7 @@ import AddPostModal from "./modal/AddPostModal";
 import UpdatePostModal from "./modal/UpdatePostModal";
 import DeletePostModal from "./modal/DeletePostModal";
 import { AuthContext } from "../auth/AuthProvider";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "../supabaseClient";
 import { Plus } from "lucide-react";
 
@@ -15,6 +15,7 @@ const UserPosts = () => {
   const [selectedPost, setSelectedPost] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const { user } = useContext(AuthContext);
+  const queryClient = useQueryClient();
 
   const fetchPosts = async () => {
     const { data, error } = await supabase
@@ -33,6 +34,75 @@ const UserPosts = () => {
   } = useQuery({
     queryKey: ["userPosts"], // cache key
     queryFn: fetchPosts,
+  });
+  const deleteMutation = useMutation({
+    mutationFn: async (post) => {
+      const { error: deleteError } = await supabase
+        .from("posts")
+        .delete()
+        .eq("id", post.id);
+
+      if (deleteError) throw deleteError;
+
+      if (post.book_image) {
+        const fileName = post.book_image.split("/").pop();
+        await supabase.storage.from("images").remove([fileName]);
+      }
+
+      return post.id;
+    },
+    onMutate: async (deletedPost) => {
+      await queryClient.cancelQueries({ queryKey: ["userPosts"] });
+      const previousPosts = queryClient.getQueryData(["userPosts"]);
+
+      queryClient.setQueryData(["userPosts"], (old) =>
+        old ? old.filter((post) => post.id !== deletedPost.id) : []
+      );
+
+      return { previousPosts };
+    },
+    onError: (err, deletedPost, context) => {
+      queryClient.setQueryData(["userPosts"], context.previousPosts);
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ["userPosts"] });
+    },
+  });
+
+  // Add mutation with optimistic update
+  const addMutation = useMutation({
+    mutationFn: async (newPost) => {
+      const { data, error } = await supabase
+        .from("posts")
+        .insert([newPost])
+        .select()
+        .single();
+
+      if (error) throw error;
+      return data;
+    },
+    onMutate: async (newPost) => {
+      await queryClient.cancelQueries({ queryKey: ["userPosts"] });
+      const previousPosts = queryClient.getQueryData(["userPosts"]);
+
+      const optimisticPost = {
+        ...newPost,
+        id: `temp-${Date.now()}`,
+        created_at: new Date().toISOString(),
+      };
+
+      queryClient.setQueryData(["userPosts"], (old) =>
+        old ? [optimisticPost, ...old] : [optimisticPost]
+      );
+
+      return { previousPosts };
+    },
+    onError: (err, newPost, context) => {
+      queryClient.setQueryData(["userPosts"], context.previousPosts);
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ["userPosts"] });
+    },
   });
   const handleOpenUpdate = (post) => {
     setSelectedPost(post);
@@ -99,6 +169,7 @@ const UserPosts = () => {
         open={showAddModal}
         onClose={() => setShowAddModal(false)}
         userId={user?.id}
+        onAdd={addMutation.mutate}
       />
       {selectedPost && (
         <UpdatePostModal
@@ -114,12 +185,12 @@ const UserPosts = () => {
       {selectedPost && (
         <DeletePostModal
           open={showDeleteModal}
-          onClose={(deleted) => {
+          onClose={() => {
             setShowDeleteModal(false);
             setSelectedPost(null);
-            if (deleted) fetchPosts();
           }}
           post={selectedPost}
+          onDelete={deleteMutation.mutate}
         />
       )}
     </div>

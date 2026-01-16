@@ -12,38 +12,22 @@ import { toast } from "react-toastify";
 import { supabase } from "../../supabaseClient";
 import { useTranslation } from "react-i18next";
 
-const DeletePostModal = ({ open, onClose, post }) => {
+const DeletePostModal = ({ open, onClose, post, onDelete }) => {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
+
   if (!open) return null;
 
   const handleDelete = async () => {
     setLoading(true);
     try {
-      const { error: deleteError } = await supabase
-        .from("posts")
-        .delete()
-        .eq("id", post.id);
-
-      if (deleteError) throw deleteError;
-
-      if (post.book_image) {
-        const fileName = post.book_image.split("/").pop();
-        const { error: storageError } = await supabase.storage
-          .from("images")
-          .remove([fileName]);
-
-        if (storageError) {
-          console.warn("Image delete failed:", storageError.message);
-        }
-      }
+      onDelete(post);
 
       toast.success(t("deletePostModal.deleteSuccess"));
-      onClose(true);
+      onClose();
     } catch (error) {
       console.error("Error deleting post:", error);
       toast.error(t("deletePostModal.deleteError"));
-      onClose(false);
     } finally {
       setLoading(false);
     }
