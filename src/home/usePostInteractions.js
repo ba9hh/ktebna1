@@ -1,6 +1,27 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import { supabase } from "../supabaseClient";
 export const usePostInteractions = (user) => {
+    const [buyerName, setBuyerName] = useState(null);
+
+    useEffect(() => {
+        if (!user?.id) return;
+
+        const fetchUserName = async () => {
+            const { data, error } = await supabase
+                .from("users")
+                .select("name")
+                .eq("id", user.id)
+                .single();
+
+            if (error) {
+                console.error(error);
+                return;
+            }
+            setBuyerName(data.name);
+        };
+
+        fetchUserName();
+    }, [user]);
     const [openLogin, setOpenLogin] = useState(false);
     const [selectedBook, setSelectedBook] = useState(null);
     const [openDrawer, setOpenDrawer] = useState(false);
@@ -31,7 +52,7 @@ export const usePostInteractions = (user) => {
         setChatDetails({
             sellerId: book.user_id,
             sellerName: book.users?.name,
-            buyerName: user?.name,
+            buyerName: buyerName,
             bookName: book.book_name,
         });
         setOpenChatDrawer(true);

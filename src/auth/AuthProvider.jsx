@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: "https://ktebna1.onrender.com/login1",
+        redirectTo: "https://ktebna.com/login1",
       },
     });
     if (error) console.error("Google login error:", error.message);
