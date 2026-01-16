@@ -73,7 +73,9 @@ const resources = {
                 "Mystery": "Mystery",
                 "Romance": "Romance",
                 "Self-Help": "Self-Help",
-                "Children's Books": "Children's Books"
+                "Children's Books": "Children's Books",
+                "Business": "Business",
+                "Finance": "Finance"
             },
             about: {
                 title: "About",
@@ -277,7 +279,9 @@ const resources = {
                 "Mystery": "Mystère",
                 "Romance": "Romance",
                 "Self-Help": "Développement personnel",
-                "Children's Books": "Livres pour enfants"
+                "Children's Books": "Livres pour enfants",
+                "Business": "Affaires",
+                "Finance": "Finance"
             },
             about: {
                 title: "À propos de",

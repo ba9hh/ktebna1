@@ -86,7 +86,6 @@ const LoginModal = ({
               },
             }}
           >
-            {/* <GoogleIcon sx={{ mr: 1, color: "#DB4437" }} /> */}
             <svg
               className="w-5 h-5"
               viewBox="0 0 48 48"
