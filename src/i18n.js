@@ -485,7 +485,9 @@ const resources = {
                 "Mystery": "غموض",
                 "Romance": "رومانسية",
                 "Self-Help": "تطوير ذاتي",
-                "Children's Books": "كتب الأطفال"
+                "Children's Books": "كتب الأطفال",
+                "Business": "أعمال",
+                "Finance": "تمويل"
             },
             about: {
                 title: "حول",
