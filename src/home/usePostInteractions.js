@@ -17,7 +17,8 @@ export const usePostInteractions = (user) => {
                 console.error(error);
                 return;
             }
-            setBuyerName(data);
+            console.log("Fetched user name:", data.name);
+            setBuyerName(data.name);
         };
 
         fetchUserName();
