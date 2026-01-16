@@ -15,7 +15,6 @@ import { useTranslation } from "react-i18next";
 const DeletePostModal = ({ open, onClose, post }) => {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
-
   if (!open) return null;
 
   const handleDelete = async () => {

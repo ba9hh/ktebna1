@@ -119,7 +119,7 @@ const UserPosts = () => {
             setSelectedPost(null);
             if (deleted) fetchPosts();
           }}
-          postId={selectedPost.id}
+          post={selectedPost}
         />
       )}
     </div>
