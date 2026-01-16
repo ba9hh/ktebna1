@@ -74,6 +74,7 @@ const LoginModal = ({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              gap: 1.5,
               px: 2,
               py: 1.5,
               borderRadius: 2,
