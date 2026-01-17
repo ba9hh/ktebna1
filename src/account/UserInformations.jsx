@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../auth/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
-import { Pencil } from "lucide-react";
+import { Pencil, ChevronLeft, ArrowLeft } from "lucide-react";
 import UpdateProfilePictureModal from "./modal/UpdateProfilePictureModal";
+import DeleteUserModal from "./modal/DeleteUserModal";
 import { supabase } from "../supabaseClient";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
@@ -11,6 +12,9 @@ const UserInformations = () => {
   const { user, logout } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
   const [editMode, setEditMode] = useState(false);
+  const [settingsMode, setSettingsMode] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+
   const [newName, setNewName] = useState("");
 
   const fetchUserInformation = async () => {
@@ -34,8 +38,8 @@ const UserInformations = () => {
     queryFn: () => fetchUserInformation(),
   });
   useEffect(() => {
-    if (user?.name) setNewName(user.name);
-  }, [user]);
+    if (userInfo?.name) setNewName(userInfo.name);
+  }, [userInfo]);
   const handleSave = async () => {
     try {
       const { error } = await supabase
@@ -70,13 +74,19 @@ const UserInformations = () => {
           className="w-16 h-16 object-cover rounded-full"
         />
       </div>
-      {!editMode ? (
+      {!editMode && !settingsMode ? (
         <>
           <div className="flex flex-col items-center">
             <h1>{userInfo?.name}</h1>
             <p>{userInfo?.email}</p>
           </div>
           <div className="flex gap-3 mt-3">
+            <button
+              onClick={() => setSettingsMode(!settingsMode)}
+              className="px-3 py-1 text-sm rounded-lg border bg-gray-100 hover:bg-gray-200"
+            >
+              {t("userInfo.settings")}
+            </button>
             <button
               onClick={() => setEditMode(!editMode)}
               className="px-3 py-1 text-sm rounded-lg border bg-gray-100 hover:bg-gray-200"
@@ -88,6 +98,26 @@ const UserInformations = () => {
               className="px-3 py-1 text-sm rounded-lg border bg-red-500 text-white hover:bg-red-600"
             >
               {t("userInfo.logout")}
+            </button>
+          </div>
+        </>
+      ) : settingsMode ? (
+        <>
+          {/* Settings Mode */}
+          <div className="w-full">
+            <button
+              onClick={() => setSettingsMode(false)}
+              className="flex items-center gap-1 text-gray-600 hover:text-gray-800 my-2 transition-colors"
+            >
+              <ArrowLeft size={16} />
+
+              <span className="text-sm font-medium">{t("userInfo.back")}</span>
+            </button>
+            <button
+              onClick={() => setShowDeleteModal(true)}
+              className="px-3 py-1 text-sm rounded-lg border bg-red-500 text-white hover:bg-red-600"
+            >
+              {t("userInfo.deleteAccount")}
             </button>
           </div>
         </>
@@ -128,6 +158,13 @@ const UserInformations = () => {
           handleClose={() => setOpen(false)}
           userId={userInfo?.id}
           userProfilePicture={userInfo?.profile_picture}
+        />
+      )}
+      {showDeleteModal && (
+        <DeleteUserModal
+          open={showDeleteModal}
+          onClose={() => setShowDeleteModal(false)}
+          userId={userInfo?.id}
         />
       )}
     </div>

@@ -138,10 +138,13 @@ const resources = {
                 you: "You"
             },
             userInfo: {
-                edit: "Edit",
+                edit: "Edit name",
+                settings: "Settings",
                 logout: "Logout",
                 cancel: "Cancel",
                 save: "Save",
+                back: "Back",
+                deleteAccount: "Delete Account",
                 namePlaceholder: "Name",
                 nameUpdateSuccess: "Name updated successfully!",
                 nameUpdateError: "Failed to update name. Please try again."
@@ -193,6 +196,12 @@ const resources = {
                 delete: "Delete",
                 deleteSuccess: "Post deleted successfully!",
                 deleteError: "Failed to delete post. Please try again."
+            },
+            deleteAccountModal: {
+                title: "Delete Account",
+                confirmMessage: "Are you sure you want to delete your account? This action is irreversible and all your data will be lost.",
+                deleteSuccess: "Account deleted successfully!",
+                deleteError: "Failed to delete account. Please try again."
             },
             updateProfilePictureModal: {
                 title: "Edit Profile Picture",
@@ -325,7 +334,7 @@ const resources = {
                 yourPosts: "Vos publications",
                 loading: "Chargement des publications...",
                 noPosts: "Vous n'avez pas encore de publications.",
-                edit: "Modifier",
+                edit: "Modifier nom",
                 delete: "Supprimer"
             },
             savedPosts: {
@@ -345,9 +354,12 @@ const resources = {
             },
             userInfo: {
                 edit: "Modifier",
+                settings: "Paramètres",
                 logout: "Déconnexion",
                 cancel: "Annuler",
                 save: "Enregistrer",
+                back: "Retour",
+                deleteAccount: "Supprimer le compte",
                 namePlaceholder: "Nom",
                 nameUpdateSuccess: "Nom mis à jour avec succès!",
                 nameUpdateError: "Échec de la mise à jour du nom. Veuillez réessayer."
@@ -399,6 +411,12 @@ const resources = {
                 delete: "Supprimer",
                 deleteSuccess: "Publication supprimée avec succès!",
                 deleteError: "Échec de la suppression. Veuillez réessayer."
+            },
+            deleteAccountModal: {
+                title: "Supprimer le compte",
+                confirmMessage: "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible et toutes vos données seront perdues.",
+                deleteSuccess: "Compte supprimé avec succès!",
+                deleteError: "Échec de la suppression du compte. Veuillez réessayer."
             },
             updateProfilePictureModal: {
                 title: "Modifier la photo de profil",
@@ -550,10 +568,13 @@ const resources = {
                 you: "أنت"
             },
             userInfo: {
-                edit: "تعديل",
+                edit: "تعديل الاسم",
+                settings: "الإعدادات",
                 logout: "تسجيل الخروج",
                 cancel: "إلغاء",
                 save: "حفظ",
+                back: "رجوع",
+                deleteAccount: "حذف الحساب",
                 namePlaceholder: "الاسم",
                 nameUpdateSuccess: "تم تحديث الاسم بنجاح!",
                 nameUpdateError: "فشل تحديث الاسم. يرجى المحاولة مرة أخرى."
@@ -605,6 +626,12 @@ const resources = {
                 delete: "حذف",
                 deleteSuccess: "تم حذف المنشور بنجاح!",
                 deleteError: "فشل الحذف. يرجى المحاولة مرة أخرى."
+            },
+            deleteAccountModal: {
+                title: "حذف الحساب",
+                confirmMessage: "هل أنت متأكد أنك تريد حذف حسابك؟ لا يمكن التراجع عن هذا الإجراء وسيتم فقدان جميع بياناتك.",
+                deleteSuccess: "تم حذف الحساب بنجاح!",
+                deleteError: "فشل حذف الحساب. يرجى المحاولة مرة أخرى."
             },
             updateProfilePictureModal: {
                 title: "تعديل صورة الملف الشخصي",
