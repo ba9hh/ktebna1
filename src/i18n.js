@@ -353,7 +353,7 @@ const resources = {
                 you: "Vous"
             },
             userInfo: {
-                edit: "Modifier",
+                edit: "Modifier nom",
                 settings: "Paramètres",
                 logout: "Déconnexion",
                 cancel: "Annuler",
