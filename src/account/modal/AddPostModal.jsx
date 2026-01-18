@@ -236,7 +236,9 @@ const AddPostModal = ({ open, onClose, userId, onAdd }) => {
             disabled={!isValid || loading}
             startIcon={loading && <CircularProgress size={16} />}
           >
-            {loading ? "This may take a few minutes." : t("addPostModal.save")}
+            {loading
+              ? t("addPostModal.mayTakeMinutes")
+              : t("addPostModal.save")}
           </Button>
         </DialogActions>
       </form>

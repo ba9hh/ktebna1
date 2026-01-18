@@ -166,6 +166,7 @@ const resources = {
                 locationRequired: "Location is required",
                 cancel: "Cancel",
                 save: "Save",
+                mayTakeMinutes: "This may take a few minutes.",
                 productAddSuccess: "Product added successfully!",
                 productAddError: "Failed to add product. Please try again."
             },
@@ -381,6 +382,7 @@ const resources = {
                 locationRequired: "La localisation est requise",
                 cancel: "Annuler",
                 save: "Enregistrer",
+                mayTakeMinutes: "Cela peut prendre quelques minutes.",
                 productAddSuccess: "Produit ajouté avec succès!",
                 productAddError: "Échec de l'ajout du produit. Veuillez réessayer."
             },
@@ -596,6 +598,7 @@ const resources = {
                 locationRequired: "الموقع مطلوب",
                 cancel: "إلغاء",
                 save: "حفظ",
+                mayTakeMinutes: "قد يستغرق هذا بضع دقائق.",
                 productAddSuccess: "تمت إضافة المنتج بنجاح!",
                 productAddError: "فشل إضافة المنتج. يرجى المحاولة مرة أخرى."
             },
