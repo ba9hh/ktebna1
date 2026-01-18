@@ -146,7 +146,9 @@ const UserPosts = () => {
               <p className="text-sm text-gray-600 truncate">
                 {t(post.book_category)}
               </p>
-              <p className="text-sm font-semibold truncate">{post.book_deal}</p>
+              <p className="text-sm font-semibold truncate">
+                {t(post.book_deal)}
+              </p>
               <div className="flex gap-2 mt-2">
                 <button
                   onClick={() => handleOpenUpdate(post)}

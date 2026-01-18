@@ -73,9 +73,9 @@ const resources = {
                 "Mystery": "Mystery",
                 "Romance": "Romance",
                 "Self-Help": "Self-Help",
-                "Children's Books": "Children's Books",
                 "Business": "Business",
-                "Finance": "Finance"
+                "Finance": "Finance",
+                "Children's Books": "Children's Books"
             },
             about: {
                 title: "About",
@@ -288,9 +288,9 @@ const resources = {
                 "Mystery": "Mystère",
                 "Romance": "Romance",
                 "Self-Help": "Développement personnel",
-                "Children's Books": "Livres pour enfants",
                 "Business": "Affaires",
-                "Finance": "Finance"
+                "Finance": "Finance",
+                "Children's Books": "Livres pour enfants"
             },
             about: {
                 title: "À propos de",
@@ -503,9 +503,9 @@ const resources = {
                 "Mystery": "غموض",
                 "Romance": "رومانسية",
                 "Self-Help": "تطوير ذاتي",
-                "Children's Books": "كتب الأطفال",
                 "Business": "أعمال",
-                "Finance": "تمويل"
+                "Finance": "تمويل",
+                "Children's Books": "كتب الأطفال"
             },
             about: {
                 title: "حول",

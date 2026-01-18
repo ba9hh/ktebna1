@@ -12,8 +12,9 @@ const CATEGORIES = [
     "Mystery",
     "Romance",
     "Self-Help",
-    "Children's Books",
     "Business",
-    "Finance",];
+    "Finance",
+    "Children's Books",
+];
 
 export default CATEGORIES;
