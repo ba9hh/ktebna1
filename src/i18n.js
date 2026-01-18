@@ -334,7 +334,7 @@ const resources = {
                 yourPosts: "Vos publications",
                 loading: "Chargement des publications...",
                 noPosts: "Vous n'avez pas encore de publications.",
-                edit: "Modifier nom",
+                edit: "Modifier",
                 delete: "Supprimer"
             },
             savedPosts: {
