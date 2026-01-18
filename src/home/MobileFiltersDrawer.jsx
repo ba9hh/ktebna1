@@ -1,5 +1,5 @@
 import React from "react";
-import { Filter, X } from "lucide-react";
+import { Filter, X, SlidersHorizontal } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import HomeFilterPanel from "./HomeFilterPanel";
 
@@ -34,7 +34,7 @@ const MobileFiltersDrawer = ({
         >
           <div className="mb-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Filter className="h-5 w-5" />
+              <SlidersHorizontal className="h-5 w-5" />
               <span className="font-semibold">Filters</span>
             </div>
             <button
