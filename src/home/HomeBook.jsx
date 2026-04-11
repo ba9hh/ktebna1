@@ -82,11 +82,11 @@ const HomeBook = ({
 
       <div className="relative w-full rounded-xl p-4 shadow-inner">
         <img src={book.book_image} className="w-full aspect-3/4 object-cover" />
-        {book.book_category && (
+        {/* {book.book_category && (
           <div className="absolute right-3 bottom-3 z-10 rounded-full bg-amber-400/95 px-2.5 py-1 text-xs font-medium text-amber-50 shadow truncate max-w-[60%]">
             {t(`categories.${book.book_category}`)}
           </div>
-        )}
+        )} */}
       </div>
 
       <div className="space-y-1 px-5 pb-5">
@@ -96,9 +96,9 @@ const HomeBook = ({
         <div>
           <p className="text-sm text-black dark:text-stone-400">
             {book.users?.name}
-          </p>
-          <p className="text-sm text-stone-600 dark:text-stone-400">
-            {book.book_location}
+            <span className="text-sm text-stone-600 dark:text-stone-400">
+              {book.book_location}
+            </span>
           </p>
         </div>
 

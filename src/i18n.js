@@ -216,7 +216,12 @@ const resources = {
                 deal: "Deal",
                 location: "Location",
                 owner: "Owner"
-            }
+            },
+            pagination: {
+                "previous": "Previous",
+                "next": "Next",
+                "page": "Page"
+            },
         }
     },
     fr: {
@@ -432,7 +437,12 @@ const resources = {
                 deal: "Offre",
                 location: "Localisation",
                 owner: "Propriétaire"
-            }
+            },
+            pagination: {
+                "previous": "Précédent",
+                "next": "Suivant",
+                "page": "Page"
+            },
         }
     },
     ar: {
@@ -648,8 +658,14 @@ const resources = {
                 deal: "الصفقة",
                 location: "الموقع",
                 owner: "المالك"
+            },
+            pagination: {
+                "previous": "السابق",
+                "next": "التالي",
+                "page": "الصفحة"
             }
         }
+
     }
 };
 
