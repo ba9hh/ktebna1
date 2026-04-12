@@ -89,12 +89,13 @@ const HomeBook = ({
         )} */}
       </div>
 
-      <div className="space-y-1 px-5 pb-5">
+      <div className="space-y-0.5 px-5 pb-5">
         <h3 className="font-serif text-lg text-stone-900 dark:text-stone-100 line-clamp-2 truncate">
           {book.book_name}
         </h3>
         <h3 className="font-serif text-lg text-stone-900 dark:text-stone-100 line-clamp-2 truncate">
-          want: {book.book_deal}
+          <span className="text-base text-stone-600">want:</span>{" "}
+          {book.book_deal}
         </h3>
         <div>
           <p className="text-sm text-black dark:text-stone-400">
