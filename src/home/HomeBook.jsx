@@ -72,7 +72,7 @@ const HomeBook = ({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       onClick={onClick}
-      className="group relative rounded-2xl border border-stone-200/60 bg-stone-50 shadow-sm transition hover:shadow-lg dark:border-stone-800/60 dark:bg-stone-900 cursor-pointer"
+      className="group relative rounded-b-2xl border border-stone-200/60 bg-stone-50 shadow-sm transition hover:shadow-lg dark:border-stone-800/60 dark:bg-stone-900 cursor-pointer"
     >
       {book.book_deal_type && (
         <div className="absolute left-3 top-3 z-10 rounded-full bg-amber-600/95 px-2.5 py-1 text-xs font-medium text-amber-50 shadow">
@@ -80,7 +80,7 @@ const HomeBook = ({
         </div>
       )}
 
-      <div className="relative w-full rounded-xl p-2 shadow-inner">
+      <div className="relative w-full rounded-xl p-1 shadow-inner">
         <img src={book.book_image} className="w-full aspect-3/4 object-cover" />
         {/* {book.book_category && (
           <div className="absolute right-3 bottom-3 z-10 rounded-full bg-amber-400/95 px-2.5 py-1 text-xs font-medium text-amber-50 shadow truncate max-w-[60%]">
@@ -100,8 +100,7 @@ const HomeBook = ({
           </span>
         </p>
         <h3 className="font-serif text-lg text-stone-900 dark:text-stone-100 line-clamp-2 truncate">
-          <span className="text-base text-stone-600">want:</span>{" "}
-          {book.book_deal}
+          <span className="text-sm text-stone-500">want:</span> {book.book_deal}
         </h3>
 
         <div className="mt-3 space-y-3">
