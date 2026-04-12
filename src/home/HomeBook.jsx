@@ -93,12 +93,14 @@ const HomeBook = ({
         <h3 className="font-serif text-lg text-stone-900 dark:text-stone-100 line-clamp-2 truncate">
           {book.book_name}
         </h3>
+        <hr />
         <p className="text-sm text-black dark:text-stone-400">
           {book.users?.name}
           <span className="text-sm text-stone-600 dark:text-stone-400">
             ({book.book_location})
           </span>
         </p>
+        <hr />
         <h3 className="font-serif text-lg text-stone-900 dark:text-stone-100 line-clamp-2 truncate">
           <span className="text-base text-stone-600">want:</span>{" "}
           {book.book_deal}
