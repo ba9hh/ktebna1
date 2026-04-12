@@ -93,20 +93,22 @@ const HomeBook = ({
         <h3 className="font-serif text-lg text-stone-900 dark:text-stone-100 line-clamp-2 truncate">
           {book.book_name}
         </h3>
+        <h3 className="font-serif text-lg text-stone-900 dark:text-stone-100 line-clamp-2 truncate">
+          want: {book.book_deal}
+        </h3>
         <div>
           <p className="text-sm text-black dark:text-stone-400">
             {book.users?.name}
             <span className="text-sm text-stone-600 dark:text-stone-400">
-              {book.book_location}
+              ({book.book_location})
             </span>
           </p>
         </div>
 
         <div className="mt-3 space-y-3">
-          {/* Book price or offer */}
-          <p className="text-base font-semibold text-stone-900 dark:text-stone-100 line-clamp-2 truncate">
+          {/* <p className="text-base font-semibold text-stone-900 dark:text-stone-100 line-clamp-2 truncate">
             {book.book_deal}
-          </p>
+          </p> */}
 
           {/* Actions */}
           <div className="flex items-center justify-between">
