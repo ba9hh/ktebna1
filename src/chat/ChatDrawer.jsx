@@ -37,10 +37,10 @@ export default function ChatDrawer({
       *,
       first_user:users!conversations_first_user_id_fkey(id, name, email, profile_picture),
       second_user:users!conversations_second_user_id_fkey(id, name, email, profile_picture)
-    `
+    `,
       )
       .or(
-        `and(first_user_id.eq.${user?.id},second_user_id.eq.${otherUserId}),and(first_user_id.eq.${otherUserId},second_user_id.eq.${user?.id})`
+        `and(first_user_id.eq.${user?.id},second_user_id.eq.${otherUserId}),and(first_user_id.eq.${otherUserId},second_user_id.eq.${user?.id})`,
       )
       .maybeSingle();
 
@@ -102,7 +102,7 @@ export default function ChatDrawer({
       .from("conversations")
       .select("*")
       .or(
-        `and(first_user_id.eq.${user?.id},second_user_id.eq.${otherUserId}),and(first_user_id.eq.${otherUserId},second_user_id.eq.${user?.id})`
+        `and(first_user_id.eq.${user?.id},second_user_id.eq.${otherUserId}),and(first_user_id.eq.${otherUserId},second_user_id.eq.${user?.id})`,
       )
       .maybeSingle();
 
@@ -197,7 +197,7 @@ export default function ChatDrawer({
       users (
         name
       )
-    `
+    `,
       )
       .eq("conversation_id", conversation?.id)
       .order("created_at", { ascending: true });
@@ -227,14 +227,14 @@ export default function ChatDrawer({
       queryClient.invalidateQueries(["messages", data.conversation.id]);
       queryClient.setQueryData(
         ["messages", data.conversation.id],
-        (old = []) => [...old, data.message]
+        (old = []) => [...old, data.message],
       );
       setInput("");
       setSending(false);
     },
     onError: (err) => {
       alert(
-        err.message || err.response?.data?.error || "Failed to send message"
+        err.message || err.response?.data?.error || "Failed to send message",
       );
       setSending(false);
     },
@@ -254,7 +254,7 @@ export default function ChatDrawer({
   };
 
   const userMessageCount = messages.filter(
-    (m) => m.user_id === user?.id
+    (m) => m.user_id === user?.id,
   ).length;
   const messageLimit = 2;
   const canSendMore = userMessageCount < messageLimit;
@@ -274,7 +274,7 @@ export default function ChatDrawer({
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity"
+        className="fixed inset-0 bg-black opacity-50 z-40 transition-opacity"
         onClick={onClose}
       />
 
