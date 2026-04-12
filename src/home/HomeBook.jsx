@@ -89,7 +89,7 @@ const HomeBook = ({
         )} */}
       </div>
 
-      <div className="px-3 pb-5">
+      <div className="px-3 pb-3">
         <h3 className="font-serif text-lg text-stone-900 dark:text-stone-100 line-clamp-2 truncate">
           <span className="text-sm text-stone-500">have:</span> {book.book_name}
         </h3>
