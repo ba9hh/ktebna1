@@ -109,7 +109,7 @@ const HomeBook = ({
           </p> */}
 
           {/* Actions */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-1">
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -138,7 +138,9 @@ const HomeBook = ({
                 handleOpenContactDrawer();
               }}
             >
-              <span className="truncate">{t("bookCard.contact")}</span>
+              <span className="truncate text-center">
+                {t("bookCard.contact")}
+              </span>
             </button>
           </div>
         </div>
