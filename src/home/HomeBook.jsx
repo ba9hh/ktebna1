@@ -132,7 +132,7 @@ const HomeBook = ({
             </button>
 
             <button
-              className="w-1/2 flex justify-center items-center gap-1 rounded-xl border border-amber-700 bg-amber-50 py-2 text-sm font-medium text-amber-50 hover:bg-amber-800 active:scale-[0.98] "
+              className="w-1/2 flex justify-center items-center gap-1 rounded-xl border border-amber-700 bg-amber-100 py-2 text-sm font-medium text-amber-50 hover:bg-amber-200 active:scale-[0.98] "
               onClick={(e) => {
                 e.stopPropagation();
                 handleOpenContactDrawer();
