@@ -132,13 +132,13 @@ const HomeBook = ({
             </button>
 
             <button
-              className="w-1/2 flex justify-center items-center gap-1 rounded-xl bg-amber-700 py-2 text-sm font-medium text-amber-50 shadow hover:bg-amber-800 active:scale-[0.98] "
+              className="w-1/2 flex justify-center items-center gap-1 rounded-xl border-amber-700 py-2 text-sm font-medium text-amber-50 shadow hover:bg-amber-800 active:scale-[0.98] "
               onClick={(e) => {
                 e.stopPropagation();
                 handleOpenContactDrawer();
               }}
             >
-              <span className="truncate text-center">
+              <span className="truncate text-center text-amber-700">
                 {t("bookCard.contact")}
               </span>
             </button>
