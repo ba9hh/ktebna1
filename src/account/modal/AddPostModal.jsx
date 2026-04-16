@@ -101,7 +101,19 @@ const AddPostModal = ({ open, onClose, userId, onAdd }) => {
             rules={{ required: t("addPostModal.imageRequired") }}
             render={({ field }) => (
               <div style={{ marginBottom: 20 }}>
-                <Button variant="contained" component="label">
+                <Button
+                  variant="contained"
+                  component="label"
+                  sx={{
+                    textTransform: "none",
+                    color: "#d97706",
+                    borderColor: "#d97706",
+                    "&:hover": {
+                      borderColor: "#b45309",
+                      backgroundColor: "rgba(217, 119, 6, 0.04)",
+                    },
+                  }}
+                >
                   {t("addPostModal.uploadImage")}
                   <input
                     type="file"
@@ -233,6 +245,13 @@ const AddPostModal = ({ open, onClose, userId, onAdd }) => {
             type="submit"
             variant="contained"
             color="primary"
+            sx={{
+              textTransform: "none",
+              backgroundColor: "#d97706",
+              "&:hover": {
+                backgroundColor: "#b45309",
+              },
+            }}
             disabled={!isValid || loading}
             startIcon={loading && <CircularProgress size={16} />}
           >
