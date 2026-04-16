@@ -238,7 +238,13 @@ const AddPostModal = ({ open, onClose, userId, onAdd }) => {
         </DialogContent>
 
         <DialogActions>
-          <Button onClick={onClose} color="inherit">
+          <Button
+            onClick={onClose}
+            color="inherit"
+            sx={{
+              textTransform: "none",
+            }}
+          >
             {t("addPostModal.cancel")}
           </Button>
           <Button
