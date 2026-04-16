@@ -102,7 +102,7 @@ const AddPostModal = ({ open, onClose, userId, onAdd }) => {
             render={({ field }) => (
               <div style={{ marginBottom: 20 }}>
                 <Button
-                  variant="contained"
+                  variant="outlined"
                   component="label"
                   sx={{
                     textTransform: "none",
