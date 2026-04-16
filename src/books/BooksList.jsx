@@ -30,7 +30,7 @@ const BooksList = ({ books }) => {
             />
           </div>
           <div className="px-3 py-3">
-            <h3 className="text-lg font-semibold text-gray-800 mb-0.5 truncate">
+            <h3 className="text-lg font-semibold text-gray-800 truncate">
               {book.title}
             </h3>
             <p className="text-sm text-gray-600 mb-4 truncate">{book.author}</p>

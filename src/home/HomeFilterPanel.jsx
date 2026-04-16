@@ -36,7 +36,22 @@ function HomeFilterPanel({ category, setCategory, dealType, setDealType }) {
 
       <div>
         <h3 className="mb-2 font-serif text-lg">{t("filterPanel.dealType")}</h3>
-        <select
+        <div className="flex flex-wrap gap-2">
+          {dealTypes.map((dt) => (
+            <button
+              key={dt.value}
+              onClick={() => setDealType(dt.value)}
+              className={`rounded-xl px-3 py-1.5 text-sm transition ${
+                dealType === dt.value
+                  ? "bg-amber-700 text-amber-50 shadow"
+                  : "border border-stone-300 bg-white/70 text-stone-700 hover:bg-stone-100 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-200"
+              }`}
+            >
+              {dt.label}
+            </button>
+          ))}
+        </div>
+        {/* <select
           value={dealType}
           onChange={(e) => setDealType(e.target.value)}
           className="w-full rounded-xl border border-stone-300 bg-white/80 px-3 py-2 text-sm dark:border-stone-700 dark:bg-stone-800"
@@ -46,7 +61,7 @@ function HomeFilterPanel({ category, setCategory, dealType, setDealType }) {
               {dt.label}
             </option>
           ))}
-        </select>
+        </select> */}
       </div>
       {/* 
       <div className="rounded-xl border border-amber-900/20 bg-amber-50/50 p-3 text-xs text-amber-900 dark:border-amber-900/40 dark:bg-amber-900/10 dark:text-amber-200">

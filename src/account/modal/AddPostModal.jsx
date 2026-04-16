@@ -104,6 +104,7 @@ const AddPostModal = ({ open, onClose, userId, onAdd }) => {
                 <Button
                   variant="outlined"
                   component="label"
+                  fullWidth
                   sx={{
                     textTransform: "none",
                     color: "#d97706",
