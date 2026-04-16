@@ -10,7 +10,7 @@ const BooksHeader = ({ language, setLanguage }) => {
     <div className="mb-4 flex items-center justify-between gap-3">
       <h2 className="font-serif text-2xl text-stone-900 dark:text-stone-100">
         {/* {t("homeHeader.recentBooks")} */}
-        Books
+        Books (PDF)
       </h2>
       <div className="flex items-center gap-2">
         <Filter className="h-4 w-4 text-stone-500 md:hidden" />
@@ -24,7 +24,7 @@ const BooksHeader = ({ language, setLanguage }) => {
               <option key={language} value={language}>
                 {language}
               </option>
-            )
+            ),
           )}
         </select>
       </div>
