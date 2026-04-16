@@ -19,14 +19,14 @@ const BooksList = ({ books }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           key={book.id}
-          className="rounded-2xl border border-stone-200/60 bg-stone-50 shadow-sm transition hover:shadow-lg dark:border-stone-800/60 dark:bg-stone-900 cursor-pointer"
+          className="rounded-b-2xl border border-stone-200/60 bg-stone-50 shadow-sm transition hover:shadow-lg dark:border-stone-800/60 dark:bg-stone-900 cursor-pointer"
           onClick={() => handleBookSelect(book)}
         >
           <div className="relative">
             <img
               src={book.cover}
               alt={book.title}
-              className="w-full aspect-3/4 object-cover px-4 pt-4"
+              className="w-full aspect-3/4 object-cover px-1 pt-1"
             />
           </div>
           <div className="p-4">
