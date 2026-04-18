@@ -16,7 +16,7 @@ const Contact = () => {
           {t("contact.subtitle")}
         </p>
 
-        <form className="space-y-6">
+        <form className="space-y-4">
           {/* <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               {t("contact.nameLabel")}
@@ -52,13 +52,13 @@ const Contact = () => {
 
           <button
             type="submit"
-            className="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 rounded-xl shadow-md transition"
+            className="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-1.5 rounded-xl shadow-md transition"
           >
             {t("contact.sendButton")}
           </button>
         </form>
 
-        <div className="mt-6 text-center text-gray-600 text-sm">
+        <div className="mt-4 text-center text-gray-600 text-sm">
           {t("contact.reachUs")}{" "}
           <span className="font-medium text-amber-600">
             ktebna.tunisie@gmail.com
