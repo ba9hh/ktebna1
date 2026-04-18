@@ -60,23 +60,29 @@ const UserInformations = () => {
 
   return (
     <div className="flex flex-col items-center w-full md:w-full p-6 gap-3 border rounded-xl shadow-md">
-      <div className="relative inline-block group w-16 h-16">
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="absolute bottom-0 -right-2 hover:bg-gray-100 bg-white rounded-full p-1 shadow-md transition-opacity focus:outline-none"
-        >
-          <Pencil size={14} color="#4B5563" />
-        </button>
-        <img
-          src={userInfo?.profile_picture}
-          alt="Profile picture"
-          className="w-16 h-16 object-cover rounded-full"
-        />
+      <div className="flex">
+        <div className="relative md:inline-block group w-16 h-16">
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="absolute bottom-0 -right-2 hover:bg-gray-100 bg-white rounded-full p-1 shadow-md transition-opacity focus:outline-none"
+          >
+            <Pencil size={14} color="#4B5563" />
+          </button>
+          <img
+            src={userInfo?.profile_picture}
+            alt="Profile picture"
+            className="w-16 h-16 object-cover rounded-full"
+          />
+        </div>
+        <div className="md:hidden flex flex-col">
+          <h1>{userInfo?.name}</h1>
+          <p>{userInfo?.email}</p>
+        </div>
       </div>
       {!editMode && !settingsMode ? (
         <>
-          <div className="flex flex-col items-center">
+          <div className="hidden md:flex flex-col items-center">
             <h1>{userInfo?.name}</h1>
             <p>{userInfo?.email}</p>
           </div>
