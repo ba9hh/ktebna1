@@ -16,7 +16,7 @@ const HomeHeader = ({ location, setLocation }) => {
         <select
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          className="rounded-b-xl border border-stone-300 bg-white/80 px-3 py-2 text-sm dark:border-stone-700 dark:bg-stone-800"
+          className="rounded-xl border border-stone-300 bg-white/80 px-3 py-2 text-sm dark:border-stone-700 dark:bg-stone-800"
         >
           {cities.map((city) => (
             <option key={city} value={city}>
