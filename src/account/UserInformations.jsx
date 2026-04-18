@@ -112,7 +112,7 @@ const UserInformations = () => {
                 setSettingsMode(!settingsMode);
                 setEditMode(!editMode);
               }}
-              className="px-3 py-1 text-sm rounded-lg border bg-gray-100 hover:bg-gray-200"
+              className="px-3 py-1 text-sm rounded-lg border bg-gray-100 hover:bg-gray-200 mb-0.5 mr-0.5"
             >
               {t("userInfo.edit")}
             </button>
