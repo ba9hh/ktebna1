@@ -175,7 +175,18 @@ const AddPostModal = ({ open, onClose, userId, onAdd }) => {
             control={control}
             rules={{ required: t("addPostModal.categoryRequired") }}
             render={({ field }) => (
-              <FormControl fullWidth margin="normal" error={!!errors.category}>
+              <FormControl
+                fullWidth
+                margin="normal"
+                error={!!errors.category}
+                sx={{
+                  "& label.Mui-focused": { color: "#d97706" },
+                  "& .MuiOutlinedInput-root": {
+                    "&:hover fieldset": { borderColor: "#b45309" },
+                    "&.Mui-focused fieldset": { borderColor: "#d97706" },
+                  },
+                }}
+              >
                 <InputLabel>{t("addPostModal.bookCategory")}</InputLabel>
                 <Select {...field} label={t("addPostModal.bookCategory")}>
                   {CATEGORIES.map((c) => (
