@@ -113,7 +113,7 @@ const UserPosts = () => {
     setShowDeleteModal(true);
   };
   return (
-    <div className="relative border flex flex-col flex-1 rounded-xl shadow-md pt-4 p-4">
+    <div className="relative border flex flex-col flex-1 rounded-xl shadow-md p-4">
       <button
         className="absolute right-3 rounded-xl bg-amber-700 px-3 py-1.5 text-sm font-medium text-amber-50 shadow hover:bg-amber-800 active:scale-[0.98] h-fit w-fit"
         onClick={() => setShowAddModal(true)}
@@ -135,9 +135,9 @@ const UserPosts = () => {
           {t("userPosts.noPosts")}
         </p>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-4">
           {posts?.map((post) => (
-            <div key={post.id} className="p-2">
+            <div key={post.id}>
               <img
                 src={post.book_image}
                 alt={post.book_name}
