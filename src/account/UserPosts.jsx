@@ -139,7 +139,7 @@ const UserPosts = () => {
               <img
                 src={post.book_image}
                 alt={post.book_name}
-                className="w-32 h-32 object-cover "
+                className="w-32 aspect-3/4 object-cover "
               />
               <h3 className="font-medium truncate">{post.book_name}</h3>
               <p className="text-sm text-gray-600 truncate">
