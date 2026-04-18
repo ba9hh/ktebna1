@@ -87,12 +87,7 @@ const UserInformations = () => {
             >
               {t("userInfo.settings")}
             </button>
-            <button
-              onClick={() => setEditMode(!editMode)}
-              className="px-3 py-1 text-sm rounded-lg border bg-gray-100 hover:bg-gray-200"
-            >
-              {t("userInfo.edit")}
-            </button>
+
             <button
               onClick={logout}
               className="px-3 py-1 text-sm rounded-lg border bg-red-500 text-white hover:bg-red-600"
@@ -110,8 +105,13 @@ const UserInformations = () => {
               className="flex items-center gap-1 text-gray-600 hover:text-gray-800 my-2 transition-colors"
             >
               <ArrowLeft size={16} />
-
               <span className="text-sm font-medium">{t("userInfo.back")}</span>
+            </button>
+            <button
+              onClick={() => setEditMode(!editMode)}
+              className="px-3 py-1 text-sm rounded-lg border bg-gray-100 hover:bg-gray-200"
+            >
+              {t("userInfo.edit")}
             </button>
             <button
               onClick={() => setShowDeleteModal(true)}
