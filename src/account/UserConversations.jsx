@@ -19,7 +19,7 @@ const UserConversations = () => {
       *,
       first_user:users!conversations_first_user_id_fkey(id, name, email, profile_picture),
       second_user:users!conversations_second_user_id_fkey(id, name, email, profile_picture)
-    `
+    `,
       )
       .or(`first_user_id.eq.${user?.id},second_user_id.eq.${user?.id}`)
       .order("updated_at", { ascending: false });
@@ -66,7 +66,7 @@ const UserConversations = () => {
                   setSelectedName(otherUser.name);
                   setOpen(true);
                 }}
-                className="flex items-center justify-between p-4 bg-white rounded-2xl shadow hover:shadow-md transition"
+                className="flex items-center justify-between p-4 bg-white rounded-2xl shadow hover:shadow-md transition cursor-pointer"
               >
                 <div className="flex items-center space-x-3">
                   <img
