@@ -59,7 +59,7 @@ const UserInformations = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full md:w-full p-6 gap-3 border rounded-xl shadow-md">
+    <div className="flex flex-col md:items-center w-full md:w-full p-6 gap-3 border rounded-xl shadow-md">
       <div className="flex items-center gap-4">
         <div className="relative md:inline-block group w-16 h-16">
           <button
