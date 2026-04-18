@@ -124,6 +124,7 @@ const UserPosts = () => {
       <h2 className="text-xl font-semibold text-center mb-4">
         {t("userPosts.yourPosts")}
       </h2>
+      <hr />
 
       {isLoading ? (
         <p className="text-gray-500 italic text-center">
