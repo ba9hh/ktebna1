@@ -97,7 +97,20 @@ const UpdateProfilePictureModal = ({
               />
             )}
           </div>
-          <Button variant="outlined" component="label" sx={{ px: 12 }}>
+          <Button
+            variant="outlined"
+            component="label"
+            sx={{
+              px: 12,
+              textTransform: "none",
+              color: "#d97706",
+              borderColor: "#d97706",
+              "&:hover": {
+                borderColor: "#b45309",
+                backgroundColor: "rgba(217, 119, 6, 0.04)",
+              },
+            }}
+          >
             {t("updateProfilePictureModal.uploadImage")}
             <input
               type="file"
@@ -109,13 +122,22 @@ const UpdateProfilePictureModal = ({
         </Stack>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} disabled={loading}>
+        <Button
+          onClick={handleClose}
+          disabled={loading}
+          sx={{ textTransform: "none" }}
+        >
           {t("updateProfilePictureModal.cancel")}
         </Button>
         <Button
           variant="contained"
           onClick={handleUpdate}
           disabled={loading || !file}
+          sx={{
+            textTransform: "none",
+            backgroundColor: "#d97706",
+            "&:hover": { backgroundColor: "#b45309" },
+          }}
         >
           {loading ? (
             <CircularProgress size={20} color="inherit" />
