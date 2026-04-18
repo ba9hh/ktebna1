@@ -160,6 +160,13 @@ const AddPostModal = ({ open, onClose, userId, onAdd }) => {
                 error={!!errors.name}
                 helperText={errors.name?.message}
                 {...field}
+                sx={{
+                  "& label.Mui-focused": { color: "#d97706" },
+                  "& .MuiOutlinedInput-root": {
+                    "&:hover fieldset": { borderColor: "#b45309" },
+                    "&.Mui-focused fieldset": { borderColor: "#d97706" },
+                  },
+                }}
               />
             )}
           />
@@ -187,7 +194,18 @@ const AddPostModal = ({ open, onClose, userId, onAdd }) => {
               control={control}
               rules={{ required: t("addPostModal.typeRequired") }}
               render={({ field }) => (
-                <FormControl fullWidth margin="normal" error={!!errors.type}>
+                <FormControl
+                  fullWidth
+                  margin="normal"
+                  error={!!errors.type}
+                  sx={{
+                    "& label.Mui-focused": { color: "#d97706" },
+                    "& .MuiOutlinedInput-root": {
+                      "&:hover fieldset": { borderColor: "#b45309" },
+                      "&.Mui-focused fieldset": { borderColor: "#d97706" },
+                    },
+                  }}
+                >
                   <InputLabel>{t("addPostModal.dealType")}</InputLabel>
                   <Select {...field} label={t("addPostModal.dealType")}>
                     {["sell", "exchange", "donate"].map((c) => (
@@ -214,6 +232,13 @@ const AddPostModal = ({ open, onClose, userId, onAdd }) => {
                   error={!!errors.deal}
                   helperText={errors.deal?.message}
                   {...field}
+                  sx={{
+                    "& label.Mui-focused": { color: "#d97706" },
+                    "& .MuiOutlinedInput-root": {
+                      "&:hover fieldset": { borderColor: "#b45309" },
+                      "&.Mui-focused fieldset": { borderColor: "#d97706" },
+                    },
+                  }}
                 />
               )}
             />
@@ -223,7 +248,18 @@ const AddPostModal = ({ open, onClose, userId, onAdd }) => {
             control={control}
             rules={{ required: t("addPostModal.locationRequired") }}
             render={({ field }) => (
-              <FormControl fullWidth margin="normal" error={!!errors.location}>
+              <FormControl
+                fullWidth
+                margin="normal"
+                error={!!errors.location}
+                sx={{
+                  "& label.Mui-focused": { color: "#d97706" },
+                  "& .MuiOutlinedInput-root": {
+                    "&:hover fieldset": { borderColor: "#b45309" },
+                    "&.Mui-focused fieldset": { borderColor: "#d97706" },
+                  },
+                }}
+              >
                 <InputLabel>{t("addPostModal.bookLocation")}</InputLabel>
                 <Select {...field} label={t("addPostModal.bookLocation")}>
                   {cities.map((c) => (
