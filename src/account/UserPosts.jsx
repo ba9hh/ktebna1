@@ -121,9 +121,7 @@ const UserPosts = () => {
         <Plus className="w-5 h-5 sm:hidden" />
         <span className="hidden sm:inline">{t("userPosts.addPost")}</span>
       </button>
-      <h2 className="text-base font-semibold mb-4">
-        {t("userPosts.yourPosts")}
-      </h2>
+      <h2 className="text-lg font-semibold mb-4">{t("userPosts.yourPosts")}</h2>
       <hr />
 
       {isLoading ? (
