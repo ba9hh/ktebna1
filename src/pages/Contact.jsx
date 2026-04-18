@@ -52,13 +52,13 @@ const Contact = () => {
 
           <button
             type="submit"
-            className="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-xl shadow-md transition"
+            className="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 rounded-xl shadow-md transition"
           >
             {t("contact.sendButton")}
           </button>
         </form>
 
-        <div className="mt-10 text-center text-gray-600 text-sm">
+        <div className="mt-6 text-center text-gray-600 text-sm">
           {t("contact.reachUs")}{" "}
           <span className="font-medium text-amber-600">
             ktebna.tunisie@gmail.com
