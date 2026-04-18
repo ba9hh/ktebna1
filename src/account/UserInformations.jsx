@@ -108,7 +108,10 @@ const UserInformations = () => {
               <span className="text-sm font-medium">{t("userInfo.back")}</span>
             </button>
             <button
-              onClick={() => setEditMode(!editMode)}
+              onClick={() => {
+                setSettingsMode(!settingsMode);
+                setEditMode(!editMode);
+              }}
               className="px-3 py-1 text-sm rounded-lg border bg-gray-100 hover:bg-gray-200"
             >
               {t("userInfo.edit")}
