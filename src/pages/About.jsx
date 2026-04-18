@@ -10,7 +10,7 @@ const About = () => {
           <span className="text-amber-600 ">{t("about.ktebna")}</span>
         </h1>
 
-        <p className="text-gray-700 text-lg leading-relaxed mb-6">
+        <p className="text-gray-700 text-base leading-relaxed mb-6">
           <span className="font-semibold">{t("about.ktebna")}</span>{" "}
           {t("about.paragraph1")}{" "}
           <span className="font-medium text-blue-600">{t("about.sell")}</span>,{" "}
@@ -24,7 +24,7 @@ const About = () => {
           {t("about.yourBooks")}
         </p>
 
-        <p className="text-gray-700 text-lg leading-relaxed mb-6">
+        <p className="text-gray-700 text-base leading-relaxed mb-6">
           {t("about.paragraph2")}
           <span className="font-semibold">{t("about.ktebna")}</span>{" "}
           {t("about.makesItEasy")}
@@ -53,7 +53,7 @@ const About = () => {
           </div>
         </div>
 
-        <p className="text-gray-700 text-lg mt-10 text-center italic">
+        <p className="text-gray-700 text-base mt-10 text-center italic">
           {t("about.footer")}
         </p>
       </div>
