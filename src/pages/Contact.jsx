@@ -5,9 +5,9 @@ const Contact = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen flex justify-center px-6 py-6">
-      <div className="max-w-3xl w-full bg-white/70 rounded-2xl border border-stone-200/60 shadow-sm p-8 md:p-12">
-        <h1 className="text-3xl md:text-3xl font-serif text-gray-900 mb-6 text-center">
+    <div className="min-h-screen flex justify-center px-6 py-10 ">
+      <div className="max-w-3xl w-full bg-white/70 rounded-2xl border border-stone-200/60 shadow-sm p-8 md:px-10 md:py-4">
+        <h1 className="text-2xl md:text-2xl font-serif text-gray-900 mb-6 text-center">
           {t("contact.title")}{" "}
           <span className="text-amber-600">{t("contact.ktebna")}</span>
         </h1>
@@ -44,7 +44,7 @@ const Contact = () => {
               {t("contact.messageLabel")}
             </label>
             <textarea
-              rows="5"
+              rows="3"
               placeholder={t("contact.messagePlaceholder")}
               className="w-full rounded-xl border border-gray-300 p-3 focus:ring-2 focus:ring-amber-500 focus:outline-none"
             ></textarea>
