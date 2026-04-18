@@ -17,7 +17,7 @@ const Contact = () => {
         </p>
 
         <form className="space-y-6">
-          <div>
+          {/* <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               {t("contact.nameLabel")}
             </label>
@@ -37,7 +37,7 @@ const Contact = () => {
               placeholder={t("contact.emailPlaceholder")}
               className="w-full rounded-xl border border-gray-300 p-3 focus:ring-2 focus:ring-amber-500 focus:outline-none"
             />
-          </div>
+          </div> */}
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
