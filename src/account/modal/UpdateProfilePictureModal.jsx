@@ -124,6 +124,7 @@ const UpdateProfilePictureModal = ({
       <DialogActions>
         <Button
           onClick={handleClose}
+          color="inherit"
           disabled={loading}
           sx={{ textTransform: "none" }}
         >
