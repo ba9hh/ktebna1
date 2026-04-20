@@ -42,8 +42,7 @@ const UserConversations = () => {
       <h2 className="text-lg font-semibold mb-4">
         {t("conversations.title")}{" "}
         <span className="text-gray-600 text-base font-normal">
-          (Toutes les conversations sont automatiquement supprimées à 00h00
-          (minuit).)
+          ({t("conversations.note")})
         </span>
       </h2>
       <hr />
