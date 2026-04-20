@@ -1,4 +1,3 @@
-// AuthProvider.jsx
 import { createContext, useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 
