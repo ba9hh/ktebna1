@@ -11,14 +11,14 @@ const Login = () => {
   }, [user, loading, navigate]);
   if (loading) return <p>Loading...</p>;
   return (
-    <div className="absolute inset-0 flex flex-col flex-1 justify-center items-center w-full sm:bg-[#f5f5f5] bg-white gap-6">
+    <div className="absolute inset-0 flex flex-col flex-1 justify-center items-center w-full sm:bg-[#f5f5f5] bg-white gap-6 bg-[radial-gradient(ellipse_at_top,rgba(120,53,15,0.08),transparent_50%),linear-gradient(to_bottom,#faf7f2,#f7f3ea)] text-stone-800 dark:bg-[linear-gradient(to_bottom,#0b0a09,#0d0c0a)]">
       {user ? (
         <></>
       ) : (
         <button
           onClick={loginWithGoogle}
           aria-label="Login with Google"
-          className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm text-gray-700 hover:bg-gray-50 active:scale-95 transition duration-150 ease-in-out"
+          className="flex items-center justify-center gap-2 px-5 py-2 bg-white/40 border border-gray-300 rounded-b-lg shadow-sm text-gray-700 hover:bg-gray-50 active:scale-95 transition duration-150 ease-in-out"
         >
           {/* Google Logo */}
           <svg
