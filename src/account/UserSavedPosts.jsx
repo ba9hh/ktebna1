@@ -95,17 +95,17 @@ const UserSavedPosts = () => {
           {t("savedPosts.noPosts")}
         </p>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
           {savedPosts?.map((post) => (
-            <div key={post.postId?._id} className="p-2">
+            <div key={post.postId?._id}>
               <img
                 src={post.book_image}
                 alt={post.book_name}
-                className="w-32 h-32 object-cover"
+                className="w-32 aspect-3/4 object-cover"
               />
-              <h3 className="font-medium">{post.book_name}</h3>
-              <p className="text-sm text-gray-600">{post.book_category}</p>
-              <p className="text-sm font-semibold">{post.book_deal}</p>
+              <h3 className="font-medium truncate">{post.book_name}</h3>
+              {/* <p className="text-sm text-gray-600">{post.book_category}</p>
+              <p className="text-sm font-semibold">{post.book_deal}</p> */}
               <div className="flex gap-2 mt-2">
                 <button
                   onClick={() => toggleSavePost(post)}
