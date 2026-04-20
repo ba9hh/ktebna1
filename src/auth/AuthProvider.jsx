@@ -36,7 +36,7 @@ const AuthProvider = ({ children }) => {
           setUser(null);
         }
         setLoading(false);
-      }
+      },
     );
     setLoading(false);
     return () => {
@@ -56,8 +56,13 @@ const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     setLoading(true);
-    await supabase.auth.signOut();
-    setLoading(false);
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+    } catch (error) {
+      console.error("Logout failed:", error.message);
+      setLoading(false);
+    }
   };
 
   return (

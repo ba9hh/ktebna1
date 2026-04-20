@@ -89,14 +89,14 @@ const UserInformations = () => {
           <div className="flex gap-3 mt-3">
             <button
               onClick={() => setSettingsMode(!settingsMode)}
-              className="px-3 py-1 text-sm rounded-lg border bg-gray-100 hover:bg-gray-200"
+              className="px-3 py-1 text-sm rounded-lg border bg-gray-100 hover:bg-gray-200 cursor-pointer"
             >
               {t("userInfo.settings")}
             </button>
 
             <button
               onClick={logout}
-              className="px-3 py-1 text-sm rounded-lg border bg-red-500 text-white hover:bg-red-600"
+              className="px-3 py-1 text-sm rounded-lg border bg-red-500 text-white hover:bg-red-600 cursor-pointer"
             >
               {t("userInfo.logout")}
             </button>
