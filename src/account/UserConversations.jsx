@@ -40,8 +40,11 @@ const UserConversations = () => {
   return (
     <div className="border flex flex-col flex-1 rounded-xl shadow-md p-4">
       <h2 className="text-lg font-semibold mb-4">
-        {t("conversations.title")} (Toutes les conversations sont
-        automatiquement supprimées à 00h00 (minuit).)
+        {t("conversations.title")}{" "}
+        <span className="text-gray-400">
+          (Toutes les conversations sont automatiquement supprimées à 00h00
+          (minuit).)
+        </span>
       </h2>
       <hr />
       {isLoading ? (
