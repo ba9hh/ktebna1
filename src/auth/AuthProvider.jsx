@@ -56,8 +56,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     try {
       const { error } = await supabase.auth.signOut({ scope: "local" });
-      if (error && error.message !== "Auth session missing!") throw error;
-      setUser(null);
+      if (error) throw error;
       setLoading(false);
     } catch (error) {
       console.error("Logout failed:", error.message);
