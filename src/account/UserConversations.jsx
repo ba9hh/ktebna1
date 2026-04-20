@@ -39,20 +39,18 @@ const UserConversations = () => {
   console.log(conversations);
   return (
     <div className="border flex flex-col flex-1 rounded-xl shadow-md p-4">
-      <h2 className="text-lg font-semibold md:text-center mb-4">
-        {t("conversations.title")}
-      </h2>
+      <h2 className="text-lg font-semibold mb-4">{t("conversations.title")}</h2>
       <hr />
       {isLoading ? (
-        <p className="text-gray-500 italic text-center">
+        <p className="text-gray-500 italic text-center py-4">
           {t("conversations.loading")}
         </p>
       ) : conversations?.length === 0 ? (
-        <p className="text-gray-500 italic text-center">
+        <p className="text-gray-500 italic text-center py-4">
           {t("conversations.noConversations")}
         </p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 py-4">
           {conversations?.map((conv) => {
             const otherUser =
               conv.first_user_id === user?.id

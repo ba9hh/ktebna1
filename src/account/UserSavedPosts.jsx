@@ -83,21 +83,19 @@ const UserSavedPosts = () => {
   };
   return (
     <div className="border flex flex-col flex-1 rounded-xl shadow-md p-4">
-      <h2 className="text-lg font-semibold md:text-center mb-4">
-        {t("savedPosts.title")}
-      </h2>
+      <h2 className="text-lg font-semibold mb-4">{t("savedPosts.title")}</h2>
       <hr />
 
       {isLoading ? (
-        <p className="text-gray-500 italic text-center">
+        <p className="text-gray-500 italic text-center py-4">
           {t("savedPosts.loading")}
         </p>
       ) : savedPosts?.length === 0 ? (
-        <p className="text-gray-500 italic text-center">
+        <p className="text-gray-500 italic text-center py-4">
           {t("savedPosts.noPosts")}
         </p>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-4">
           {savedPosts?.map((post) => (
             <div key={post.postId?._id} className="p-2">
               <img
