@@ -29,7 +29,7 @@ const BottomDrawer = ({ open, onClose, book }) => {
             <img
               src={book.book_image}
               alt={book.book_name}
-              className="w-full rounded-xl object-cover"
+              className="w-1/2 md:w-full aspect-3/4 rounded-xl object-cover"
             />
             <div>
               <p className="text-stone-600 dark:text-stone-300 mb-2">
