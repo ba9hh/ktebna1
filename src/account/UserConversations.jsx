@@ -41,7 +41,7 @@ const UserConversations = () => {
     <div className="border flex flex-col flex-1 rounded-xl shadow-md p-4">
       <h2 className="text-lg font-semibold mb-4">
         {t("conversations.title")}{" "}
-        <span className="text-gray-400">
+        <span className="text-gray-600 text-base font-normal">
           (Toutes les conversations sont automatiquement supprimées à 00h00
           (minuit).)
         </span>
