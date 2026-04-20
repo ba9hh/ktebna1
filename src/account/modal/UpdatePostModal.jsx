@@ -114,7 +114,20 @@ const UpdatePostModal = ({ open, onClose, post }) => {
             control={control}
             render={({ field }) => (
               <div style={{ marginBottom: 20 }}>
-                <Button variant="contained" component="label">
+                <Button
+                  variant="outlined"
+                  component="label"
+                  fullWidth
+                  sx={{
+                    textTransform: "none",
+                    color: "#d97706",
+                    borderColor: "#d97706",
+                    "&:hover": {
+                      borderColor: "#b45309",
+                      backgroundColor: "rgba(217, 119, 6, 0.04)",
+                    },
+                  }}
+                >
                   {imagePreview
                     ? t("updatePostModal.changeImage")
                     : t("updatePostModal.uploadImage")}
@@ -160,6 +173,13 @@ const UpdatePostModal = ({ open, onClose, post }) => {
                 error={!!errors.name}
                 helperText={errors.name?.message}
                 {...field}
+                sx={{
+                  "& label.Mui-focused": { color: "#d97706" },
+                  "& .MuiOutlinedInput-root": {
+                    "&:hover fieldset": { borderColor: "#b45309" },
+                    "&.Mui-focused fieldset": { borderColor: "#d97706" },
+                  },
+                }}
               />
             )}
           />
@@ -169,7 +189,18 @@ const UpdatePostModal = ({ open, onClose, post }) => {
             control={control}
             rules={{ required: t("updatePostModal.categoryRequired") }}
             render={({ field }) => (
-              <FormControl fullWidth margin="normal" error={!!errors.category}>
+              <FormControl
+                fullWidth
+                margin="normal"
+                error={!!errors.category}
+                sx={{
+                  "& label.Mui-focused": { color: "#d97706" },
+                  "& .MuiOutlinedInput-root": {
+                    "&:hover fieldset": { borderColor: "#b45309" },
+                    "&.Mui-focused fieldset": { borderColor: "#d97706" },
+                  },
+                }}
+              >
                 <InputLabel>{t("updatePostModal.bookCategory")}</InputLabel>
                 <Select {...field} label={t("updatePostModal.bookCategory")}>
                   {CATEGORIES.map((c) => (
@@ -189,7 +220,18 @@ const UpdatePostModal = ({ open, onClose, post }) => {
               control={control}
               rules={{ required: t("updatePostModal.typeRequired") }}
               render={({ field }) => (
-                <FormControl fullWidth margin="normal" error={!!errors.type}>
+                <FormControl
+                  fullWidth
+                  margin="normal"
+                  error={!!errors.type}
+                  sx={{
+                    "& label.Mui-focused": { color: "#d97706" },
+                    "& .MuiOutlinedInput-root": {
+                      "&:hover fieldset": { borderColor: "#b45309" },
+                      "&.Mui-focused fieldset": { borderColor: "#d97706" },
+                    },
+                  }}
+                >
                   <InputLabel>{t("updatePostModal.dealType")}</InputLabel>
                   <Select {...field} label={t("updatePostModal.dealType")}>
                     {["sell", "exchange", "donate"].map((c) => (
@@ -216,6 +258,13 @@ const UpdatePostModal = ({ open, onClose, post }) => {
                   error={!!errors.deal}
                   helperText={errors.deal?.message}
                   {...field}
+                  sx={{
+                    "& label.Mui-focused": { color: "#d97706" },
+                    "& .MuiOutlinedInput-root": {
+                      "&:hover fieldset": { borderColor: "#b45309" },
+                      "&.Mui-focused fieldset": { borderColor: "#d97706" },
+                    },
+                  }}
                 />
               )}
             />
@@ -226,7 +275,18 @@ const UpdatePostModal = ({ open, onClose, post }) => {
             control={control}
             rules={{ required: t("updatePostModal.locationRequired") }}
             render={({ field }) => (
-              <FormControl fullWidth margin="normal" error={!!errors.location}>
+              <FormControl
+                fullWidth
+                margin="normal"
+                error={!!errors.location}
+                sx={{
+                  "& label.Mui-focused": { color: "#d97706" },
+                  "& .MuiOutlinedInput-root": {
+                    "&:hover fieldset": { borderColor: "#b45309" },
+                    "&.Mui-focused fieldset": { borderColor: "#d97706" },
+                  },
+                }}
+              >
                 <InputLabel>{t("updatePostModal.bookLocation")}</InputLabel>
                 <Select {...field} label={t("updatePostModal.bookLocation")}>
                   {cities.map((c) => (
@@ -242,13 +302,26 @@ const UpdatePostModal = ({ open, onClose, post }) => {
         </DialogContent>
 
         <DialogActions>
-          <Button onClick={onClose} color="inherit">
+          <Button
+            onClick={onClose}
+            color="inherit"
+            sx={{
+              textTransform: "none",
+            }}
+          >
             {t("updatePostModal.cancel")}
           </Button>
           <Button
             type="submit"
             variant="contained"
             color="primary"
+            sx={{
+              textTransform: "none",
+              backgroundColor: "#d97706",
+              "&:hover": {
+                backgroundColor: "#b45309",
+              },
+            }}
             disabled={!isValid || loading}
           >
             {loading ? (

@@ -82,10 +82,11 @@ const UserSavedPosts = () => {
     setOpen(true);
   };
   return (
-    <div className="border flex flex-col flex-1 rounded-xl shadow-md pt-4 p-6">
-      <h2 className="text-xl font-semibold text-center mb-4">
+    <div className="border flex flex-col flex-1 rounded-xl shadow-md p-4">
+      <h2 className="text-lg font-semibold md:text-center mb-4">
         {t("savedPosts.title")}
       </h2>
+      <hr />
 
       {isLoading ? (
         <p className="text-gray-500 italic text-center">
@@ -116,8 +117,8 @@ const UserSavedPosts = () => {
                   {savingPostId === post.id
                     ? t("savedPosts.unsaving")
                     : savedPosts.some((p) => p.id === post.id)
-                    ? t("savedPosts.unsave")
-                    : t("savedPosts.save")}
+                      ? t("savedPosts.unsave")
+                      : t("savedPosts.save")}
                 </button>
                 <button
                   onClick={() => handleOpenContactDrawer(post)}
