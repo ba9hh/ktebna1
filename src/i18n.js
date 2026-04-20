@@ -136,7 +136,7 @@ const resources = {
                 loading: "Loading Conversations...",
                 noConversations: "You don't have any conversations yet.",
                 you: "You",
-                note: "All conversations are automatically deleted at 00:00 (midnight)."
+                note: "(All conversations are automatically deleted at 00:00 (midnight).)"
             },
             userInfo: {
                 edit: "Edit name",
@@ -358,7 +358,7 @@ const resources = {
                 loading: "Chargement des conversations...",
                 noConversations: "Vous n'avez pas encore de conversations.",
                 you: "Vous",
-                note: "Toutes les conversations sont automatiquement supprimées à 00h00 (minuit)."
+                note: "(Toutes les conversations sont automatiquement supprimées à 00h00 (minuit).)"
             },
             userInfo: {
                 edit: "Modifier nom",
@@ -580,7 +580,7 @@ const resources = {
                 loading: "جارٍ تحميل المحادثات...",
                 noConversations: "ليس لديك أي محادثات بعد.",
                 you: "أنت",
-                note: "يتم حذف جميع المحادثات تلقائيًا عند الساعة 00:00 (منتصف الليل)."
+                note: "يتم حذف جميع المحادثات تلقائيًا عند الساعة 00:00 (منتصف الليل).)"
             },
             userInfo: {
                 edit: "تعديل الاسم",
