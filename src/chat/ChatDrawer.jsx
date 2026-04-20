@@ -309,20 +309,20 @@ export default function ChatDrawer({
         </div>
 
         {/* Message Limit Warning */}
-        {!canSendMore && (
-          <div className="px-4 py-3 bg-amber-50 border-b border-amber-100">
-            <div className="flex items-start gap-2">
-              <AlertCircle
-                size={16}
-                className="text-amber-600 mt-0.5 flex-shrink-0"
-              />
-              <p className="text-xs text-amber-800">
-                You've reached the message limit (2 messages) for this
-                conversation.
-              </p>
-            </div>
+        {/* {!canSendMore && ( */}
+        <div className="px-4 py-3 bg-amber-50 border-b border-amber-100">
+          <div className="flex items-start gap-2">
+            <AlertCircle
+              size={16}
+              className="text-amber-600 mt-0.5 flex-shrink-0"
+            />
+            <p className="text-xs text-amber-800">
+              You've reached the message limit (2 messages) for this
+              conversation.
+            </p>
           </div>
-        )}
+        </div>
+        {/* )} */}
 
         {/* Messages Area */}
         <div className="flex-1 overflow-y-auto p-4 space-y-3">
