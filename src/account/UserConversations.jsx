@@ -42,7 +42,7 @@ const UserConversations = () => {
       <h2 className="text-lg font-semibold mb-4">
         {t("conversations.title")}{" "}
         <span className="text-gray-600 text-base font-normal">
-          {t("conversations.note")}
+          ({t("conversations.note")})
         </span>
       </h2>
       <hr />
