@@ -27,7 +27,6 @@ const AuthProvider = ({ children }) => {
     // Listen for login/logout events
     const { data: listener } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
-        console.log(session?.user);
         if (session?.user) {
           setUser({
             id: session.user.id,
@@ -57,9 +56,10 @@ const AuthProvider = ({ children }) => {
   const logout = async () => {
     setLoading(true);
     try {
-      const { error } = await supabase.auth.signOut();
+      const { error } = await supabase.auth.signOut({ scope: "local" });
       if (error && error.message !== "Auth session missing!") throw error;
       setUser(null);
+      setLoading(false);
     } catch (error) {
       console.error("Logout failed:", error.message);
       setLoading(false);
