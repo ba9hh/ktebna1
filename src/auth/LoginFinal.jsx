@@ -18,7 +18,7 @@ const Login = () => {
         <button
           onClick={loginWithGoogle}
           aria-label="Login with Google"
-          className="flex items-center justify-center gap-2 px-5 py-2 bg-white/40 border border-gray-300 rounded-b-lg shadow-sm text-gray-700 hover:bg-gray-50 active:scale-95 transition duration-150 ease-in-out"
+          className="flex items-center justify-center gap-2 px-5 py-2 bg-white/40 border border-gray-300 shadow-sm text-gray-700 hover:bg-gray-50 active:scale-95 transition duration-150 ease-in-out"
         >
           {/* Google Logo */}
           <svg
