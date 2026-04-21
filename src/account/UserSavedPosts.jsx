@@ -4,7 +4,8 @@ import { supabase } from "../supabaseClient";
 import { AuthContext } from "../auth/AuthProvider";
 import ChatDrawer from "../chat/ChatDrawer";
 import { useTranslation } from "react-i18next";
-
+import BottomDrawer from "../components/BottomDrawer";
+import { usePostInteractions } from "../home/usePostInteractions";
 const UserSavedPosts = () => {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -81,6 +82,8 @@ const UserSavedPosts = () => {
     setSelectedBookName(book.book_name);
     setOpen(true);
   };
+  const { selectedBook, openDrawer, handleCloseDrawer, handleOpenDrawer } =
+    usePostInteractions();
   return (
     <div className="border flex flex-col flex-1 rounded-xl shadow-md p-4">
       <h2 className="text-lg font-semibold mb-4">{t("savedPosts.title")}</h2>
@@ -97,7 +100,7 @@ const UserSavedPosts = () => {
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
           {savedPosts?.map((post) => (
-            <div key={post.postId?._id}>
+            <div key={post.postId?._id} onClick={handleOpenDrawer}>
               <img
                 src={post.book_image}
                 alt={post.book_name}
@@ -127,6 +130,11 @@ const UserSavedPosts = () => {
               </div>
             </div>
           ))}
+          <BottomDrawer
+            open={openDrawer}
+            onClose={handleCloseDrawer}
+            book={selectedBook}
+          />
         </div>
       )}
       {open && (
