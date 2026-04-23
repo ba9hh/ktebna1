@@ -23,7 +23,7 @@ const BookDrawer = ({ open, onClose, book }) => {
                 alt={book.book_name}
                 className="w-1/2 md:w-full aspect-3/4 rounded-xl object-cover"
               />
-              <div className="md:flex flex-col justify-between">
+              <div className="md:flex flex-col justify-between h-full">
                 <div>
                   <p className="text-sm text-gray-700">
                     user have:{" "}
