@@ -82,7 +82,7 @@ const UserSavedPosts = () => {
     setSelectedBookName(book.book_name);
     setOpen(true);
   };
-  const { openDrawer, handleCloseDrawer, handleOpenDrawer } =
+  const { openDrawer, handleCloseDrawer, handleOpenDrawer, selectedBook } =
     usePostInteractions();
   return (
     <div className="border flex flex-col flex-1 rounded-xl shadow-md p-4">
@@ -100,15 +100,19 @@ const UserSavedPosts = () => {
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
           {savedPosts?.map((post) => (
-            <div key={post.postId?._id} onClick={handleOpenDrawer}>
+            <div
+              key={post.postId?._id}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleOpenDrawer(post);
+              }}
+            >
               <img
                 src={post.book_image}
                 alt={post.book_name}
                 className="w-32 aspect-3/4 object-cover"
               />
               <h3 className="font-medium truncate">{post.book_name}</h3>
-              {/* <p className="text-sm text-gray-600">{post.book_category}</p>
-              <p className="text-sm font-semibold">{post.book_deal}</p> */}
               <div className="flex gap-2 mt-2">
                 <button
                   onClick={() => toggleSavePost(post)}
@@ -128,13 +132,13 @@ const UserSavedPosts = () => {
                   {t("savedPosts.contact")}
                 </button>
               </div>
-              <BottomDrawer
-                open={openDrawer}
-                onClose={handleCloseDrawer()}
-                book={post}
-              />
             </div>
           ))}
+          <BottomDrawer
+            open={openDrawer}
+            onClose={handleCloseDrawer}
+            book={selectedBook}
+          />
         </div>
       )}
       {open && (
