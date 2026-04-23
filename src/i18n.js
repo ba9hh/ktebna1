@@ -151,7 +151,7 @@ const resources = {
                 nameUpdateError: "Failed to update name. Please try again."
             },
             addPostModal: {
-                title: "Add Product",
+                title: "Add Post",
                 uploadImage: "Upload Book Image",
                 imageRequired: "Image is required",
                 bookName: "Book Name",
@@ -172,7 +172,7 @@ const resources = {
                 productAddError: "Failed to add product. Please try again."
             },
             updatePostModal: {
-                title: "Update Product",
+                title: "Update the Post",
                 uploadImage: "Upload Book Image",
                 changeImage: "Change Image",
                 bookName: "Book Name",
@@ -216,7 +216,8 @@ const resources = {
             BookDrawer: {
                 deal: "Deal",
                 location: "Location",
-                owner: "Owner"
+                owner: "Owner",
+                you: "You",
             },
             pagination: {
                 "previous": "Previous",
@@ -373,7 +374,7 @@ const resources = {
                 nameUpdateError: "Échec de la mise à jour du nom. Veuillez réessayer."
             },
             addPostModal: {
-                title: "Ajouter un produit",
+                title: "Ajouter une publication",
                 uploadImage: "Télécharger l'image du livre",
                 imageRequired: "L'image est requise",
                 bookName: "Nom du livre",
@@ -394,7 +395,7 @@ const resources = {
                 productAddError: "Échec de l'ajout du produit. Veuillez réessayer."
             },
             updatePostModal: {
-                title: "Mettre à jour le produit",
+                title: "Mettre à jour la publication",
                 uploadImage: "Télécharger l'image du livre",
                 changeImage: "Changer l'image",
                 bookName: "Nom du livre",
@@ -438,7 +439,8 @@ const resources = {
             BookDrawer: {
                 deal: "Offre",
                 location: "Localisation",
-                owner: "Propriétaire"
+                owner: "Propriétaire",
+                you: "Vous",
             },
             pagination: {
                 "previous": "Précédent",
@@ -595,7 +597,7 @@ const resources = {
                 nameUpdateError: "فشل تحديث الاسم. يرجى المحاولة مرة أخرى."
             },
             addPostModal: {
-                title: "إضافة منتج",
+                title: "إضافة منشور",
                 uploadImage: "رفع صورة الكتاب",
                 imageRequired: "الصورة مطلوبة",
                 bookName: "اسم الكتاب",
@@ -616,7 +618,7 @@ const resources = {
                 productAddError: "فشل إضافة المنتج. يرجى المحاولة مرة أخرى."
             },
             updatePostModal: {
-                title: "تحديث المنتج",
+                title: "تحديث المنشور",
                 uploadImage: "رفع صورة الكتاب",
                 changeImage: "تغيير الصورة",
                 bookName: "اسم الكتاب",
@@ -660,7 +662,8 @@ const resources = {
             BookDrawer: {
                 deal: "الصفقة",
                 location: "الموقع",
-                owner: "المالك"
+                owner: "المالك",
+                you: "أنت",
             },
             pagination: {
                 "previous": "السابق",
