@@ -82,7 +82,7 @@ const UserSavedPosts = () => {
     setSelectedBookName(book.book_name);
     setOpen(true);
   };
-  const { selectedBook, openDrawer, handleCloseDrawer, handleOpenDrawer } =
+  const { openDrawer, handleCloseDrawer, handleOpenDrawer } =
     usePostInteractions();
   return (
     <div className="border flex flex-col flex-1 rounded-xl shadow-md p-4">
@@ -130,7 +130,7 @@ const UserSavedPosts = () => {
               </div>
               <BottomDrawer
                 open={openDrawer}
-                onClose={handleCloseDrawer}
+                onClose={handleCloseDrawer()}
                 book={post}
               />
             </div>
