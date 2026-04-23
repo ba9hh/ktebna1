@@ -154,13 +154,19 @@ const UserPosts = () => {
               <h3 className="font-medium truncate">{post.book_name}</h3>
               <div className="flex gap-2 mt-2">
                 <button
-                  onClick={() => handleOpenUpdate(post)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleOpenUpdate(post);
+                  }}
                   className="text-xs bg-blue-600 text-white px-2 py-1 rounded hover:bg-blue-700"
                 >
                   {t("userPosts.edit")}
                 </button>
                 <button
-                  onClick={() => handleOpenDelete(post)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleOpenDelete(post);
+                  }}
                   className="text-xs bg-red-600 text-white px-2 py-1 rounded hover:bg-red-700"
                 >
                   {t("userPosts.delete")}

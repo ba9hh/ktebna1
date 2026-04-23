@@ -44,7 +44,11 @@ const DeletePostModal = ({ open, onClose, post, onDelete }) => {
         </Typography>
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => onClose(false)} color="inherit">
+        <Button
+          onClick={() => onClose(false)}
+          color="inherit"
+          sx={{ textTransform: "none" }}
+        >
           {t("deletePostModal.cancel")}
         </Button>
         <Button
@@ -52,6 +56,7 @@ const DeletePostModal = ({ open, onClose, post, onDelete }) => {
           variant="contained"
           color="error"
           disabled={loading}
+          sx={{ textTransform: "none" }}
         >
           {loading ? (
             <CircularProgress size={24} />
