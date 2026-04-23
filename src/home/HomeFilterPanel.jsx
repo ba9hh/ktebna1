@@ -12,7 +12,7 @@ function HomeFilterPanel({ category, setCategory, dealType, setDealType }) {
   ];
 
   return (
-    <div className="sticky top-20 space-y-6 rounded-b-2xl border border-stone-200/60 bg-white/70 p-4 shadow-sm dark:border-stone-800 dark:bg-stone-900/70">
+    <div className="sticky top-20 space-y-6 border border-stone-200/60 bg-white/70 p-4 shadow-sm dark:border-stone-800 dark:bg-stone-900/70">
       <div>
         <h3 className="mb-2 font-serif text-lg">
           {t("filterPanel.categories")}
