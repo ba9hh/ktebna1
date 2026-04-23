@@ -7,6 +7,7 @@ import { AuthContext } from "../auth/AuthProvider";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "../supabaseClient";
 import { Plus } from "lucide-react";
+import { usePostInteractions } from "../home/usePostInteractions";
 
 const UserPosts = () => {
   const { t } = useTranslation();
@@ -112,6 +113,8 @@ const UserPosts = () => {
     setSelectedPost(post);
     setShowDeleteModal(true);
   };
+  const { openDrawer, handleCloseDrawer, handleOpenDrawer, selectedBook } =
+    usePostInteractions();
   return (
     <div className="relative border flex flex-col flex-1 rounded-xl shadow-md p-4">
       <button
@@ -135,7 +138,13 @@ const UserPosts = () => {
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
           {posts?.map((post) => (
-            <div key={post.id}>
+            <div
+              key={post.id}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleOpenDrawer(post);
+              }}
+            >
               <img
                 src={post.book_image}
                 alt={post.book_name}
@@ -160,6 +169,11 @@ const UserPosts = () => {
           ))}
         </div>
       )}
+      <BottomDrawer
+        open={openDrawer}
+        onClose={handleCloseDrawer}
+        book={selectedBook}
+      />
       <AddPostModal
         open={showAddModal}
         onClose={() => setShowAddModal(false)}
