@@ -40,12 +40,12 @@ const LoginModal = ({
       <Box
         sx={{
           position: "relative",
-          bgcolor: theme.palette.primary.main,
+          bgcolor: "#d97706",
           color: "#fff",
           py: 2,
         }}
       >
-        <DialogTitle sx={{ textAlign: "center", m: 0, fontSize: "1.5rem" }}>
+        <DialogTitle sx={{ textAlign: "center", m: 0, fontSize: "1rem" }}>
           Authentication Required
         </DialogTitle>
         <IconButton
