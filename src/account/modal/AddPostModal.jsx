@@ -135,14 +135,7 @@ const AddPostModal = ({ open, onClose, userId, onAdd }) => {
                   <img
                     src={imagePreview}
                     alt="Preview"
-                    style={{
-                      display: "block",
-                      marginTop: 10,
-                      width: 120,
-                      height: 120,
-                      objectFit: "cover",
-                      borderRadius: 8,
-                    }}
+                    className="w-32 aspect-3/4 object-cover mt-2"
                   />
                 )}
               </div>
