@@ -17,35 +17,31 @@ const BookDrawer = ({ open, onClose, book }) => {
       {book && (
         <div>
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-serif font-semibold">
-              {book.book_name}
-            </h2>
             <IconButton onClick={onClose}>
               <X className="h-5 w-5" />
             </IconButton>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-[200px_1fr]">
-            <img
-              src={book.book_image}
-              alt={book.book_name}
-              className="w-1/2 md:w-full aspect-3/4 rounded-xl object-cover"
-            />
-            <div>
-              <p className="text-stone-600 dark:text-stone-300 mb-2">
-                {book.bookDescription}
-              </p>
-              <p className="font-medium">
-                {t("BookDrawer.deal")}:{" "}
-                <span className="text-amber-700">{book.book_deal}</span>
-              </p>
-              <p className="text-sm text-stone-500">
-                {t("BookDrawer.location")}: {book.book_location}
-              </p>
-              <p className="text-sm text-stone-500">
-                {t("BookDrawer.owner")}:{" "}
-                {book.users?.name || t("BookDrawer.you")}
-              </p>
+            <div className="grid gap-4 md:grid-cols-[200px_1fr]">
+              <img
+                src={book.book_image}
+                alt={book.book_name}
+                className="w-1/2 md:w-full aspect-3/4 rounded-xl object-cover"
+              />
+              <div>
+                <p className="font-medium">user have: {book.book_name}</p>
+                <p className="font-medium">
+                  {/* {t("BookDrawer.deal")}:{" "} */}
+                  <span className="text-amber-700">
+                    user wants:{book.book_deal}
+                  </span>
+                </p>
+                <p className="font-medium">
+                  {t("BookDrawer.owner")}:{" "}
+                  {book.users?.name || t("BookDrawer.you")}
+                </p>
+                <p className="font-medium">
+                  {t("BookDrawer.location")}: {book.book_location}
+                </p>
+              </div>
             </div>
           </div>
         </div>
