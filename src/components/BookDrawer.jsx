@@ -41,7 +41,7 @@ const BookDrawer = ({ open, onClose, book }) => {
                   <p className="text-sm text-gray-700">
                     {/* {t("BookDrawer.owner")}:{" "} */}
                     user:{" "}
-                    <span className="text-stone-900 font-serif text-base">
+                    <span className="text-stone-800 font-serif">
                       {book.users?.name || t("BookDrawer.you")}(
                       {book.book_location})
                     </span>
@@ -51,14 +51,14 @@ const BookDrawer = ({ open, onClose, book }) => {
                   <p className="text-sm text-gray-700">
                     {/* {t("BookDrawer.deal")}:{" "} */}
                     book category:{" "}
-                    <span className="text-stone-900 font-serif text-base">
+                    <span className="text-stone-800 font-serif text-base">
                       {book.book_category}
                     </span>
                   </p>
                   <p className="text-sm text-gray-700">
                     {/* {t("BookDrawer.deal")}:{" "} */}
                     deal type:{" "}
-                    <span className="text-stone-900 font-serif text-base">
+                    <span className="text-stone-800 font-serif">
                       {book.book_deal_type}
                     </span>
                   </p>
