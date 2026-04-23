@@ -4,7 +4,7 @@ import { supabase } from "../supabaseClient";
 import { AuthContext } from "../auth/AuthProvider";
 import ChatDrawer from "../chat/ChatDrawer";
 import { useTranslation } from "react-i18next";
-import BottomDrawer from "../components/BottomDrawer";
+import BookDrawer from "../components/BookDrawer";
 import { usePostInteractions } from "../home/usePostInteractions";
 const UserSavedPosts = () => {
   const { t } = useTranslation();
@@ -137,7 +137,7 @@ const UserSavedPosts = () => {
           ))}
         </div>
       )}
-      <BottomDrawer
+      <BookDrawer
         open={openDrawer}
         onClose={handleCloseDrawer}
         book={selectedBook}

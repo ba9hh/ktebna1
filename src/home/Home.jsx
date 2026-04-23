@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import BottomDrawer from "../components/BottomDrawer";
+import BookDrawer from "../components/BookDrawer";
 import HomeFilterPanel from "./HomeFilterPanel";
 import { useSearchParams } from "react-router-dom";
 import ChatDrawer from "../chat/ChatDrawer";
@@ -107,7 +107,7 @@ const Home = () => {
           </section>
         </div>
 
-        <BottomDrawer
+        <BookDrawer
           open={openDrawer}
           onClose={handleCloseDrawer}
           book={selectedBook}

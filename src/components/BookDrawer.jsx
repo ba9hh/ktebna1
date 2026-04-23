@@ -3,7 +3,7 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import { X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-const BottomDrawer = ({ open, onClose, book }) => {
+const BookDrawer = ({ open, onClose, book }) => {
   const { t } = useTranslation();
   return (
     <Drawer
@@ -36,14 +36,14 @@ const BottomDrawer = ({ open, onClose, book }) => {
                 {book.bookDescription}
               </p>
               <p className="font-medium">
-                {t("bottomDrawer.deal")}:{" "}
+                {t("BookDrawer.deal")}:{" "}
                 <span className="text-amber-700">{book.book_deal}</span>
               </p>
               <p className="text-sm text-stone-500">
-                {t("bottomDrawer.location")}: {book.book_location}
+                {t("BookDrawer.location")}: {book.book_location}
               </p>
               <p className="text-sm text-stone-500">
-                {t("bottomDrawer.owner")}: {book.users?.name}
+                {t("BookDrawer.owner")}: {book.users?.name}
               </p>
             </div>
           </div>
@@ -53,4 +53,4 @@ const BottomDrawer = ({ open, onClose, book }) => {
   );
 };
 
-export default BottomDrawer;
+export default BookDrawer;

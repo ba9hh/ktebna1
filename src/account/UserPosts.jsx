@@ -8,7 +8,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "../supabaseClient";
 import { Plus } from "lucide-react";
 import { usePostInteractions } from "../home/usePostInteractions";
-import BottomDrawer from "../components/BottomDrawer";
+import BookDrawer from "../components/BookDrawer";
 
 const UserPosts = () => {
   const { t } = useTranslation();
@@ -176,7 +176,7 @@ const UserPosts = () => {
           ))}
         </div>
       )}
-      <BottomDrawer
+      <BookDrawer
         open={openDrawer}
         onClose={handleCloseDrawer}
         book={selectedBook}

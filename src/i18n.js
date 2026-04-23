@@ -213,7 +213,7 @@ const resources = {
                 updateSuccess: "Profile picture updated successfully",
                 updateError: "Failed to update profile picture. Please try again."
             },
-            bottomDrawer: {
+            BookDrawer: {
                 deal: "Deal",
                 location: "Location",
                 owner: "Owner"
@@ -435,7 +435,7 @@ const resources = {
                 updateSuccess: "Photo de profil mise à jour avec succès",
                 updateError: "Échec de la mise à jour de la photo de profil. Veuillez réessayer."
             },
-            bottomDrawer: {
+            BookDrawer: {
                 deal: "Offre",
                 location: "Localisation",
                 owner: "Propriétaire"
@@ -657,7 +657,7 @@ const resources = {
                 updateSuccess: "تم تحديث صورة الملف الشخصي بنجاح",
                 updateError: "فشل تحديث صورة الملف الشخصي. يرجى المحاولة مرة أخرى."
             },
-            bottomDrawer: {
+            BookDrawer: {
                 deal: "الصفقة",
                 location: "الموقع",
                 owner: "المالك"
