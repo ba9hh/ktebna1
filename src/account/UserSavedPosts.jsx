@@ -14,7 +14,7 @@ const UserSavedPosts = () => {
   const fetchSavedPosts = async () => {
     const { data, error } = await supabase
       .from("saved_posts")
-      .select("id, post_id, posts(*)")
+      .select("id, post_id, posts(*, users(id, name))")
       .eq("user_id", user?.id);
 
     if (error) throw error;
