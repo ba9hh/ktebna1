@@ -27,21 +27,21 @@ const BookDrawer = ({ open, onClose, book }) => {
                 <div>
                   <p className="text-sm text-gray-700">
                     user <span className="text-amber-700">have</span>:{" "}
-                    <span className="text-gray-900 font-medium text-base">
+                    <span className="text-stone-900 font-serif text-base">
                       {book.book_name}
                     </span>
                   </p>
                   <p className="text-sm text-gray-700">
                     {/* {t("BookDrawer.deal")}:{" "} */}
                     user <span className="text-amber-700">want</span>:{" "}
-                    <span className="text-gray-900 font-medium text-base">
+                    <span className="text-stone-900 font-serif text-base">
                       {book.book_deal}
                     </span>
                   </p>
                   <p className="text-sm text-gray-700">
                     {/* {t("BookDrawer.owner")}:{" "} */}
                     user:{" "}
-                    <span className="text-gray-900 font-medium text-base">
+                    <span className="text-stone-900 font-serif text-base">
                       {book.users?.name || t("BookDrawer.you")}(
                       {book.book_location})
                     </span>
@@ -51,14 +51,14 @@ const BookDrawer = ({ open, onClose, book }) => {
                   <p className="text-sm text-gray-700">
                     {/* {t("BookDrawer.deal")}:{" "} */}
                     book category:
-                    <span className="text-gray-900 font-medium text-base">
+                    <span className="text-stone-900 font-serif text-base">
                       {book.book_category}
                     </span>
                   </p>
                   <p className="text-sm text-gray-700">
                     {/* {t("BookDrawer.deal")}:{" "} */}
                     deal type:
-                    <span className="text-gray-900 font-medium text-base">
+                    <span className="text-stone-900 font-serif text-base">
                       {book.deal_deal_type}
                     </span>
                   </p>
