@@ -24,22 +24,47 @@ const BookDrawer = ({ open, onClose, book }) => {
                 className="w-1/2 md:w-full aspect-3/4 rounded-xl object-cover"
               />
               <div>
-                <p className="font-medium">
+                <p className="text-sm text-gray-700">
                   user have:{" "}
-                  <span className="text-amber-700">{book.book_name}</span>
+                  <span className="text-amber-700 font-medium">
+                    {book.book_name}
+                  </span>
                 </p>
-                <p className="font-medium">
+                <p className="text-sm text-gray-700">
                   {/* {t("BookDrawer.deal")}:{" "} */}
                   user wants:
-                  <span className="text-amber-700">{book.book_deal}</span>
+                  <span className="text-amber-700 font-medium">
+                    {book.book_deal}
+                  </span>
                 </p>
-                <p className="font-medium">
-                  {t("BookDrawer.owner")}:{" "}
-                  {book.users?.name || t("BookDrawer.you")}
+                <p className="text-sm text-gray-700">
+                  {/* {t("BookDrawer.owner")}:{" "} */}
+                  user:
+                  <span className="text-amber-700 font-medium">
+                    {book.users?.name || t("BookDrawer.you")}
+                  </span>
+                  disponible à:
+                  <span className="text-amber-700 font-medium">
+                    {book.book_location}
+                  </span>
                 </p>
-                <p className="font-medium">
+                <p className="text-sm text-gray-700">
+                  {/* {t("BookDrawer.deal")}:{" "} */}
+                  book category:
+                  <span className="text-amber-700 font-medium">
+                    {book.book_category}
+                  </span>
+                </p>
+                <p className="text-sm text-gray-700">
+                  {/* {t("BookDrawer.deal")}:{" "} */}
+                  deal type:
+                  <span className="text-amber-700 font-medium">
+                    {book.deal_type}
+                  </span>
+                </p>
+                {/* <p className="font-medium">
                   {t("BookDrawer.location")}: {book.book_location}
-                </p>
+                </p> */}
               </div>
             </div>
             <IconButton onClick={onClose}>
