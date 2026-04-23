@@ -37,7 +37,7 @@ const UserSavedPosts = () => {
     queryFn: fetchSavedPosts,
     enabled: !!user?.id,
   });
-
+  console.log(savedPosts);
   const toggleSaveMutation = useMutation({
     mutationFn: async (post) => {
       setSavingPostId(post.id);

@@ -82,11 +82,6 @@ const HomeBook = ({
 
       <div className="relative w-full rounded-xl p-1 pb-4 shadow-inner">
         <img src={book.book_image} className="w-full aspect-3/4 object-cover" />
-        {/* {book.book_category && (
-          <div className="absolute right-3 bottom-3 z-10 rounded-full bg-amber-400/95 px-2.5 py-1 text-xs font-medium text-amber-50 shadow truncate max-w-[60%]">
-            {t(`categories.${book.book_category}`)}
-          </div>
-        )} */}
       </div>
 
       <div className="px-3 pb-3">
@@ -104,10 +99,6 @@ const HomeBook = ({
         </h3>
 
         <div className="mt-3 space-y-3">
-          {/* <p className="text-base font-semibold text-stone-900 dark:text-stone-100 line-clamp-2 truncate">
-            {book.book_deal}
-          </p> */}
-
           {/* Actions */}
           <div className="flex items-center justify-between gap-1">
             <button
