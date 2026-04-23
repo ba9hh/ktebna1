@@ -43,7 +43,9 @@ const BookDrawer = ({ open, onClose, book }) => {
                     user <span className="text-amber-700">is</span>:{" "}
                     <span className="text-stone-900 font-serif text-base">
                       {book.users?.name || t("BookDrawer.you")}
-                      <span className="text-amber-700">from: </span>
+                      <span className="text-amber-700 text-sm font-normal">
+                        from:{" "}
+                      </span>
                       {book.book_location}
                     </span>
                   </p>
