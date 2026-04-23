@@ -128,13 +128,13 @@ const UserSavedPosts = () => {
                   {t("savedPosts.contact")}
                 </button>
               </div>
+              <BottomDrawer
+                open={openDrawer}
+                onClose={handleCloseDrawer}
+                book={post}
+              />
             </div>
           ))}
-          <BottomDrawer
-            open={openDrawer}
-            onClose={handleCloseDrawer}
-            book={selectedBook}
-          />
         </div>
       )}
       {open && (
