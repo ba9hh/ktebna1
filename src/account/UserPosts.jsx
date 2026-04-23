@@ -8,6 +8,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "../supabaseClient";
 import { Plus } from "lucide-react";
 import { usePostInteractions } from "../home/usePostInteractions";
+import BottomDrawer from "../components/BottomDrawer";
 
 const UserPosts = () => {
   const { t } = useTranslation();
