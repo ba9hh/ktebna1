@@ -124,7 +124,10 @@ const UserSavedPosts = () => {
                       : t("savedPosts.save")}
                 </button>
                 <button
-                  onClick={() => handleOpenChatDrawer(post)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleOpenChatDrawer(post);
+                  }}
                   className="text-xs bg-amber-600 text-white px-2 py-1 rounded hover:bg-amber-700 disabled:opacity-50"
                 >
                   {t("savedPosts.contact")}
