@@ -16,7 +16,7 @@ const BookDrawer = ({ open, onClose, book }) => {
     >
       {book && (
         <div>
-          <div className="flex justify-between mb-4">
+          <div className="flex justify-between items-start">
             <div className="grid gap-4 md:grid-cols-[200px_1fr]">
               <img
                 src={book.book_image}
