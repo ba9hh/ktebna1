@@ -23,45 +23,46 @@ const BookDrawer = ({ open, onClose, book }) => {
                 alt={book.book_name}
                 className="w-1/2 md:w-full aspect-3/4 rounded-xl object-cover"
               />
-              <div>
-                <p className="text-sm text-gray-700">
-                  user have:{" "}
-                  <span className="text-amber-700 font-medium text-base">
-                    {book.book_name}
-                  </span>
-                </p>
-                <p className="text-sm text-gray-700">
-                  {/* {t("BookDrawer.deal")}:{" "} */}
-                  user wants:
-                  <span className="text-amber-700 font-medium text-base">
-                    {book.book_deal}
-                  </span>
-                </p>
-                <p className="text-sm text-gray-700">
-                  {/* {t("BookDrawer.owner")}:{" "} */}
-                  user:
-                  <span className="text-amber-700 font-medium text-base">
-                    {book.users?.name || t("BookDrawer.you")}
-                  </span>
-                  disponible à:
-                  <span className="text-amber-700 font-medium text-base">
-                    {book.book_location}
-                  </span>
-                </p>
-                <p className="text-sm text-gray-700">
-                  {/* {t("BookDrawer.deal")}:{" "} */}
-                  book category:
-                  <span className="text-amber-700 font-medium text-base">
-                    {book.book_category}
-                  </span>
-                </p>
-                <p className="text-sm text-gray-700">
-                  {/* {t("BookDrawer.deal")}:{" "} */}
-                  deal type:
-                  <span className="text-amber-700 font-medium text-base">
-                    {book.deal_type}
-                  </span>
-                </p>
+              <div className="md:flex flex-col justify-between">
+                <div>
+                  <p className="text-sm text-gray-700">
+                    user have:{" "}
+                    <span className="text-amber-700 font-medium text-base">
+                      {book.book_name}
+                    </span>
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    {/* {t("BookDrawer.deal")}:{" "} */}
+                    user wants:
+                    <span className="text-amber-700 font-medium text-base">
+                      {book.book_deal}
+                    </span>
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    {/* {t("BookDrawer.owner")}:{" "} */}
+                    user:
+                    <span className="text-amber-700 font-medium text-base">
+                      {book.users?.name || t("BookDrawer.you")}(
+                      {book.book_location})
+                    </span>
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-700">
+                    {/* {t("BookDrawer.deal")}:{" "} */}
+                    book category:
+                    <span className="text-amber-700 font-medium text-base">
+                      {book.book_category}
+                    </span>
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    {/* {t("BookDrawer.deal")}:{" "} */}
+                    deal type:
+                    <span className="text-amber-700 font-medium text-base">
+                      {book.deal_type}
+                    </span>
+                  </p>
+                </div>
                 {/* <p className="font-medium">
                   {t("BookDrawer.location")}: {book.book_location}
                 </p> */}
