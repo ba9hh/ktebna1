@@ -16,10 +16,10 @@ import { AuthContext } from "./AuthProvider";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 const LoginModal = ({ open, onClose, message }) => {
+  const { t } = useTranslation();
   const displayMessage = message || t("loginModal.defaultMessage");
   const { loginWithGoogle } = useContext(AuthContext);
   const theme = useTheme();
-  const { t } = useTranslation();
   return (
     <Dialog
       open={open}
