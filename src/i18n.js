@@ -14,8 +14,9 @@ const resources = {
                 cart: "Cart",
                 filters: "Open filters"
             },
-            homeHeader: {
-                recentBooks: "Recent Books"
+            home: {
+                recentBooks: "Recent Books",
+                noBooks: "No books found."
             },
             cities: {
                 "Toute la tunisie": "All Tunisia",
@@ -250,8 +251,9 @@ const resources = {
                 cart: "Panier",
                 filters: "Ouvrir les filtres"
             },
-            homeHeader: {
-                recentBooks: "Livres récents"
+            home: {
+                recentBooks: "Livres récents",
+                noBooks: "Aucun livre trouvé."
             },
             cities: {
                 "Toute la tunisie": "Toute la Tunisie",
@@ -486,8 +488,9 @@ const resources = {
                 cart: "السلة",
                 filters: "فتح الفلاتر"
             },
-            homeHeader: {
-                recentBooks: "الكتب الحديثة"
+            home: {
+                recentBooks: "الكتب الحديثة",
+                noBooks: "لم يتم العثور على أي كتب."
             },
             cities: {
                 "Toute la tunisie": "كل تونس",

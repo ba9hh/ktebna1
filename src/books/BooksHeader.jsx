@@ -9,7 +9,7 @@ const BooksHeader = ({ language, setLanguage }) => {
   return (
     <div className="mb-4 flex items-center justify-between gap-3">
       <h2 className="font-serif text-2xl text-stone-900 dark:text-stone-100">
-        {/* {t("homeHeader.recentBooks")} */}
+        {/* {t("home.recentBooks")} */}
         Books (PDF)
       </h2>
       <div className="flex items-center gap-2">

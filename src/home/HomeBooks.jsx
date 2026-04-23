@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import CircularProgress from "@mui/material/CircularProgress";
 import HomeBook from "./HomeBook";
-
+import { useTranslation } from "react-i18next";
 const HomeBooks = ({
   posts,
   isLoading,
@@ -10,6 +10,7 @@ const HomeBooks = ({
   onBookClick,
   onContactClick,
 }) => {
+  const { t } = useTranslation();
   return (
     <AnimatePresence mode="popLayout">
       {isLoading ? (
@@ -18,7 +19,7 @@ const HomeBooks = ({
         </motion.div>
       ) : posts?.length === 0 ? (
         <motion.div className="rounded-2xl border p-8 text-center">
-          There is no books yet.
+          {t("home.noBooks")}
         </motion.div>
       ) : (
         <motion.div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">

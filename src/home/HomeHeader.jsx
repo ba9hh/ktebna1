@@ -9,7 +9,7 @@ const HomeHeader = ({ location, setLocation }) => {
   return (
     <div className="mb-4 flex items-center justify-between gap-3">
       <h2 className="font-serif text-2xl text-stone-900 dark:text-stone-100">
-        {t("homeHeader.recentBooks")}
+        {t("home.recentBooks")}
       </h2>
       <div className="flex items-center gap-2">
         <Filter className="h-4 w-4 text-stone-500 md:hidden" />
