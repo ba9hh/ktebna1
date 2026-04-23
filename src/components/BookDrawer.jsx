@@ -26,21 +26,25 @@ const BookDrawer = ({ open, onClose, book }) => {
               <div className="md:flex flex-col justify-between h-full">
                 <div>
                   <p className="text-sm text-gray-700">
-                    user have:{" "}
+                    user{" "}
                     <span className="text-amber-700 font-medium text-base">
+                      have
+                    </span>
+                    :{" "}
+                    <span className="text-gray-900 font-medium text-base">
                       {book.book_name}
                     </span>
                   </p>
                   <p className="text-sm text-gray-700">
                     {/* {t("BookDrawer.deal")}:{" "} */}
-                    user wants:
+                    user wants:{" "}
                     <span className="text-amber-700 font-medium text-base">
                       {book.book_deal}
                     </span>
                   </p>
                   <p className="text-sm text-gray-700">
                     {/* {t("BookDrawer.owner")}:{" "} */}
-                    user:
+                    user:{" "}
                     <span className="text-amber-700 font-medium text-base">
                       {book.users?.name || t("BookDrawer.you")}(
                       {book.book_location})
