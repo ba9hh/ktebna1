@@ -11,10 +11,6 @@ const UserSavedPosts = () => {
   const queryClient = useQueryClient();
   const [savingPostId, setSavingPostId] = useState(null);
   const { user } = useContext(AuthContext);
-  const [selectedSeller, setSelectedSeller] = useState(null);
-  const [selectedName, setSelectedName] = useState(null);
-  const [selectedBookName, setSelectedBookName] = useState(null);
-  const [open, setOpen] = useState(false);
   const fetchSavedPosts = async () => {
     const { data, error } = await supabase
       .from("saved_posts")
@@ -76,14 +72,16 @@ const UserSavedPosts = () => {
   const toggleSavePost = (post) => {
     toggleSaveMutation.mutate(post);
   };
-  const handleOpenContactDrawer = (book) => {
-    setSelectedSeller(book.user_id);
-    setSelectedName(book.users?.name);
-    setSelectedBookName(book.book_name);
-    setOpen(true);
-  };
-  const { openDrawer, handleCloseDrawer, handleOpenDrawer, selectedBook } =
-    usePostInteractions();
+  const {
+    openDrawer,
+    handleCloseDrawer,
+    handleOpenDrawer,
+    selectedBook,
+    openChatDrawer,
+    chatDetails,
+    handleOpenChatDrawer,
+    handleCloseChatDrawer,
+  } = usePostInteractions(user);
   return (
     <div className="border flex flex-col flex-1 rounded-xl shadow-md p-4">
       <h2 className="text-lg font-semibold mb-4">{t("savedPosts.title")}</h2>
@@ -126,7 +124,7 @@ const UserSavedPosts = () => {
                       : t("savedPosts.save")}
                 </button>
                 <button
-                  onClick={() => handleOpenContactDrawer(post)}
+                  onClick={() => handleOpenChatDrawer(post)}
                   className="text-xs bg-amber-600 text-white px-2 py-1 rounded hover:bg-amber-700 disabled:opacity-50"
                 >
                   {t("savedPosts.contact")}
@@ -141,16 +139,13 @@ const UserSavedPosts = () => {
           />
         </div>
       )}
-      {open && (
+      {openChatDrawer && (
         <ChatDrawer
-          open={open}
-          onClose={() => {
-            setSelectedSeller(null);
-            setOpen(false);
-          }}
-          otherUserId={selectedSeller}
-          otherUserName={selectedName}
-          bookName={selectedBookName}
+          open={openChatDrawer}
+          onClose={handleCloseChatDrawer}
+          otherUserId={chatDetails.sellerId}
+          otherUserName={chatDetails.sellerName}
+          bookName={chatDetails.bookName}
         />
       )}
     </div>

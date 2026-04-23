@@ -142,12 +142,6 @@ const UserPosts = () => {
                 className="w-32 aspect-3/4 object-cover "
               />
               <h3 className="font-medium truncate">{post.book_name}</h3>
-              {/* <p className="text-sm text-gray-600 truncate">
-                {t(post.book_category)}
-              </p>
-              <p className="font-medium truncate">
-                {t(post.book_deal)}
-              </p> */}
               <div className="flex gap-2 mt-2">
                 <button
                   onClick={() => handleOpenUpdate(post)}
