@@ -14,15 +14,12 @@ import { X } from "lucide-react";
 import { useContext } from "react";
 import { AuthContext } from "./AuthProvider";
 import { toast } from "react-toastify";
-
-const LoginModal = ({
-  open,
-  onClose,
-  message = "You must be logged in to perform this action.",
-}) => {
+import { useTranslation } from "react-i18next";
+const LoginModal = ({ open, onClose, message }) => {
+  const displayMessage = message || t("loginModal.defaultMessage");
   const { loginWithGoogle } = useContext(AuthContext);
   const theme = useTheme();
-
+  const { t } = useTranslation();
   return (
     <Dialog
       open={open}
@@ -46,7 +43,7 @@ const LoginModal = ({
         }}
       >
         <DialogTitle sx={{ textAlign: "center", m: 0, fontSize: "1.25rem" }}>
-          Authentication Required
+          {t("loginModal.title")}
         </DialogTitle>
         <IconButton
           onClick={onClose}
@@ -64,7 +61,7 @@ const LoginModal = ({
 
       <DialogContent sx={{ textAlign: "center", pt: 3, px: 4, pb: 6 }}>
         <Typography variant="body1" gutterBottom>
-          {message}
+          {displayMessage}
         </Typography>
         <Divider sx={{ my: 2 }} />
         <Stack spacing={2}>

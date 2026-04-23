@@ -237,7 +237,13 @@ const resources = {
                 messageLimitError: "Message limit (2) reached for this conversation.",
                 sendError: "Failed to send message",
                 unknown: "Unknown"
+            },
+            loginModal: {
+                title: "Authentication Required",
+                defaultMessage: "You must be logged in to perform this action.",
+                continueWithGoogle: "Continue with Google"
             }
+
         }
     },
     fr: {
@@ -475,6 +481,11 @@ const resources = {
                 sendError: "Échec de l'envoi du message",
                 unknown: "Inconnu"
             },
+            loginModal: {
+                title: "Authentification requise",
+                defaultMessage: "Vous devez être connecté pour effectuer cette action.",
+                continueWithGoogle: "Continuer avec Google"
+            },
         }
     },
     ar: {
@@ -711,6 +722,11 @@ const resources = {
                 messageLimitError: "تم الوصول إلى حد الرسائل (رسالتان) لهذه المحادثة.",
                 sendError: "فشل إرسال الرسالة",
                 unknown: "غير معروف"
+            },
+            loginModal: {
+                title: "المصادقة مطلوبة",
+                defaultMessage: "يجب عليك تسجيل الدخول لتنفيذ هذا الإجراء.",
+                continueWithGoogle: "المتابعة مع Google"
             },
         }
 
