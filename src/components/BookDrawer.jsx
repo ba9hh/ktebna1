@@ -50,16 +50,16 @@ const BookDrawer = ({ open, onClose, book }) => {
                 <div>
                   <p className="text-sm text-gray-700">
                     {/* {t("BookDrawer.deal")}:{" "} */}
-                    book category:
+                    book category:{" "}
                     <span className="text-stone-900 font-serif text-base">
                       {book.book_category}
                     </span>
                   </p>
                   <p className="text-sm text-gray-700">
                     {/* {t("BookDrawer.deal")}:{" "} */}
-                    deal type:
+                    deal type:{" "}
                     <span className="text-stone-900 font-serif text-base">
-                      {book.deal_deal_type}
+                      {book.book_deal_type}
                     </span>
                   </p>
                 </div>
