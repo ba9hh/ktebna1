@@ -3,6 +3,8 @@ import { AuthContext } from "../auth/AuthProvider";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { X, Send, BookOpen, AlertCircle } from "lucide-react";
 import { supabase } from "../supabaseClient";
+import { useTranslation } from "react-i18next";
+
 export default function ChatDrawer({
   open,
   onClose,
@@ -11,6 +13,7 @@ export default function ChatDrawer({
   userName,
   bookName,
 }) {
+  const { t } = useTranslation();
   const { user } = useContext(AuthContext);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
@@ -316,7 +319,7 @@ export default function ChatDrawer({
               className="text-amber-600 mt-0.5 flex-shrink-0"
             />
             <p className="text-xs text-amber-800">
-              Each conversation is limited to 4 messages (2 per user).
+              {t("chatDrawer.messageLimitWarning")}
             </p>
           </div>
         </div>
@@ -328,8 +331,7 @@ export default function ChatDrawer({
                 className="text-amber-600 mt-0.5 flex-shrink-0"
               />
               <p className="text-xs text-amber-800">
-                You've reached the message limit (2 messages) for this
-                conversation.
+                {t("chatDrawer.messageLimitReached")}
               </p>
             </div>
           </div>
@@ -343,10 +345,11 @@ export default function ChatDrawer({
                 <Send size={28} className="text-amber-600" />
               </div>
               <p className="text-gray-500 text-sm font-medium mb-1">
-                No messages yet
+                {t("chatDrawer.noMessagesYet")}
               </p>
               <p className="text-gray-400 text-xs">
-                Start a conversation about {bookName || "this book"}
+                {t("chatDrawer.startConversation")}{" "}
+                {bookName || t("chatDrawer.thisBook")}
               </p>
             </div>
           ) : (
@@ -404,7 +407,9 @@ export default function ChatDrawer({
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder={
-                  canSendMore ? "Type a message..." : "Message limit reached"
+                  canSendMore
+                    ? t("chatDrawer.typeMessage")
+                    : t("chatDrawer.messageLimitReachedPlaceholder")
                 }
                 disabled={!canSendMore || sending}
                 rows={1}

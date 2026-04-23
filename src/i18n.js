@@ -224,6 +224,19 @@ const resources = {
                 "next": "Next",
                 "page": "Page"
             },
+            chatDrawer: {
+                user: "User",
+                messageLimitWarning: "Each conversation is limited to 4 messages (2 per user).",
+                messageLimitReached: "You've reached the message limit (2 messages) for this conversation.",
+                noMessagesYet: "No messages yet",
+                startConversation: "Start a conversation about",
+                thisBook: "this book",
+                typeMessage: "Type a message...",
+                messageLimitReachedPlaceholder: "Message limit reached",
+                messageLimitError: "Message limit (2) reached for this conversation.",
+                sendError: "Failed to send message",
+                unknown: "Unknown"
+            }
         }
     },
     fr: {
@@ -447,6 +460,19 @@ const resources = {
                 "next": "Suivant",
                 "page": "Page"
             },
+            chatDrawer: {
+                user: "Utilisateur",
+                messageLimitWarning: "Chaque conversation est limitée à 4 messages (2 par utilisateur).",
+                messageLimitReached: "Vous avez atteint la limite de messages (2 messages) pour cette conversation.",
+                noMessagesYet: "Pas encore de messages",
+                startConversation: "Commencer une conversation à propos de",
+                thisBook: "ce livre",
+                typeMessage: "Tapez un message...",
+                messageLimitReachedPlaceholder: "Limite de messages atteinte",
+                messageLimitError: "Limite de messages (2) atteinte pour cette conversation.",
+                sendError: "Échec de l'envoi du message",
+                unknown: "Inconnu"
+            },
         }
     },
     ar: {
@@ -669,7 +695,20 @@ const resources = {
                 "previous": "السابق",
                 "next": "التالي",
                 "page": "الصفحة"
-            }
+            },
+            chatDrawer: {
+                user: "مستخدم",
+                messageLimitWarning: "كل محادثة محدودة بـ 4 رسائل (2 لكل مستخدم).",
+                messageLimitReached: "لقد وصلت إلى حد الرسائل (رسالتان) لهذه المحادثة.",
+                noMessagesYet: "لا توجد رسائل بعد",
+                startConversation: "ابدأ محادثة حول",
+                thisBook: "هذا الكتاب",
+                typeMessage: "اكتب رسالة...",
+                messageLimitReachedPlaceholder: "تم الوصول إلى حد الرسائل",
+                messageLimitError: "تم الوصول إلى حد الرسائل (رسالتان) لهذه المحادثة.",
+                sendError: "فشل إرسال الرسالة",
+                unknown: "غير معروف"
+            },
         }
 
     }
