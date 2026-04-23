@@ -135,13 +135,13 @@ const UserSavedPosts = () => {
               </div>
             </div>
           ))}
-          <BottomDrawer
-            open={openDrawer}
-            onClose={handleCloseDrawer}
-            book={selectedBook}
-          />
         </div>
       )}
+      <BottomDrawer
+        open={openDrawer}
+        onClose={handleCloseDrawer}
+        book={selectedBook}
+      />
       {openChatDrawer && (
         <ChatDrawer
           open={openChatDrawer}
