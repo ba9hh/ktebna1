@@ -43,7 +43,8 @@ const BookDrawer = ({ open, onClose, book }) => {
                 {t("BookDrawer.location")}: {book.book_location}
               </p>
               <p className="text-sm text-stone-500">
-                {t("BookDrawer.owner")}: {book.users?.name}
+                {t("BookDrawer.owner")}:{" "}
+                {book.users?.name || t("BookDrawer.owner")}
               </p>
             </div>
           </div>
