@@ -16,10 +16,7 @@ const BookDrawer = ({ open, onClose, book }) => {
     >
       {book && (
         <div>
-          <div className="flex justify-between items-center mb-4">
-            <IconButton onClick={onClose}>
-              <X className="h-5 w-5" />
-            </IconButton>
+          <div className="flex justify-between mb-4">
             <div className="grid gap-4 md:grid-cols-[200px_1fr]">
               <img
                 src={book.book_image}
@@ -27,12 +24,14 @@ const BookDrawer = ({ open, onClose, book }) => {
                 className="w-1/2 md:w-full aspect-3/4 rounded-xl object-cover"
               />
               <div>
-                <p className="font-medium">user have: {book.book_name}</p>
+                <p className="font-medium">
+                  user have:{" "}
+                  <span className="text-amber-700">{book.book_name}</span>
+                </p>
                 <p className="font-medium">
                   {/* {t("BookDrawer.deal")}:{" "} */}
-                  <span className="text-amber-700">
-                    user wants:{book.book_deal}
-                  </span>
+                  user wants:
+                  <span className="text-amber-700">{book.book_deal}</span>
                 </p>
                 <p className="font-medium">
                   {t("BookDrawer.owner")}:{" "}
@@ -43,6 +42,9 @@ const BookDrawer = ({ open, onClose, book }) => {
                 </p>
               </div>
             </div>
+            <IconButton onClick={onClose}>
+              <X className="h-5 w-5" />
+            </IconButton>
           </div>
         </div>
       )}
