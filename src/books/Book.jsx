@@ -35,7 +35,7 @@ const Book = () => {
         <div className="max-full">
           <iframe
             src={selectedBook.pdfUrl}
-            className="w-full h-full bg-white"
+            className="w-full h-screen bg-white"
             title={selectedBook.title}
           />
         </div>
