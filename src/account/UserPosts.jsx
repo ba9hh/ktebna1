@@ -13,7 +13,7 @@ import HomePagination from "../home/HomePagination";
 const UserPosts = () => {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
-  const pageSize = 1;
+  const pageSize = 2;
   const [showAddModal, setShowAddModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null);
