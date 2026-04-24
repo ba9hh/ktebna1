@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 export const useHomeFilters = () => {
     const [category, setCategory] = useState("All");
     const [dealType, setDealType] = useState("All");
-    const [location, setLocation] = useState("Toute la tunisie");
+    const [location, setLocation] = useState("allTunisia");
 
     const [searchParams, setSearchParams] = useSearchParams();
 
