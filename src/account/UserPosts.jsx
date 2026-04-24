@@ -9,9 +9,11 @@ import { supabase } from "../supabaseClient";
 import { Plus } from "lucide-react";
 import { usePostInteractions } from "../home/usePostInteractions";
 import BookDrawer from "../components/BookDrawer";
-
+import HomePagination from "../home/HomePagination";
 const UserPosts = () => {
   const { t } = useTranslation();
+  const [page, setPage] = useState(1);
+  const pageSize = 1;
   const [showAddModal, setShowAddModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null);
@@ -20,23 +22,31 @@ const UserPosts = () => {
   const queryClient = useQueryClient();
 
   const fetchPosts = async () => {
-    const { data, error } = await supabase
+    const from = (page - 1) * pageSize;
+    const to = from + pageSize - 1;
+    const { data, error, count } = await supabase
       .from("posts")
-      .select("*")
+      .select("*", { count: "exact" })
       .eq("user_id", user?.id)
-      .order("created_at", { ascending: false });
+      .order("created_at", { ascending: false })
+      .range(from, to);
 
     if (error) throw error;
-    return data;
+    return {
+      data,
+      count,
+    };
   };
   const {
     data: posts,
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["userPosts"], // cache key
+    queryKey: ["userPosts", page], // cache key
     queryFn: fetchPosts,
+    keepPreviousData: true,
   });
+  const totalPages = posts?.count ? Math.ceil(posts.count / pageSize) : 0;
   const deleteMutation = useMutation({
     mutationFn: async (post) => {
       const { error: deleteError } = await supabase
@@ -132,48 +142,55 @@ const UserPosts = () => {
         <p className="text-gray-500 italic text-center py-4">
           {t("userPosts.loading")}
         </p>
-      ) : posts?.length === 0 ? (
+      ) : posts?.data?.length === 0 ? (
         <p className="text-gray-500 italic text-center py-4">
           {t("userPosts.noPosts")}
         </p>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
-          {posts?.map((post) => (
-            <div
-              key={post.id}
-              onClick={(e) => {
-                e.stopPropagation();
-                handleOpenDrawer(post);
-              }}
-            >
-              <img
-                src={post.book_image}
-                alt={post.book_name}
-                className="w-32 aspect-3/4 object-cover "
-              />
-              <h3 className="font-medium truncate">{post.book_name}</h3>
-              <div className="flex gap-2 mt-2">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleOpenUpdate(post);
-                  }}
-                  className="text-xs bg-blue-600 text-white px-2 py-1 rounded hover:bg-blue-700"
-                >
-                  {t("userPosts.edit")}
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleOpenDelete(post);
-                  }}
-                  className="text-xs bg-red-600 text-white px-2 py-1 rounded hover:bg-red-700"
-                >
-                  {t("userPosts.delete")}
-                </button>
+        <div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
+            {posts?.data?.map((post) => (
+              <div
+                key={post.id}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleOpenDrawer(post);
+                }}
+              >
+                <img
+                  src={post.book_image}
+                  alt={post.book_name}
+                  className="w-32 aspect-3/4 object-cover "
+                />
+                <h3 className="font-medium truncate">{post.book_name}</h3>
+                <div className="flex gap-2 mt-2">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleOpenUpdate(post);
+                    }}
+                    className="text-xs bg-blue-600 text-white px-2 py-1 rounded hover:bg-blue-700"
+                  >
+                    {t("userPosts.edit")}
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleOpenDelete(post);
+                    }}
+                    className="text-xs bg-red-600 text-white px-2 py-1 rounded hover:bg-red-700"
+                  >
+                    {t("userPosts.delete")}
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <HomePagination
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={setPage}
+          />
         </div>
       )}
       <BookDrawer
