@@ -50,7 +50,7 @@ const BookDrawer = ({ open, onClose, book }) => {
                     <span className="text-amber-700">{t("BookDrawer.is")}</span>
                     :{" "}
                     <span className="text-stone-900 font-serif text-base">
-                      {book.users?.name || t("BookDrawer.you")}
+                      {book.users?.name || t("BookDrawer.you") + " "}
                       <span className="text-amber-700 text-sm font-normal">
                         {t("BookDrawer.from")}:{" "}
                       </span>
