@@ -13,14 +13,10 @@ const About = () => {
         <p className="text-gray-700 text-base leading-relaxed mb-6">
           <span className="font-semibold">{t("about.ktebna")}</span>{" "}
           {t("about.paragraph1")}{" "}
-          <span className="font-medium text-blue-600">{t("about.sell")}</span>,{" "}
-          <span className="font-medium text-green-600">
-            {t("about.exchange")}
-          </span>
-          , {t("about.or")}{" "}
-          <span className="font-medium text-purple-600">
-            {t("about.donate")}
-          </span>{" "}
+          <span className="font-medium">{t("about.sell")}</span>,{" "}
+          <span className="font-medium">{t("about.exchange")}</span>,{" "}
+          {t("about.or")}{" "}
+          <span className="font-medium">{t("about.donate")}</span>{" "}
           {t("about.yourBooks")}
         </p>
 
@@ -32,21 +28,21 @@ const About = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mt-8">
           <div className="p-4 border rounded-xl shadow-sm hover:shadow-md transition">
-            <h3 className="text-lg font-semibold text-blue-600 mb-2">
+            <h3 className="text-lg font-semibold mb-2">
               {t("about.sellTitle")}
             </h3>
             <p className="text-gray-600 text-sm">{t("about.sellDesc")}</p>
           </div>
 
           <div className="p-4 border rounded-xl shadow-sm hover:shadow-md transition">
-            <h3 className="text-lg font-semibold text-green-600 mb-2">
+            <h3 className="text-lg font-semibold mb-2">
               {t("about.exchangeTitle")}
             </h3>
             <p className="text-gray-600 text-sm">{t("about.exchangeDesc")}</p>
           </div>
 
           <div className="p-4 border rounded-xl shadow-sm hover:shadow-md transition">
-            <h3 className="text-lg font-semibold text-purple-600 mb-2">
+            <h3 className="text-lg font-semibold mb-2">
               {t("about.donateTitle")}
             </h3>
             <p className="text-gray-600 text-sm">{t("about.donateDesc")}</p>
