@@ -11,7 +11,7 @@ export const useHomeFilters = () => {
     useEffect(() => {
         const params = {};
         if (dealType !== "All") params.dealType = dealType;
-        if (location !== "Toute la tunisie") params.location = location;
+        if (location !== "allTunisia") params.location = location;
         if (category !== "All") params.category = category;
 
         setSearchParams(params);
