@@ -8,7 +8,7 @@ export const usePosts = ({
     search,
     userId,
     page = 1,
-    pageSize = 1,
+    pageSize = 12,
 }) => {
     return useQuery({
         queryKey: [
@@ -19,7 +19,7 @@ export const usePosts = ({
             const [, params] = queryKey;
 
             const from = (params.page - 1) * params.pageSize;
-            const to = from + params.pageSize - 1;
+            const to = params.page * params.pageSize - 1;
 
             let query = supabase
                 .from("posts")
