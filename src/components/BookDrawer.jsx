@@ -68,8 +68,7 @@ const BookDrawer = ({ open, onClose, book }) => {
                   <p className="text-sm text-gray-700">
                     {t("BookDrawer.dealType")}:{" "}
                     <span className="text-stone-900 font-serif text-base">
-                      {book.book_deal_type}
-                      {t(`filterPanel.${book.book_category}`)}
+                      {t(`filterPanel.${book.book_deal_type}`)}
                     </span>
                   </p>
                 </div>
