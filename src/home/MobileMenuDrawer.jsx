@@ -41,7 +41,7 @@ const MobileMenuDrawer = ({ open, onClose }) => {
             <div className="mb-6 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Menu className="h-5 w-5" />
-                <span className="font-semibold">Menu</span>
+                <span className="font-semibold">{t("header.menu")}</span>
               </div>
               <button
                 className="rounded-xl border border-stone-300 bg-white/70 p-2 dark:border-stone-700 dark:bg-stone-800"

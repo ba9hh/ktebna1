@@ -12,7 +12,9 @@ const resources = {
                 about: "About",
                 contact: "Contact",
                 cart: "Cart",
-                filters: "Open filters"
+                filters: "Filters",
+                menu: "Menu"
+
             },
             home: {
                 recentBooks: "Recent Books",
@@ -263,7 +265,8 @@ const resources = {
                 about: "À propos",
                 contact: "Contact",
                 cart: "Panier",
-                filters: "Ouvrir les filtres"
+                filters: "Filtres",
+                menu: "Menu"
             },
             home: {
                 recentBooks: "Livres récents",
@@ -513,7 +516,8 @@ const resources = {
                 about: "حول",
                 contact: "اتصل بنا",
                 cart: "السلة",
-                filters: "فتح الفلاتر"
+                filters: "الفلاتر",
+                menu: "القائمة"
             },
             home: {
                 recentBooks: "الكتب الحديثة",
