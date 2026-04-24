@@ -52,7 +52,7 @@ const BookDrawer = ({ open, onClose, book }) => {
                     <span className="text-stone-900 font-serif text-base">
                       {book.users?.name || t("BookDrawer.you") + " "}
                     </span>
-                    <span className="text-amber-700 text-sm font-normal">
+                    <span className="text-amber-700 text-sm">
                       {t("BookDrawer.from")}:{" "}
                     </span>
                     <span className="text-stone-900 font-serif text-base">
