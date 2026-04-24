@@ -36,7 +36,7 @@ export const usePosts = ({
             if (params.dealType !== "All")
                 query = query.eq("book_deal_type", params.dealType);
 
-            if (params.location !== "Toute la tunisie")
+            if (params.location !== "allTunisia")
                 query = query.eq("book_location", params.location);
 
             if (params.category !== "All")

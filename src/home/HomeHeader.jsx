@@ -18,6 +18,7 @@ const HomeHeader = ({ location, setLocation }) => {
           onChange={(e) => setLocation(e.target.value)}
           className="rounded-xl border border-stone-300 bg-white/80 px-3 py-2 text-sm dark:border-stone-700 dark:bg-stone-800"
         >
+          <option value="allTunisia">{t("cities.allTunisia")}</option>
           {cities.map((city) => (
             <option key={city} value={city}>
               {t(`cities.${city}`)}

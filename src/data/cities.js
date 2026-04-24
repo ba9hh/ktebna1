@@ -1,5 +1,4 @@
 const cities = [
-    "Toute la tunisie",
     "Tunis",
     "Ariana",
     "Manouba",

@@ -19,7 +19,7 @@ const resources = {
                 noBooks: "No books found."
             },
             cities: {
-                "Toute la tunisie": "All Tunisia",
+                "allTunisia": "All Tunisia",
                 "Tunis": "Tunis",
                 "Ariana": "Ariana",
                 "Manouba": "Manouba",
@@ -270,7 +270,7 @@ const resources = {
                 noBooks: "Aucun livre trouvé."
             },
             cities: {
-                "Toute la tunisie": "Toute la Tunisie",
+                "allTunisia": "Toute la Tunisie",
                 "Tunis": "Tunis",
                 "Ariana": "Ariana",
                 "Manouba": "Manouba",
@@ -520,7 +520,7 @@ const resources = {
                 noBooks: "لم يتم العثور على أي كتب."
             },
             cities: {
-                "Toute la tunisie": "كل تونس",
+                "allTunisia": "كل تونس",
                 "Tunis": "تونس",
                 "Ariana": "أريانة",
                 "Manouba": "منوبة",
