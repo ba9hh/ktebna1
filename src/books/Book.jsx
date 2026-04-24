@@ -30,9 +30,9 @@ const Book = () => {
   }
 
   return (
-    <div className="bg-[radial-gradient(ellipse_at_top,rgba(120,53,15,0.08),transparent_50%),linear-gradient(to_bottom,#faf7f2,#f7f3ea)] mt-2">
-      <div className="p-4">
-        <div className="max-w-7xl mx-auto">
+    <div className="bg-[radial-gradient(ellipse_at_top,rgba(120,53,15,0.08),transparent_50%),linear-gradient(to_bottom,#faf7f2,#f7f3ea)] mt-0">
+      <div className="p-0">
+        <div className="max-full">
           <iframe
             src={selectedBook.pdfUrl}
             className="w-full h-[calc(100vh-120px)] bg-white"
