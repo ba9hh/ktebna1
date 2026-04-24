@@ -545,7 +545,7 @@ const resources = {
             bookCard: {
                 saved: "محفوظ",
                 save: "حفظ",
-                contact: "اتصل",
+                contact: "رسالة",
                 addToWishlist: "أضف إلى قائمة الرغبات"
             },
             filterPanel: {

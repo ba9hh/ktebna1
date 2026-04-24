@@ -86,7 +86,10 @@ const HomeBook = ({
 
       <div className="px-3 pb-3">
         <h3 className="font-serif text-lg text-stone-900 dark:text-stone-100 line-clamp-2 truncate">
-          <span className="text-sm text-amber-700">have:</span> {book.book_name}
+          <span className="text-sm text-amber-700">
+            {t("BookDrawer.have")}:
+          </span>{" "}
+          {book.book_name}
         </h3>
         <p className="text-sm text-black dark:text-stone-400">
           {book.users?.name}
@@ -95,7 +98,10 @@ const HomeBook = ({
           </span>
         </p>
         <h3 className="font-serif text-lg text-stone-900 dark:text-stone-100 line-clamp-2 truncate">
-          <span className="text-sm text-amber-700">want:</span> {book.book_deal}
+          <span className="text-sm text-amber-700">
+            {t("BookDrawer.want")}:
+          </span>{" "}
+          {book.book_deal}
         </h3>
 
         <div className="mt-3 space-y-3">
