@@ -1,6 +1,8 @@
 import React from "react";
-
+import { useTranslation } from "react-i18next";
 const HomePagination = ({ currentPage, totalPages, onPageChange }) => {
+  const { t } = useTranslation();
+
   if (totalPages <= 1) return null;
 
   return (
@@ -10,11 +12,11 @@ const HomePagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(currentPage - 1)}
         className="rounded-lg border px-4 py-2 disabled:opacity-50"
       >
-        Previous
+        {t("pagination.previous")}
       </button>
 
       <span className="px-4 py-2">
-        Page {currentPage} / {totalPages}
+        {t("pagination.page")} {currentPage} / {totalPages}
       </span>
 
       <button
@@ -22,7 +24,7 @@ const HomePagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(currentPage + 1)}
         className="rounded-lg border px-4 py-2 disabled:opacity-50"
       >
-        Next
+        {t("pagination.next")}
       </button>
     </div>
   );

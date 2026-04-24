@@ -215,10 +215,16 @@ const resources = {
                 updateError: "Failed to update profile picture. Please try again."
             },
             BookDrawer: {
-                deal: "Deal",
-                location: "Location",
-                owner: "Owner",
-                you: "You",
+                "userHave": "User",
+                "have": "has",
+                "userWant": "User",
+                "want": "wants",
+                "userIs": "User",
+                "is": "is",
+                "you": "you",
+                "from": "from:",
+                "category": "Book category",
+                "dealType": "Deal type"
             },
             pagination: {
                 "previous": "Previous",
@@ -458,10 +464,16 @@ const resources = {
                 updateError: "Échec de la mise à jour de la photo de profil. Veuillez réessayer."
             },
             BookDrawer: {
-                deal: "Offre",
-                location: "Localisation",
-                owner: "Propriétaire",
-                you: "Vous",
+                "userHave": "L'utilisateur",
+                "have": "a",
+                "userWant": "L'utilisateur",
+                "want": "veut",
+                "userIs": "L'utilisateur",
+                "is": "est",
+                "you": "vous",
+                "from": "de :",
+                "category": "Catégorie",
+                "dealType": "Type d'échange",
             },
             pagination: {
                 "previous": "Précédent",
@@ -700,10 +712,16 @@ const resources = {
                 updateError: "فشل تحديث صورة الملف الشخصي. يرجى المحاولة مرة أخرى."
             },
             BookDrawer: {
-                deal: "الصفقة",
-                location: "الموقع",
-                owner: "المالك",
-                you: "أنت",
+                "userHave": "المستخدم",
+                "have": "لديه",
+                "userWant": "المستخدم",
+                "want": "يريد",
+                "userIs": "المستخدم",
+                "is": "هو",
+                "you": "أنت",
+                "from": "من:",
+                "category": "تصنيف الكتاب",
+                "dealType": "نوع الصفقة"
             },
             pagination: {
                 "previous": "السابق",

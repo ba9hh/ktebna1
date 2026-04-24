@@ -26,25 +26,33 @@ const BookDrawer = ({ open, onClose, book }) => {
               <div className="md:flex flex-col justify-between h-full">
                 <div>
                   <p className="text-sm text-gray-700">
-                    user <span className="text-amber-700">have</span>:{" "}
+                    {t("BookDrawer.userHave")}{" "}
+                    <span className="text-amber-700">
+                      {t("BookDrawer.have")}
+                    </span>
+                    :{" "}
                     <span className="text-stone-900 font-serif text-base">
                       {book.book_name}
                     </span>
                   </p>
                   <p className="text-sm text-gray-700">
-                    {/* {t("BookDrawer.deal")}:{" "} */}
-                    user <span className="text-amber-700">want</span>:{" "}
+                    {t("BookDrawer.userWant")}{" "}
+                    <span className="text-amber-700">
+                      {t("BookDrawer.want")}
+                    </span>
+                    :{" "}
                     <span className="text-stone-900 font-serif text-base">
                       {book.book_deal}
                     </span>
                   </p>
                   <p className="text-sm text-gray-700">
-                    {/* {t("BookDrawer.owner")}:{" "} */}
-                    user <span className="text-amber-700">is</span>:{" "}
+                    {t("BookDrawer.userIs")}{" "}
+                    <span className="text-amber-700">{t("BookDrawer.is")}</span>
+                    :{" "}
                     <span className="text-stone-900 font-serif text-base">
                       {book.users?.name || t("BookDrawer.you")}
                       <span className="text-amber-700 text-sm font-normal">
-                        from:{" "}
+                        {t("BookDrawer.from")}:{" "}
                       </span>
                       {book.book_location}
                     </span>
@@ -52,15 +60,13 @@ const BookDrawer = ({ open, onClose, book }) => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-700">
-                    {/* {t("BookDrawer.deal")}:{" "} */}
-                    book category:{" "}
+                    {t("BookDrawer.category")}:{" "}
                     <span className="text-stone-900 font-serif text-base">
                       {book.book_category}
                     </span>
                   </p>
                   <p className="text-sm text-gray-700">
-                    {/* {t("BookDrawer.deal")}:{" "} */}
-                    deal type:{" "}
+                    {t("BookDrawer.dealType")}:{" "}
                     <span className="text-stone-900 font-serif text-base">
                       {book.book_deal_type}
                     </span>
