@@ -38,9 +38,7 @@ const MobileFiltersDrawer = ({
             <div className="mb-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <SlidersHorizontal className="h-5 w-5" />
-                <span className="font-semibold">
-                  {t("FilterPanel.filters")}
-                </span>
+                <span className="font-semibold">{t("header.filters")}</span>
               </div>
               <button
                 className="rounded-xl border border-stone-300 bg-white/70 p-2 dark:border-stone-700 dark:bg-stone-800"
