@@ -11,7 +11,7 @@ import HomePagination from "../home/HomePagination";
 const UserSavedPosts = () => {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
-  const pageSize = 1;
+  const pageSize = 12;
   const queryClient = useQueryClient();
   const [savingPostId, setSavingPostId] = useState(null);
   const { user } = useContext(AuthContext);

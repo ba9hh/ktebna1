@@ -18,7 +18,7 @@ import HomePagination from "./HomePagination";
 import MobileMenuDrawer from "./MobileMenuDrawer";
 const Home = () => {
   const [page, setPage] = useState(1);
-  const pageSize = 1;
+  const pageSize = 12;
   const {
     mobileFiltersOpen,
     setMobileFiltersOpen,
