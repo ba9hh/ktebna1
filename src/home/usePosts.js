@@ -8,7 +8,7 @@ export const usePosts = ({
     search,
     userId,
     page = 1,
-    pageSize = 2,
+    pageSize = 1,
 }) => {
     return useQuery({
         queryKey: [
