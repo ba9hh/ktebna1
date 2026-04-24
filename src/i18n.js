@@ -95,7 +95,7 @@ const resources = {
                 exchangeDesc: "Swap your books with others and discover new reads without spending money.",
                 donateTitle: "Donate",
                 donateDesc: "Share knowledge and stories by donating books to those who need them most.",
-                footer: "📚 Together, let's build a culture of sharing and make books more accessible."
+                footer: "Together, let's build a culture of sharing and make books more accessible."
             },
             contact: {
                 title: "Contact",
@@ -344,7 +344,7 @@ const resources = {
                 exchangeDesc: "Échangez vos livres avec d'autres et découvrez de nouvelles lectures sans dépenser d'argent.",
                 donateTitle: "Donner",
                 donateDesc: "Partagez des connaissances et des histoires en donnant des livres à ceux qui en ont le plus besoin.",
-                footer: "📚 Ensemble, construisons une culture du partage et rendons les livres plus accessibles."
+                footer: "Ensemble, construisons une culture du partage et rendons les livres plus accessibles."
             },
             contact: {
                 title: "Contacter",
@@ -592,7 +592,7 @@ const resources = {
                 exchangeDesc: "بادل كتبك مع الآخرين واكتشف قراءات جديدة دون إنفاق المال.",
                 donateTitle: "تبرع",
                 donateDesc: "شارك المعرفة والقصص من خلال التبرع بالكتب لمن يحتاجها أكثر.",
-                footer: "📚 معًا، لنبني ثقافة المشاركة ونجعل الكتب أكثر سهولة في الوصول."
+                footer: "معًا، لنبني ثقافة المشاركة ونجعل الكتب أكثر سهولة في الوصول."
             },
             contact: {
                 title: "اتصل بـ",
