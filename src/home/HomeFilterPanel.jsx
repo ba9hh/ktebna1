@@ -63,10 +63,6 @@ function HomeFilterPanel({ category, setCategory, dealType, setDealType }) {
           ))}
         </select> */}
       </div>
-      {/* 
-      <div className="rounded-xl border border-amber-900/20 bg-amber-50/50 p-3 text-xs text-amber-900 dark:border-amber-900/40 dark:bg-amber-900/10 dark:text-amber-200">
-        {t("filterPanel.tip")}
-      </div> */}
     </div>
   );
 }

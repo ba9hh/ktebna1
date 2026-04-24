@@ -222,7 +222,7 @@ const resources = {
                 "userIs": "User",
                 "is": "is",
                 "you": "you",
-                "from": "from:",
+                "from": "from",
                 "category": "Book category",
                 "dealType": "Deal type"
             },
@@ -471,7 +471,7 @@ const resources = {
                 "userIs": "L'utilisateur",
                 "is": "est",
                 "you": "vous",
-                "from": "de :",
+                "from": "de",
                 "category": "Catégorie",
                 "dealType": "Type d'échange",
             },
@@ -719,7 +719,7 @@ const resources = {
                 "userIs": "المستخدم",
                 "is": "هو",
                 "you": "أنت",
-                "from": "من:",
+                "from": "من",
                 "category": "تصنيف الكتاب",
                 "dealType": "نوع الصفقة"
             },
