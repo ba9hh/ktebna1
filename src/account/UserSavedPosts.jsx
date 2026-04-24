@@ -6,33 +6,43 @@ import ChatDrawer from "../chat/ChatDrawer";
 import { useTranslation } from "react-i18next";
 import BookDrawer from "../components/BookDrawer";
 import { usePostInteractions } from "../home/usePostInteractions";
+import HomePagination from "../home/HomePagination";
+
 const UserSavedPosts = () => {
   const { t } = useTranslation();
+  const [page, setPage] = useState(1);
+  const pageSize = 1;
   const queryClient = useQueryClient();
   const [savingPostId, setSavingPostId] = useState(null);
   const { user } = useContext(AuthContext);
   const fetchSavedPosts = async () => {
-    const { data, error } = await supabase
-      .from("saved_posts")
-      .select("id, post_id, posts(*, users(id, name))")
-      .eq("user_id", user?.id);
+    const from = (page - 1) * pageSize;
+    const to = from + pageSize - 1;
 
+    const { data, error, count } = await supabase
+      .from("saved_posts")
+      .select("id, post_id, posts(*, users(id, name))", { count: "exact" })
+      .eq("user_id", user?.id)
+      .range(from, to);
     if (error) throw error;
-    return data.map((row) => ({
-      saved_id: row.id,
-      ...row.posts,
-    }));
+    return {
+      data: data.map((row) => ({
+        saved_id: row.id,
+        ...row.posts,
+      })),
+      count,
+    };
   };
 
-  const {
-    data: savedPosts,
-    isLoading,
-    isError,
-  } = useQuery({
-    queryKey: ["savedPosts", user?.id],
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["savedPosts", user?.id, page],
     queryFn: fetchSavedPosts,
     enabled: !!user?.id,
+    keepPreviousData: true,
   });
+  const savedPosts = data?.data || [];
+
+  const totalPages = data?.count ? Math.ceil(data.count / pageSize) : 0;
   console.log(savedPosts);
   const toggleSaveMutation = useMutation({
     mutationFn: async (post) => {
@@ -96,45 +106,52 @@ const UserSavedPosts = () => {
           {t("savedPosts.noPosts")}
         </p>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
-          {savedPosts?.map((post) => (
-            <div
-              key={post.postId?._id}
-              onClick={(e) => {
-                e.stopPropagation();
-                handleOpenDrawer(post);
-              }}
-            >
-              <img
-                src={post.book_image}
-                alt={post.book_name}
-                className="w-32 aspect-3/4 object-cover"
-              />
-              <h3 className="font-medium truncate">{post.book_name}</h3>
-              <div className="flex gap-2 mt-2">
-                <button
-                  onClick={() => toggleSavePost(post)}
-                  disabled={savingPostId === post.id}
-                  className="text-xs bg-gray-600 text-white px-2 py-1 rounded hover:bg-gray-700 disabled:opacity-50"
-                >
-                  {savingPostId === post.id
-                    ? t("savedPosts.unsaving")
-                    : savedPosts.some((p) => p.id === post.id)
-                      ? t("savedPosts.unsave")
-                      : t("savedPosts.save")}
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleOpenChatDrawer(post);
-                  }}
-                  className="text-xs bg-amber-600 text-white px-2 py-1 rounded hover:bg-amber-700 disabled:opacity-50"
-                >
-                  {t("savedPosts.contact")}
-                </button>
+        <div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
+            {savedPosts?.map((post) => (
+              <div
+                key={post.postId?._id}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleOpenDrawer(post);
+                }}
+              >
+                <img
+                  src={post.book_image}
+                  alt={post.book_name}
+                  className="w-32 aspect-3/4 object-cover"
+                />
+                <h3 className="font-medium truncate">{post.book_name}</h3>
+                <div className="flex gap-2 mt-2">
+                  <button
+                    onClick={() => toggleSavePost(post)}
+                    disabled={savingPostId === post.id}
+                    className="text-xs bg-gray-600 text-white px-2 py-1 rounded hover:bg-gray-700 disabled:opacity-50"
+                  >
+                    {savingPostId === post.id
+                      ? t("savedPosts.unsaving")
+                      : savedPosts.some((p) => p.id === post.id)
+                        ? t("savedPosts.unsave")
+                        : t("savedPosts.save")}
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleOpenChatDrawer(post);
+                    }}
+                    className="text-xs bg-amber-600 text-white px-2 py-1 rounded hover:bg-amber-700 disabled:opacity-50"
+                  >
+                    {t("savedPosts.contact")}
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <HomePagination
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={setPage}
+          />
         </div>
       )}
       <BookDrawer
