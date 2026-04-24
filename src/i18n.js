@@ -252,6 +252,12 @@ const resources = {
                 title: "Authentication Required",
                 defaultMessage: "You must be logged in to perform this action.",
                 continueWithGoogle: "Continue with Google"
+            }, booksHeader: {
+                title: "Books (PDF)",
+                allLanguages: "All languages",
+                english: "English",
+                french: "French",
+                arabic: "Arabic"
             }
 
         }
@@ -505,6 +511,13 @@ const resources = {
                 defaultMessage: "Vous devez être connecté pour effectuer cette action.",
                 continueWithGoogle: "Continuer avec Google"
             },
+            booksHeader: {
+                title: "Livres (PDF)",
+                allLanguages: "Toutes les langues",
+                english: "Anglais",
+                french: "Français",
+                arabic: "Arabe"
+            }
         }
     },
     ar: {
@@ -756,6 +769,13 @@ const resources = {
                 defaultMessage: "يجب عليك تسجيل الدخول لتنفيذ هذا الإجراء.",
                 continueWithGoogle: "المتابعة مع Google"
             },
+            booksHeader: {
+                title: "الكتب (PDF)",
+                allLanguages: "جميع اللغات",
+                english: "الإنجليزية",
+                french: "الفرنسية",
+                arabic: "العربية"
+            }
         }
 
     }
