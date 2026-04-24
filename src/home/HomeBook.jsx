@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Bookmark, BookmarkCheck, Loader2 } from "lucide-react";
 import { supabase } from "../supabaseClient";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
+
 const HomeBook = ({
   book,
   userId,
@@ -57,6 +59,19 @@ const HomeBook = ({
     }
     setSaving(true);
     try {
+      if (!isSaved) {
+        const { count, error: countError } = await supabase
+          .from("saved_posts")
+          .select("id", { count: "exact", head: true })
+          .eq("user_id", userId);
+
+        if (countError) throw countError;
+
+        if (count >= 6) {
+          toast.error(t("bookCard.maxSavedReached"));
+          return;
+        }
+      }
       const result = await toggleSavePost(postId);
       setIsSaved(result.status === "saved");
     } catch (err) {

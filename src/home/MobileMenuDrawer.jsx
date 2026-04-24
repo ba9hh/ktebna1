@@ -34,7 +34,7 @@ const MobileMenuDrawer = ({ open, onClose }) => {
         >
           <motion.div
             {...DRAWER_ANIMATION}
-            className="absolute inset-y-0 left-0 w-[85%] max-w-xs rounded-r-3xl border-r border-stone-800/20 bg-stone-50 p-4 shadow-xl dark:border-stone-700/50 dark:bg-stone-900"
+            className="absolute inset-y-0 left-0 w-[85%] max-w-xs border-r border-stone-800/20 bg-stone-50 p-4 shadow-xl dark:border-stone-700/50 dark:bg-stone-900"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}

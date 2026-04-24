@@ -94,7 +94,12 @@ const UserSavedPosts = () => {
   } = usePostInteractions(user);
   return (
     <div className="border flex flex-col flex-1 rounded-xl shadow-md p-4">
-      <h2 className="text-lg font-semibold mb-4">{t("savedPosts.title")}</h2>
+      <h2 className="text-lg font-semibold mb-4">
+        {t("savedPosts.title")}
+        <span className="text-gray-600 text-base font-normal">
+          ({t("savedPosts.note")})
+        </span>
+      </h2>
       <hr />
 
       {isLoading ? (

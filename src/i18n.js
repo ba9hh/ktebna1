@@ -49,7 +49,8 @@ const resources = {
                 saved: "Saved",
                 save: "Save",
                 contact: "Contact",
-                addToWishlist: "Add to wishlist"
+                addToWishlist: "Add to wishlist",
+                maxSavedReached: "You can only save up to 6 books."
             },
             filterPanel: {
                 categories: "Categories",
@@ -130,7 +131,8 @@ const resources = {
                 unsaving: "Unsaving...",
                 unsave: "Unsave",
                 save: "Save",
-                contact: "Contact"
+                contact: "Contact",
+                note: "6 max"
             },
             conversations: {
                 title: "Your Conversations",
@@ -298,7 +300,8 @@ const resources = {
                 saved: "Enregistré",
                 save: "Enregistrer",
                 contact: "Contacter",
-                addToWishlist: "Ajouter à la liste de souhaits"
+                addToWishlist: "Ajouter à la liste de souhaits",
+                maxSavedReached: "Vous ne pouvez sauvegarder que 6 livres maximum."
             },
             filterPanel: {
                 categories: "Catégories",
@@ -379,7 +382,8 @@ const resources = {
                 unsaving: "Suppression...",
                 unsave: "Retirer",
                 save: "Enregistrer",
-                contact: "Contacter"
+                contact: "Contacter",
+                note: "6 max"
             },
             conversations: {
                 title: "Vos conversations",
@@ -546,7 +550,8 @@ const resources = {
                 saved: "محفوظ",
                 save: "حفظ",
                 contact: "رسالة",
-                addToWishlist: "أضف إلى قائمة الرغبات"
+                addToWishlist: "أضف إلى قائمة الرغبات",
+                maxSavedReached: "يمكنك حفظ ما يصل إلى 6 كتب فقط."
             },
             filterPanel: {
                 categories: "الفئات",
@@ -627,7 +632,8 @@ const resources = {
                 unsaving: "جارٍ الإلغاء...",
                 unsave: "إلغاء الحفظ",
                 save: "حفظ",
-                contact: "اتصل"
+                contact: "اتصل",
+                note: "6 كحد أقصى"
             },
             conversations: {
                 title: "محادثاتك",
