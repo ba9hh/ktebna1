@@ -36,7 +36,7 @@ const Contact = () => {
           </button>
         </form> */}
 
-        <div className="mb-4 text-center text-gray-900 text-lg">
+        <div className="mb-4 text-center text-gray-900 text-xl">
           {t("contact.reachUs")}{" "}
           <span className="font-medium text-amber-600">
             ktebna.tunisie@gmail.com
