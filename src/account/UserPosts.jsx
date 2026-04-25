@@ -201,11 +201,11 @@ const UserPosts = () => {
                           : "bg-gray-200 text-gray-600"
                       }`}
                   >
-                    {post.is_public ? (
+                    {/* {post.is_public ? (
                       <Globe className="w-3 h-3" />
                     ) : (
                       <Lock className="w-3 h-3" />
-                    )}
+                    )} */}
                     {post.is_public
                       ? t("userPosts.public", "Public")
                       : t("userPosts.private", "Private")}
