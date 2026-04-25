@@ -70,7 +70,7 @@ const UserConversations = () => {
                   setSelectedName(otherUser.name);
                   setOpen(true);
                 }}
-                className="flex items-center justify-between p-4 border border-gray-300 bg-white/40 rounded-b-2xl shadow hover:shadow-md transition cursor-pointer"
+                className="flex items-center justify-between p-4 border border-gray-300 bg-white/40 shadow hover:shadow-md transition cursor-pointer"
               >
                 <div className="flex items-center space-x-3">
                   <img
