@@ -212,7 +212,7 @@ const UserPosts = () => {
                   </span>
                 </div>
                 <h3 className="font-medium truncate">{post.book_name}</h3>
-                <div className="flex gap-2 mt-2">
+                <div className="flex flex-wrap gap-2 mt-2 ">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
