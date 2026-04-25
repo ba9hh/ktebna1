@@ -16,29 +16,7 @@ const Contact = () => {
           {t("contact.subtitle")}
         </p>
 
-        <form className="space-y-4">
-          {/* <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              {t("contact.nameLabel")}
-            </label>
-            <input
-              type="text"
-              placeholder={t("contact.namePlaceholder")}
-              className="w-full rounded-xl border border-gray-300 p-3 focus:ring-2 focus:ring-amber-500 focus:outline-none"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              {t("contact.emailLabel")}
-            </label>
-            <input
-              type="email"
-              placeholder={t("contact.emailPlaceholder")}
-              className="w-full rounded-xl border border-gray-300 p-3 focus:ring-2 focus:ring-amber-500 focus:outline-none"
-            />
-          </div> */}
-
+        {/* <form className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               {t("contact.messageLabel")}
@@ -52,13 +30,13 @@ const Contact = () => {
 
           <button
             type="submit"
-            className="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-1.5 rounded-xl shadow-md transition"
+            className="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-1.5 shadow-md transition"
           >
             {t("contact.sendButton")}
           </button>
-        </form>
+        </form> */}
 
-        <div className="mt-4 text-center text-gray-600 text-sm">
+        <div className="mt-4 text-center text-gray-600">
           {t("contact.reachUs")}{" "}
           <span className="font-medium text-amber-600">
             ktebna.tunisie@gmail.com
