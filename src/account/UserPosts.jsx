@@ -230,12 +230,12 @@ const UserPosts = () => {
                   >
                     {post.is_public ? (
                       <>
-                        <Lock className="w-3 h-3" />{" "}
+                        {/* <Lock className="w-3 h-3" />{" "} */}
                         {t("userPosts.makePrivate", "Make Private")}
                       </>
                     ) : (
                       <>
-                        <Globe className="w-3 h-3" />{" "}
+                        {/* <Globe className="w-3 h-3" />{" "} */}
                         {t("userPosts.makePublic", "Make Public")}
                       </>
                     )}
