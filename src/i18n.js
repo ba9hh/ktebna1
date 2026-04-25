@@ -127,8 +127,8 @@ const resources = {
                 delete: "Delete",
                 public: "Public",
                 private: "Private",
-                makePublic: "Make Public",
-                makePrivate: "Make Private"
+                makePublic: "Publish",
+                makePrivate: "Unpublish"
             },
             savedPosts: {
                 title: "Your Saved Posts",
@@ -389,8 +389,8 @@ const resources = {
                 delete: "Supprimer",
                 public: "Public",
                 private: "Privé",
-                makePublic: "Rendre public",
-                makePrivate: "Rendre privé"
+                makePublic: "Publier",
+                makePrivate: "Dépublier"
             },
             savedPosts: {
                 title: "Vos publications enregistrées",
@@ -651,8 +651,8 @@ const resources = {
                 delete: "حذف",
                 public: "عام",
                 private: "خاص",
-                makePublic: "جعله عامًا",
-                makePrivate: "جعله خاصًا"
+                makePublic: "نشر",
+                makePrivate: "إخفاء"
             },
             savedPosts: {
                 title: "منشوراتك المحفوظة",
