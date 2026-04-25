@@ -111,7 +111,7 @@ const resources = {
                 messageLabel: "Message",
                 messagePlaceholder: "Write your message...",
                 sendButton: "Send Message",
-                reachUs: "Or reach us at:"
+                reachUs: "reach us at:"
             },
             sidebar: {
                 posts: "Posts",
@@ -373,7 +373,7 @@ const resources = {
                 messageLabel: "Message",
                 messagePlaceholder: "Écrivez votre message...",
                 sendButton: "Envoyer le message",
-                reachUs: "Ou contactez-nous à :"
+                reachUs: "contactez-nous à :"
             },
             sidebar: {
                 posts: "Publications",
@@ -635,7 +635,7 @@ const resources = {
                 messageLabel: "الرسالة",
                 messagePlaceholder: "اكتب رسالتك...",
                 sendButton: "إرسال الرسالة",
-                reachUs: "أو تواصل معنا على:"
+                reachUs: " تواصل معنا على:"
             },
             sidebar: {
                 posts: "المنشورات",
