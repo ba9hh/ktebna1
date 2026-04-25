@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <div className="flex justify-center px-6 py-10 ">
       <div className="max-w-3xl w-full bg-white/70 border border-stone-200/60 shadow-sm p-8 md:px-10 md:py-4">
-        <h1 className="text-2xl md:text-2xl font-serif text-gray-900 mb-6 text-center">
+        <h1 className="text-2xl md:text-2xl font-serif text-gray-900 mb-4 text-center">
           {t("contact.title")}{" "}
           <span className="text-amber-600">{t("contact.ktebna")}</span>
         </h1>
