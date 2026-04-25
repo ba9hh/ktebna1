@@ -12,7 +12,7 @@ const Contact = () => {
           <span className="text-amber-600">{t("contact.ktebna")}</span>
         </h1>
 
-        <p className="text-gray-600 text-center mb-10">
+        <p className="text-gray-600 text-center mb-4">
           {t("contact.subtitle")}
         </p>
 
