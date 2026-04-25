@@ -6,7 +6,7 @@ import DeletePostModal from "./modal/DeletePostModal";
 import { AuthContext } from "../auth/AuthProvider";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "../supabaseClient";
-import { Plus } from "lucide-react";
+import { Plus, Globe, Lock } from "lucide-react";
 import { usePostInteractions } from "../home/usePostInteractions";
 import BookDrawer from "../components/BookDrawer";
 import HomePagination from "../home/HomePagination";
@@ -47,6 +47,35 @@ const UserPosts = () => {
     keepPreviousData: true,
   });
   const totalPages = posts?.count ? Math.ceil(posts.count / pageSize) : 0;
+  const toggleVisibilityMutation = useMutation({
+    mutationFn: async ({ id, is_public }) => {
+      const { error } = await supabase
+        .from("posts")
+        .update({ is_public })
+        .eq("id", id);
+      if (error) throw error;
+    },
+    onMutate: async ({ id, is_public }) => {
+      await queryClient.cancelQueries({ queryKey: ["userPosts", page] });
+      const previous = queryClient.getQueryData(["userPosts", page]);
+
+      queryClient.setQueryData(["userPosts", page], (old) => ({
+        ...old,
+        data: old.data.map((post) =>
+          post.id === id ? { ...post, is_public } : post,
+        ),
+      }));
+
+      return { previous };
+    },
+    onError: (_err, _vars, context) => {
+      queryClient.setQueryData(["userPosts", page], context.previous);
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ["userPosts"] });
+    },
+  });
+
   const deleteMutation = useMutation({
     mutationFn: async (post) => {
       const { error: deleteError } = await supabase
@@ -157,13 +186,60 @@ const UserPosts = () => {
                   handleOpenDrawer(post);
                 }}
               >
-                <img
-                  src={post.book_image}
-                  alt={post.book_name}
-                  className="w-32 aspect-3/4 object-cover "
-                />
+                <div className="relative w-32">
+                  <img
+                    src={post.book_image}
+                    alt={post.book_name}
+                    className="w-32 aspect-3/4 object-cover"
+                  />
+                  {/* ── Visibility badge ── */}
+                  <span
+                    className={`absolute top-1 right-1 text-[10px] font-semibold px-1.5 py-0.5 rounded-full flex items-center gap-0.5
+                      ${
+                        post.is_public
+                          ? "bg-green-100 text-green-700"
+                          : "bg-gray-200 text-gray-600"
+                      }`}
+                  >
+                    {post.is_public ? (
+                      <Globe className="w-3 h-3" />
+                    ) : (
+                      <Lock className="w-3 h-3" />
+                    )}
+                    {post.is_public
+                      ? t("userPosts.public", "Public")
+                      : t("userPosts.private", "Private")}
+                  </span>
+                </div>
                 <h3 className="font-medium truncate">{post.book_name}</h3>
                 <div className="flex gap-2 mt-2">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleVisibilityMutation.mutate({
+                        id: post.id,
+                        is_public: !post.is_public,
+                      });
+                    }}
+                    className={`text-xs px-2 py-1 rounded flex items-center gap-1
+                      ${
+                        post.is_public
+                          ? "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                          : "bg-green-600 text-white hover:bg-green-700"
+                      }`}
+                  >
+                    {post.is_public ? (
+                      <>
+                        <Lock className="w-3 h-3" />{" "}
+                        {t("userPosts.makePrivate", "Make Private")}
+                      </>
+                    ) : (
+                      <>
+                        <Globe className="w-3 h-3" />{" "}
+                        {t("userPosts.makePublic", "Make Public")}
+                      </>
+                    )}
+                  </button>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
