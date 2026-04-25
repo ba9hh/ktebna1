@@ -23,6 +23,7 @@ const UserSavedPosts = () => {
       .from("saved_posts")
       .select("id, post_id, posts(*, users(id, name))", { count: "exact" })
       .eq("user_id", user?.id)
+      .eq("posts.is_public", true)
       .range(from, to);
     if (error) throw error;
     return {
