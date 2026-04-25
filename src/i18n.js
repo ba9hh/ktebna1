@@ -124,7 +124,11 @@ const resources = {
                 loading: "Loading posts...",
                 noPosts: "You don't have any posts yet.",
                 edit: "Edit",
-                delete: "Delete"
+                delete: "Delete",
+                public: "Public",
+                private: "Private",
+                makePublic: "Make Public",
+                makePrivate: "Make Private"
             },
             savedPosts: {
                 title: "Your Saved Posts",
@@ -382,7 +386,11 @@ const resources = {
                 loading: "Chargement des publications...",
                 noPosts: "Vous n'avez pas encore de publications.",
                 edit: "Modifier",
-                delete: "Supprimer"
+                delete: "Supprimer",
+                public: "Public",
+                private: "Privé",
+                makePublic: "Rendre public",
+                makePrivate: "Rendre privé"
             },
             savedPosts: {
                 title: "Vos publications enregistrées",
@@ -640,7 +648,11 @@ const resources = {
                 loading: "جارٍ تحميل المنشورات...",
                 noPosts: "ليس لديك أي منشورات بعد.",
                 edit: "تعديل",
-                delete: "حذف"
+                delete: "حذف",
+                public: "عام",
+                private: "خاص",
+                makePublic: "جعله عامًا",
+                makePrivate: "جعله خاصًا"
             },
             savedPosts: {
                 title: "منشوراتك المحفوظة",
