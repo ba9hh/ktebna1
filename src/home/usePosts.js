@@ -48,6 +48,8 @@ export const usePosts = ({
             if (params.userId)
                 query = query.neq("user_id", params.userId);
 
+            query = query.eq("is_public", true);
+
             query = query.order("created_at", { ascending: false });
 
             const { data, error, count } = await query;
