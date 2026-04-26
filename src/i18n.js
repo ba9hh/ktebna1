@@ -103,7 +103,7 @@ const resources = {
             contact: {
                 title: "Contact",
                 ktebna: "Ktebna",
-                subtitle: "Have questions, feedback, or just want to reach out? Fill out the form below and we'll get back to you as soon as possible.",
+                subtitle: "Have questions, feedback, or just want to reach out?",
                 nameLabel: "Your Name",
                 namePlaceholder: "Enter your name",
                 emailLabel: "Your Email",
@@ -365,7 +365,7 @@ const resources = {
             contact: {
                 title: "Contacter",
                 ktebna: "Ktebna",
-                subtitle: "Vous avez des questions, des commentaires ou vous voulez simplement nous contacter ? Remplissez le formulaire ci-dessous et nous vous répondrons dès que possible.",
+                subtitle: "Vous avez des questions, des commentaires ou vous voulez simplement nous contacter ?",
                 nameLabel: "Votre nom",
                 namePlaceholder: "Entrez votre nom",
                 emailLabel: "Votre email",
@@ -627,7 +627,7 @@ const resources = {
             contact: {
                 title: "اتصل بـ",
                 ktebna: "كتبنا",
-                subtitle: "هل لديك أسئلة أو ملاحظات أو تريد التواصل معنا؟ املأ النموذج أدناه وسنرد عليك في أقرب وقت ممكن.",
+                subtitle: "هل لديك أسئلة أو ملاحظات أو تريد التواصل معنا؟.",
                 nameLabel: "اسمك",
                 namePlaceholder: "أدخل اسمك",
                 emailLabel: "بريدك الإلكتروني",

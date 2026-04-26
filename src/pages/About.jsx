@@ -49,9 +49,9 @@ const About = () => {
           </div>
         </div>
 
-        <p className="text-gray-700 text-base mt-10 text-center italic">
+        {/* <p className="text-gray-700 text-base mt-10 text-center italic">
           {t("about.footer")}
-        </p>
+        </p> */}
       </div>
     </div>
   );
