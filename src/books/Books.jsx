@@ -5,9 +5,10 @@ import BooksList from "./BooksList";
 import { booksData } from "../data/booksData";
 import { useBookFilters } from "./useBookFilters";
 import { useFilteredBooks } from "./useFilteredBooks";
-
+import { useTranslation } from "react-i18next";
 const Books = () => {
   const { language, setLanguage, category, setCategory } = useBookFilters();
+  const { t } = useTranslation();
 
   const filteredBooks = useFilteredBooks(booksData, {
     language,
@@ -21,7 +22,10 @@ const Books = () => {
         </aside>
         <section id="catalog">
           <BooksHeader language={language} setLanguage={setLanguage} />
-          <BooksList books={filteredBooks} />
+          {/* <BooksList books={filteredBooks} /> */}
+          <div className="rounded-2xl border p-8 text-center">
+            {t("home.noBooks")}
+          </div>
         </section>
       </div>
     </div>
